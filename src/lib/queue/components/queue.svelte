@@ -1,23 +1,19 @@
 <script lang="ts">
-  import { apiUrl } from "$environment";
-    import type { Queue } from "../models/queue";
-
-  const fetchQueue = async () => {
-    const res = await fetch(`${apiUrl}/queue`);
-
-    if (res.ok) {
-      const queue: Queue = await res.json();
-      return queue;
-    }
-  };
-
-  const queue = fetchQueue();
+  import { queue, requiredPlayerCount, currentPlayerCount } from '../queue.store';
+  import QueueSlotList from './queue-slot-list.svelte';
+  import QueueStatus from './queue-status.svelte';
 </script>
 
-{#await queue}
-  <p>loading...</p>
-{:then queue}
-  <p>{queue}</p>
-{:catch error}
-  <p>error: {error.message}</p>
-{/await}
+<div class="container mx-auto px-2">
+  <QueueStatus
+    queueState={$queue.state}
+    requiredPlayerCount={$requiredPlayerCount}
+    currentPlayerCount={$currentPlayerCount}
+  />
+
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+    {#each $queue.config.classes.map(gc => gc.name) as gameClass}
+      <QueueSlotList {gameClass} queueSlots={$queue.slots.filter(s => s.gameClass === gameClass)} />
+    {/each}
+  </div>
+</div>

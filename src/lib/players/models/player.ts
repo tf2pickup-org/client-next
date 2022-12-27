@@ -1,7 +1,7 @@
-import type { Link } from "$lib/shared/models/link";
-import type { PlayerAvatar } from "./player-avatar";
-import type { PlayerRole } from "./player-role";
-import type { PlayerStats } from "./player-stats";
+import type { Link } from '$lib/shared/models/link';
+import type { PlayerAvatar } from './player-avatar';
+import type { PlayerRole } from './player-role';
+import type { PlayerStats } from './player-stats';
 
 export interface Player {
   id: string;

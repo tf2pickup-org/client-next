@@ -1,1 +1,1 @@
-export type QueueState = 'waiting' | 'ready' | 'launching';
+export type QueueState = 'waiting' | 'ready' | 'launching' | 'loading';

@@ -1,3 +1,12 @@
+@use 'font';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-image: url('/src/lib/assets/bg_night_blur.png');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
