@@ -6,12 +6,14 @@
   export let playerId: string;
 </script>
 
-<ul class="px-4 py-2 rounded-2xl bg-white text-primary list-none">
+<ul
+  class="mx-4 px-4 py-2 rounded-2xl bg-white text-primary list-none overflow-hidden text-ellipsis"
+>
   {#each games as game}
     {@const gameClass = game.slots.find(s => s.player.id === playerId)?.gameClass}
     {#if gameClass}
       <li class="my-1">
-        <a href="/game/{game.id}" class="whitespace-nowrap overflow-hidden text-ellipsis">
+        <a href="/game/{game.id}" class="whitespace-nowrap">
           <GameClassIcon {gameClass} size={20} />
           <span>#{game.number} - {game.launchedAt} - {game.map}</span>
         </a>

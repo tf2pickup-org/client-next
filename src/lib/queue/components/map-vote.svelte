@@ -4,11 +4,11 @@
   export let mapVoteResults: MapVoteResult[];
 </script>
 
-<div class="flex flex-col md:flex-row md:justify-around">
+<div class="grid grid-flow-col auto-cols-max gap-8">
   {#each mapVoteResults as mapVoteResult}
     {@const mapName = mapVoteResult.map.split('_')[1]}
     <button type="button" disabled>
-      <div class="bg-white/70 rounded-2xl p-2 my-2">
+      <div class="bg-white/70 rounded-2xl p-2 my-2 shadow-md">
         <div class="w-full md:w-[450px] h-[100px] md:h-[150px] relative flex flex-col">
           <img
             src="https://mapthumbnails.tf2pickup.org/unsafe/450x150/{mapName}.jpg"

@@ -7,11 +7,11 @@
   const noTypeCheck = (x: any) => x;
 </script>
 
-<div class="rounded-2xl bg-white text-primary font-semibold text-xl text-center py-2 mx-5 my-2">
+<div class="rounded-2xl bg-white text-primary font-semibold text-xl text-center py-2">
   games played total: {stats.gamesPlayed}
 </div>
 
-<div class="flex flex-row justify-center my-2">
+<div class="flex flex-row justify-center">
   {#each Object.entries(stats.classesPlayed) as [gameClass, count]}
     <div class="flex flex-row justify-center mx-4">
       <GameClassIcon gameClass={noTypeCheck(gameClass)} size={30} />
