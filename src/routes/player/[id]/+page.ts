@@ -31,7 +31,7 @@ export const load = (async ({ fetch, params }) => {
   const games = await (async () => {
     const res = await fetch(`${apiUrl}/games?playerId=${player.id}`);
     if (res.ok) {
-      return await res.json() as PaginatedList<Game>;
+      return (await res.json()) as PaginatedList<Game>;
     } else {
       throw error(res.status);
     }

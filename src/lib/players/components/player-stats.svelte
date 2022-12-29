@@ -1,6 +1,6 @@
 <script lang="ts">
-  import GameClassIcon from "$lib/shared/components/game-class-icon.svelte";
-  import type { PlayerStats } from "../models/player-stats";
+  import GameClassIcon from '$lib/shared/components/game-class-icon.svelte';
+  import type { PlayerStats } from '../models/player-stats';
 
   export let stats: PlayerStats;
 

@@ -1,4 +1,4 @@
-import type { Tf2ClassName } from "$lib/shared/models/tf2-class-name";
+import type { Tf2ClassName } from '$lib/shared/models/tf2-class-name';
 
 export interface PlayerStats {
   player: string;

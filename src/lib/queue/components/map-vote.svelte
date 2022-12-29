@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { MapVoteResult } from "../models/map-vote-result";
+  import type { MapVoteResult } from '../models/map-vote-result';
 
   export let mapVoteResults: MapVoteResult[];
 </script>
@@ -7,9 +7,7 @@
 <div class="flex flex-col md:flex-row md:justify-around">
   {#each mapVoteResults as mapVoteResult}
     {@const mapName = mapVoteResult.map.split('_')[1]}
-    <button
-      type="button"
-      disabled>
+    <button type="button" disabled>
       <div class="bg-white/70 rounded-2xl p-2 my-2">
         <div class="w-full md:w-[450px] h-[100px] md:h-[150px] relative flex flex-col">
           <img
@@ -25,7 +23,7 @@
             {mapVoteResult.map}
           </div>
 
-          <div class="flex-grow"></div>
+          <div class="flex-grow" />
 
           <div class="text-center z-10 bg-slate-900/70 text-white font-semibold rounded-b-lg">
             {mapVoteResult.voteCount}

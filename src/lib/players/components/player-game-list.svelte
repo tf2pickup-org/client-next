@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { Game } from "$lib/games/models/game";
-  import GameClassIcon from "$lib/shared/components/game-class-icon.svelte";
+  import type { Game } from '$lib/games/models/game';
+  import GameClassIcon from '$lib/shared/components/game-class-icon.svelte';
 
   export let games: Game[];
   export let playerId: string;
