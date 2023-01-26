@@ -11,7 +11,7 @@
 <div class="flex flex-col gap-4">
   <div class="flex flex-row items-center justify-center gap-2">
     <GameClassIcon {gameClass} size={28} />
-    <span class="text-center text-2xl font-bold text-on-primary">{gameClass}</span>
+    <span class="text-center text-3xl font-caption text-on-primary">{gameClass}</span>
   </div>
 
   {#each queueSlots as queueSlot}

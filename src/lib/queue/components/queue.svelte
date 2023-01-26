@@ -6,7 +6,7 @@
 </script>
 
 <div class="container mx-auto px-2">
-  <div class="my-4">
+  <div class="my-7">
     <QueueStatus
       queueState={$queue.state}
       requiredPlayerCount={$requiredPlayerCount}

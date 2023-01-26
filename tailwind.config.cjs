@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
+        sans: ['"Exo 2"', ...defaultTheme.fontFamily.sans],
+        caption: ['Staatliches'],
       },
       colors: {
         primary: 'rgb(10 26 51)',
@@ -14,9 +15,18 @@ module.exports = {
         surface: 'rgb(255 255 255 / 90%)',
         'on-surface': 'rgb(10 26 51)',
 
-        'queue-state-waiting': 'rgb(255 255 255 / 70%)',
+        'queue-state-waiting': 'rgb(255 255 255)',
         'queue-slot-free': 'rgb(255 255 255 / 65%)',
         'queue-slot-taken': 'rgb(255 255 255 / 95%)',
+      },
+      container: {
+        screens: {
+          sm: '540px',
+          md: '720px',
+          lg: '960px',
+          xl: '1140px',
+          '2xl': '1320px',
+        },
       },
     },
   },

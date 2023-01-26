@@ -7,10 +7,10 @@
 </script>
 
 <div
-  class="flex justify-center rounded-2xl bg-queue-state-waiting p-2 text-on-surface shadow-md sm:py-4"
+  class="flex justify-center bg-queue-state-waiting p-2 text-on-surface shadow-md sm:py-2"
 >
-  <div class="text-2xl">
-    <span class="font-bold">players:</span>
+  <div class="text-4xl font-caption">
+    <span>players:</span>
     {currentPlayerCount}/{requiredPlayerCount}
   </div>
 </div>
