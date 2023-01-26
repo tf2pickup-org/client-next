@@ -18,7 +18,7 @@
     <MapVote mapVoteResults={$queue.mapVoteResults} />
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+  <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
     {#each $queue.config.classes.map(gc => gc.name) as gameClass}
       <QueueSlotList {gameClass} queueSlots={$queue.slots.filter(s => s.gameClass === gameClass)} />
     {/each}

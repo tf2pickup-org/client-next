@@ -8,7 +8,7 @@
   {href}
   target="_blank"
   rel="noreferrer"
-  class="flex items-center justify-center transition-colors bg-white hover:bg-slate-100 w-[80px] h-[80px] rounded-2xl"
+  class="flex h-[80px] w-[80px] items-center justify-center rounded-2xl bg-white transition-colors hover:bg-slate-100"
 >
   <img srcset="{icons[0]}, {icons[1]} 2x" src={icons[1]} alt="{title} icon" />
 </a>

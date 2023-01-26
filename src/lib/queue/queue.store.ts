@@ -1,13 +1,13 @@
 import { socket } from '$lib/io/socket';
-import { derived, readable } from 'svelte/store';
+import { fetchQueue } from './api/fetch-queue';
+import type { Friendship } from './models/friendship';
+import type { MapVoteResult } from './models/map-vote-result';
 import type { Queue } from './models/queue';
 import type { QueueSlot } from './models/queue-slot';
-import produce from 'immer';
 import type { QueueState } from './models/queue-state';
-import type { MapVoteResult } from './models/map-vote-result';
-import { fetchQueue } from './api/fetch-queue';
 import type { SubstituteRequest } from './models/substitute-request';
-import type { Friendship } from './models/friendship';
+import produce from 'immer';
+import { derived, readable } from 'svelte/store';
 
 const initialQueue: Queue = {
   config: {

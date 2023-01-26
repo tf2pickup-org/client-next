@@ -7,7 +7,7 @@
 </script>
 
 <ul
-  class="mx-4 px-4 py-2 rounded-2xl bg-white text-primary list-none overflow-hidden text-ellipsis"
+  class="mx-4 list-none overflow-hidden text-ellipsis rounded-2xl bg-white px-4 py-2 text-primary"
 >
   {#each games as game}
     {@const gameClass = game.slots.find(s => s.player.id === playerId)?.gameClass}

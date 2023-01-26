@@ -1,9 +1,9 @@
 import { apiUrl } from '$environment';
-import type { Queue } from '../models/queue';
+import type { Game } from '../models/game';
 import { error } from '@sveltejs/kit';
 
-export const fetchQueue = async (): Promise<Queue> => {
-  const res = await fetch(`${apiUrl}/queue`);
+export const fetchGame = async (gameId: string): Promise<Game> => {
+  const res = await fetch(`${apiUrl}/games/${gameId}`);
   if (res.ok) {
     return await res.json();
   } else {

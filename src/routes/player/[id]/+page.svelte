@@ -36,20 +36,20 @@
 </script>
 
 {#if player}
-  <div class="container mx-auto flex flex-col lg:flex-row flex-nowrap mt-5 gap-8">
+  <div class="container mx-auto mt-5 flex flex-col flex-nowrap gap-8 lg:flex-row">
     <ExternalProfileLinkList {player} />
 
-    <div class="flex-grow flex flex-col gap-5 px-4 md:px-0">
+    <div class="flex flex-grow flex-col gap-5 px-4 md:px-0">
       <div class="flex flex-row flex-nowrap gap-5">
         <img
           src={player.avatar.large}
           alt="{player.name}'s avatar"
-          class="block border border-gray-500 w-[128px] h-[128px]"
+          class="block h-[128px] w-[128px] border border-gray-500"
         />
         <div class="flex flex-col text-on-primary">
-          <span class="text-4xl font-semibold my-2">{player.name}</span>
+          <span class="my-2 text-4xl font-semibold">{player.name}</span>
           <div>
-            <span class="font-bold mx-1">joined: </span>{joinedAt}
+            <span class="mx-1 font-bold">joined: </span>{joinedAt}
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@
       {/if}
     </div>
 
-    <div class="flex-grow flex flex-col">
+    <div class="flex flex-grow flex-col">
       <div class="text-center text-white">games</div>
       {#if games}
         <PlayerGameList games={games.results} playerId={player.id} />

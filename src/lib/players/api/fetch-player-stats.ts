@@ -1,6 +1,6 @@
 import { apiUrl } from '$environment';
-import { error } from '@sveltejs/kit';
 import type { PlayerStats } from '../models/player-stats';
+import { error } from '@sveltejs/kit';
 
 export const fetchPlayerStats = async (playerId: string): Promise<PlayerStats> => {
   const res = await fetch(`${apiUrl}/players/${playerId}/stats`);

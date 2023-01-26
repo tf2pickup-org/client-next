@@ -7,7 +7,7 @@
 </script>
 
 <div
-  class="flex justify-center p-2 sm:py-4 bg-queue-state-waiting rounded-2xl text-on-surface shadow-md"
+  class="flex justify-center rounded-2xl bg-queue-state-waiting p-2 text-on-surface shadow-md sm:py-4"
 >
   <div class="text-2xl">
     <span class="font-bold">players:</span>
