@@ -30,6 +30,12 @@
   });
 </script>
 
+<svelte:head>
+  {#if player}
+    <title>{player.name} • tf2pickup.pl</title>
+  {/if}
+</svelte:head>
+
 {#if player}
   <div class="container mx-auto mt-5 flex flex-col xl:flex-row flex-nowrap gap-4">
     <div class="flex-1">

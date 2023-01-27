@@ -13,7 +13,7 @@
     {@const launchedAt = format(new Date(game.launchedAt), 'dd.MM.yyyy HH:mm')}
     {#if gameClass}
       <li class="my-1">
-        <a href="/game/{game.id}" class="whitespace-nowrap">
+        <a href="/game/{game.number}" class="whitespace-nowrap">
           <GameClassIcon {gameClass} size={20} />
           <span>#{game.number} - {launchedAt} - {game.map}</span>
         </a>

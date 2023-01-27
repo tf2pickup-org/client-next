@@ -24,7 +24,7 @@
             class="absolute top-0 bottom-0 left-0 right-0 h-48"
           />
 
-          <div class="z-10 bg-white/70 text-center text-3xl text-on-surface">
+          <div class="z-10 bg-white/70 text-center text-xl 2xl:text-3xl text-on-surface">
             {mapVoteResult.map}
           </div>
 

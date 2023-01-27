@@ -5,7 +5,7 @@
 </script>
 
 <div
-  class="flex h-12 items-center justify-center px-4 shadow-md transition-colors"
+  class="flex h-12 items-center justify-center px-4 shadow-md transition-colors duration-75"
   class:bg-queue-slot-free={!Boolean(queueSlot.player)}
   class:bg-queue-slot-taken={Boolean(queueSlot.player)}
 >
