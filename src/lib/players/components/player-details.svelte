@@ -1,9 +1,11 @@
 <script lang="ts">
+  import type { LinkedProfiles } from '../models/linked-profiles';
   import type { Player } from '../models/player';
   import ExternalProfileLinkList from './external-profile-link-list.svelte';
   import { intlFormat } from 'date-fns';
 
   export let player: Player;
+  export let linkedProfiles: LinkedProfiles | undefined = undefined;
 
   $: joinedAt = player ? intlFormat(new Date(player.joinedAt)) : null;
 </script>
@@ -21,11 +23,11 @@
     <div class="grow" />
 
     <div class="hidden md:block">
-      <ExternalProfileLinkList {player} />
+      <ExternalProfileLinkList {player} {linkedProfiles} />
     </div>
   </div>
 </div>
 
 <div class="mt-4 block md:hidden">
-  <ExternalProfileLinkList {player} />
+  <ExternalProfileLinkList {player} {linkedProfiles} />
 </div>

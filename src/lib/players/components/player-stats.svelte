@@ -8,7 +8,7 @@
 </script>
 
 <div class="self-center font-caption">
-  <span class="text-2xl">Games player total: </span>
+  <span class="text-2xl">Games played total: </span>
   <span class="ml-2 text-3xl">{stats.gamesPlayed}</span>
 </div>
 

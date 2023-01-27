@@ -6,8 +6,8 @@
   <div class="mx-4 text-xl uppercase">
     <slot />
   </div>
-  <div class="mx-4 arrow-right">
-    <ArrowRight size=24 />
+  <div class="arrow-right mx-4">
+    <ArrowRight size="24" />
   </div>
   <div class="dot" />
 </div>
