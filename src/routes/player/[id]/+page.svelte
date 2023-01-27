@@ -37,7 +37,7 @@
 </svelte:head>
 
 {#if player}
-  <div class="container mx-auto mt-5 flex flex-col xl:flex-row flex-nowrap gap-4">
+  <div class="container mx-auto mt-5 flex flex-col flex-nowrap gap-4 xl:flex-row">
     <div class="flex-1">
       <PlayerDetails {player} />
     </div>

@@ -10,7 +10,7 @@
   export let playerId: string;
 </script>
 
-<div class="flex flex-col gap-4 bg-white/80 p-2 mx-2">
+<div class="mx-2 flex flex-col gap-4 bg-white/80 p-2">
   <PlayerStats {stats} />
   {#if games}
     <PlayerGameList games={games.results} {playerId} />
