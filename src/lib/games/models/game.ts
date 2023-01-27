@@ -1,3 +1,4 @@
+import type { GameServer } from './game-server';
 import type { GameSlot } from './game-slot';
 import type { GameState } from './game-state';
 import type { Tf2Team } from './tf2-team';
@@ -13,7 +14,7 @@ export interface Game {
   state: GameState;
   mumbleUrl?: string;
   error?: string;
-  gameServer?: unknown;
+  gameServer?: GameServer;
   stvConnectString?: string;
   score?: Record<Tf2Team, number>;
   connectInfoVersion?: number;

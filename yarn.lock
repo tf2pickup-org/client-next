@@ -1379,6 +1379,7 @@ __metadata:
     socket.io-client: 4.5.4
     svelte: ^3.54.0
     svelte-check: ^2.9.2
+    svelte-material-icons: 2.1.0
     tailwindcss: 3.2.4
     tslib: ^2.4.1
     typescript: ^4.9.3
@@ -4286,6 +4287,15 @@ __metadata:
   peerDependencies:
     svelte: ">=3.19.0"
   checksum: af2e5c356ed6467d6567ce1b908bc077c9d08a89f3ffda81e63989c1c3f374a88b1b67453e86e3674320aa10e7cdf42a10dc551900997b627b4702db447f2bf3
+  languageName: node
+  linkType: hard
+
+"svelte-material-icons@npm:2.1.0":
+  version: 2.1.0
+  resolution: "svelte-material-icons@npm:2.1.0"
+  peerDependencies:
+    svelte: ^3.0.0
+  checksum: c3b2cbc3795998b6bfd06a11de64dc656ca6c170dd0ffd05d34058df9ef80a87c1c5ef47b2c521cd9c77ce6bde778a7bcdf95277da1469287a40a9d5f40461aa
   languageName: node
   linkType: hard
 

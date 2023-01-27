@@ -18,6 +18,9 @@ module.exports = {
         'queue-state-waiting': 'rgb(255 255 255)',
         'queue-slot-free': 'rgb(255 255 255 / 65%)',
         'queue-slot-taken': 'rgb(255 255 255 / 95%)',
+
+        'team-blu': 'rgb(88 121 138)',
+        'team-red': 'rgb(189 59 59)',
       },
       container: {
         screens: {

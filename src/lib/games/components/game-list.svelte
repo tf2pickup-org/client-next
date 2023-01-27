@@ -17,20 +17,26 @@
     }.jpg`}
     <a
       href="/game/{game.number}"
-      class="flex md:h-36 flex-col md:flex-row flex-nowrap items-center justify-between bg-white/50 md:bg-white/90 transition-colors hover:bg-white relative"
+      class="relative flex flex-col flex-nowrap items-center justify-between bg-white/50 transition-colors hover:bg-white md:h-36 md:flex-row md:bg-white/90"
     >
-      <div class="block md:hidden absolute top-0 bottom-0 left-0 right-0 -z-10 bg-center bg-no-repeat bg-cover"
+      <div
+        class="absolute top-0 bottom-0 left-0 right-0 -z-10 block bg-cover bg-center bg-no-repeat md:hidden"
         style="background-image: url({thumbnailUrl})"
-      >
-      </div>
+      />
 
       <div class="mx-8 font-caption text-2xl md:text-4xl xl:text-6xl">#{game.number}</div>
       <div class="md:text-xl xl:text-2xl">{launchedAt}</div>
 
-      <div class="flex h-full w-[312px] flex-col relative">
-        <img src={xlThumbnailUrl} alt="Map thumbnail" class="hidden md:block absolute top-0 bottom-0 left-0 right-0" height="84" loading="lazy" />
+      <div class="relative flex h-full w-[312px] flex-col">
+        <img
+          src={xlThumbnailUrl}
+          alt="Map thumbnail"
+          class="absolute top-0 bottom-0 left-0 right-0 hidden md:block"
+          height="84"
+          loading="lazy"
+        />
         <div class="grow" />
-        <div class="md:bg-white/80 text-center font-caption text-lg z-10">{game.map}</div>
+        <div class="z-10 text-center font-caption text-lg md:bg-white/80">{game.map}</div>
       </div>
     </a>
   {/each}
