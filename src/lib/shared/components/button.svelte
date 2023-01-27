@@ -2,7 +2,7 @@
   import ArrowRight from 'svelte-material-icons/ArrowRight.svelte';
 </script>
 
-<div class="button flex h-[44px] items-center justify-between text-white">
+<div class="button">
   <div class="mx-4 text-xl uppercase">
     <slot />
   </div>
@@ -14,9 +14,14 @@
 
 <style lang="scss">
   .button {
+    display: flex;
+    height: 44px;
+    align-items: center;
+    justify-content: space-between;
+    color: theme('colors.white');
     position: relative;
-    background-color: rgb(235, 21, 87);
-    background-image: linear-gradient(135deg, rgb(235, 21, 87) 95%, rgb(10, 25, 51) 95%);
+    background-color: theme('colors.button-primary');
+    background-image: linear-gradient(135deg, theme('colors.button-primary') 95%, theme('colors.button-secondary') 95%);
 
     .arrow-right {
       transition: transform 400ms ease-in-out;
@@ -28,7 +33,7 @@
       top: 0;
       width: 3px;
       height: 3px;
-      background-color: #ffe497;
+      background-color: theme('colors.button-dot');
       transition: width 300ms ease;
     }
 
