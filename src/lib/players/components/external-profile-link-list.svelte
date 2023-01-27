@@ -21,7 +21,7 @@
   }
 </script>
 
-<div class="flex flex-row justify-center gap-4 lg:w-[80px] lg:flex-col lg:justify-start">
+<div class="flex flex-row justify-center gap-4">
   <ExternalProfileLink href={steamProfileLink} title="steam" icons={[steamIcon48, steamIcon96]} />
   <ExternalProfileLink href={etf2lProfileLink} title="etf2l" icons={[etf2lIcon64, etf2lIcon128]} />
   <ExternalProfileLink href={logsTfProfileLink} title="logs.tf" icons={[logsIcon64, logsIcon128]} />
