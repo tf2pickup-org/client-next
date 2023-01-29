@@ -1,9 +1,11 @@
 <script lang="ts">
+  import Pagination from '$lib/shared/components/pagination.svelte';
   import type { PaginatedList } from '$lib/shared/models/paginated-list';
   import type { Game } from '../models/game';
   import { format } from 'date-fns';
 
   export let games: PaginatedList<Game>;
+  export let currentPage: number = 1;
 </script>
 
 <div class="flex flex-col gap-4 px-2">
@@ -40,4 +42,8 @@
       </div>
     </a>
   {/each}
+
+  <div class="self-center">
+    <Pagination {currentPage} itemsPerPage={5} itemCount={games.itemCount} on:pageChange />
+  </div>
 </div>

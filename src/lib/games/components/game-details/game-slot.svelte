@@ -6,7 +6,7 @@
   export let gameSlot: GameSlot;
 </script>
 
-<div class="flex flex-col bg-white/80 transition-colors text-primary">
+<div class="flex flex-col bg-white/80 text-primary transition-colors">
   <div class="flex flex-row gap-2 p-1">
     <img
       src={gameSlot.player.avatar.medium}

@@ -22,7 +22,7 @@
       <a
         href={link.href}
         class="mx-1 border-pink-700 px-4"
-        class:border-b={$page.url.pathname === link.href}
+        class:border-b={$page.url.pathname.split('/').filter(Boolean).includes(link.href.slice(1))}
       >
         {link.label}
       </a>

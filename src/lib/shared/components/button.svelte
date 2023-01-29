@@ -21,7 +21,11 @@
     color: theme('colors.white');
     position: relative;
     background-color: theme('colors.button-primary');
-    background-image: linear-gradient(135deg, theme('colors.button-primary') 95%, theme('colors.button-secondary') 95%);
+    background-image: linear-gradient(
+      135deg,
+      theme('colors.button-primary') 95%,
+      theme('colors.button-secondary') 95%
+    );
 
     .arrow-right {
       transition: transform 400ms ease-in-out;
