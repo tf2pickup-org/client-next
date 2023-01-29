@@ -20,11 +20,10 @@
     justify-content: space-between;
     color: theme('colors.white');
     position: relative;
-    background-color: theme('colors.button-primary');
     background-image: linear-gradient(
       135deg,
       theme('colors.button-primary') 95%,
-      theme('colors.button-secondary') 95%
+      rgba(0, 0, 0, 0.0) 95%
     );
 
     .arrow-right {

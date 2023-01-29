@@ -16,7 +16,6 @@ module.exports = {
         'on-surface': 'rgb(10 26 51)',
 
         'button-primary': 'rgb(235, 21, 87)',
-        'button-secondary': 'rgb(10, 25, 51)',
         'button-dot': 'rgb(255, 228, 151)',
 
         'queue-state-waiting': 'rgb(255 255 255)',
