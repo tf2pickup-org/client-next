@@ -18,8 +18,11 @@
   />
 
   <div class="flex flex-col self-center md:self-auto">
-    <span class="font-caption text-6xl text-white">{player.name}</span>
-    <span class="font-caption text-white">Joined {joinedAt}</span>
+    <span
+      class="overflow-ellipsis whitespace-nowrap text-center font-caption text-6xl text-white md:text-start"
+      >{player.name}</span
+    >
+    <span class="text-center font-caption text-white md:text-start">Joined {joinedAt}</span>
     <div class="grow" />
 
     <div class="hidden md:block">

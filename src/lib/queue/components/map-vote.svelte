@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { getMapName } from '$lib/shared/get-map-name';
   import type { MapVoteResult } from '../models/map-vote-result';
 
   export let mapVoteResults: MapVoteResult[];
@@ -6,7 +7,7 @@
 
 <div class="flex flex-col md:flex-row md:gap-8">
   {#each mapVoteResults as mapVoteResult}
-    {@const mapName = mapVoteResult.map.split('_')[1]}
+    {@const mapName = getMapName(mapVoteResult.map)}
     <button type="button" disabled class="flex-1">
       <div class="my-2 bg-white/70 font-caption shadow-md">
         <div class="flex justify-between px-2 py-1 md:hidden">

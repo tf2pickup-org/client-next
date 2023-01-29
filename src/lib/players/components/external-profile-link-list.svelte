@@ -35,7 +35,7 @@
   }
 </script>
 
-<div class="flex flex-row justify-center gap-4">
+<div class="flex flex-row justify-center gap-4 xl:justify-start">
   <ExternalProfileLink href={steamProfileLink}>
     <img srcset="{steamIcon48}, {steamIcon96} 2x" src={steamIcon96} alt="steam icon" />
   </ExternalProfileLink>

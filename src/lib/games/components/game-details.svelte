@@ -1,5 +1,6 @@
 <script lang="ts">
   import Button from '$lib/shared/components/button.svelte';
+  import { getMapName } from '$lib/shared/get-map-name';
   import { tf2ClassOrder } from '$lib/shared/tf2-class-order';
   import type { Game } from '../models/game';
   import type { GameSlot } from '../models/game-slot';
@@ -26,9 +27,9 @@
   $: {
     gameSlotsBlu = slotsForTeam(game.slots, 'blu');
     gameSlotsRed = slotsForTeam(game.slots, 'red');
-    mapThumbnailUrl = `https://mapthumbnails.tf2pickup.org/unsafe/640x240/${
-      game.map.split('_')[1]
-    }.jpg`;
+    mapThumbnailUrl = `https://mapthumbnails.tf2pickup.org/unsafe/640x240/${getMapName(
+      game.map,
+    )}.jpg`;
     launchedAt = format(new Date(game.launchedAt), 'dd.MM.yyyy HH:mm');
   }
 </script>
@@ -59,7 +60,7 @@
 
       <div class="flex flex-1 flex-col">
         <div class="font-caption text-xl">Server</div>
-        <div>{game.gameServer?.name}</div>
+        <div class:italic={!game.gameServer}>{game.gameServer?.name ?? 'unknown'}</div>
       </div>
 
       <div class="flex flex-1 flex-col">

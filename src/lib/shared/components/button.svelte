@@ -23,7 +23,7 @@
     background-image: linear-gradient(
       135deg,
       theme('colors.button-primary') 95%,
-      rgba(0, 0, 0, 0.0) 95%
+      rgba(0, 0, 0, 0) 95%
     );
 
     .arrow-right {
