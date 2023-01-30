@@ -2,14 +2,16 @@
   import Button from '$lib/shared/components/button.svelte';
   import { getMapName } from '$lib/shared/get-map-name';
   import { tf2ClassOrder } from '$lib/shared/tf2-class-order';
+  import { connectStringToLink } from '../connect-string-to-link';
   import type { Game } from '../models/game';
   import type { GameSlot } from '../models/game-slot';
   import type { Tf2Team } from '../models/tf2-team';
   import GameSlotList from './game-details/game-slot-list.svelte';
+  import GameSummaryLinks from './game-details/game-summary-links.svelte';
   import ScoreBar from './game-details/score-bar.svelte';
   import { format } from 'date-fns';
-  import ChartBar from 'svelte-material-icons/ChartBar.svelte';
-  import Filmstrip from 'svelte-material-icons/Filmstrip.svelte';
+  import ClipboardMultiple from 'svelte-material-icons/ClipboardMultiple.svelte';
+  import Video from 'svelte-material-icons/Video.svelte';
 
   export let game: Game;
 
@@ -17,6 +19,8 @@
   let gameSlotsRed: GameSlot[];
   let mapThumbnailUrl: string;
   let launchedAt: string;
+  let isRunning: boolean;
+  let stvConnectLink: string | undefined;
 
   const slotsForTeam = (slots: GameSlot[], team: Tf2Team) =>
     slots
@@ -31,6 +35,10 @@
       game.map,
     )}.jpg`;
     launchedAt = format(new Date(game.launchedAt), 'dd.MM.yyyy HH:mm');
+    isRunning = ['launching', 'started'].includes(game.state);
+    stvConnectLink = game?.stvConnectString
+      ? connectStringToLink(game.stvConnectString)
+      : undefined;
   }
 </script>
 
@@ -39,7 +47,7 @@
 </div>
 
 <div class="flex flex-col flex-nowrap xl:mt-4 xl:flex-row">
-  <div class="flex flex-1 flex-col flex-nowrap items-center justify-between px-2 pt-4 xl:px-8">
+  <div class="flex flex-1 flex-col flex-nowrap items-center justify-between px-2 xl:px-8">
     <div class="my-4 text-center font-caption text-4xl text-white xl:text-6xl">
       Game #{game.number}
     </div>
@@ -70,28 +78,38 @@
     </div>
 
     <div class="flex flex-col flex-nowrap gap-4 sm:flex-row xl:flex-col">
-      {#if game.logsUrl}
-        <a href={game.logsUrl} target="_blank" rel="noreferrer">
-          <Button>
-            <div class="flex w-44 flex-row items-center gap-4 pl-2">
-              <ChartBar />
-              check logs
-            </div>
-          </Button>
-        </a>
-      {/if}
+      {#if isRunning}
+        <div
+          class="flex flex-row items-center justify-between gap-2 bg-slate-300/80 py-1 px-2 text-2xl"
+        >
+          <input
+            type="text"
+            value={game.stvConnectString ?? 'configuring server...'}
+            readonly
+            class="grow appearance-none bg-transparent text-base"
+            class:italic={!game.stvConnectString}
+          />
 
-      {#if game.demoUrl}
-        <a href={game.demoUrl} target="_blank" rel="noreferrer">
-          <Button>
-            <div class="flex w-44 flex-row items-center gap-4 pl-2">
-              <Filmstrip />
-              watch demo
-            </div>
-          </Button>
-        </a>
+          {#if game.stvConnectString}
+            <button on:click={() => navigator.clipboard.writeText(game.stvConnectString ?? '')}>
+              <ClipboardMultiple />
+            </button>
+          {/if}
+        </div>
+
+        {#if stvConnectLink}
+          <a href={stvConnectLink} target="_blank" rel="noreferrer">
+            <Button>
+              <div class="flex w-44 flex-row items-center gap-4 pl-2">
+                <Video />watch game
+              </div>
+            </Button>
+          </a>
+        {/if}
       {/if}
     </div>
+
+    <GameSummaryLinks {game} />
   </div>
 
   <div class="mt-4 flex flex-col gap-4 xl:order-first xl:w-96">

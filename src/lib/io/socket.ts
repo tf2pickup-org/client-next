@@ -1,6 +1,6 @@
 import { apiUrl } from '$environment';
-import { io } from 'socket.io-client';
 import { ioConnected } from './io.store';
+import { io } from 'socket.io-client';
 
 export const socket = io(apiUrl, {
   secure: true,
