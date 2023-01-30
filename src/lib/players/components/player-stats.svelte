@@ -2,17 +2,21 @@
   import GameClassIcon from '$lib/shared/components/game-class-icon.svelte';
   import type { PlayerStats } from '../models/player-stats';
 
-  export let stats: PlayerStats;
+  export let stats: PlayerStats | undefined;
 
   const noTypeCheck = (x: any) => x;
 </script>
 
 <div class="self-center font-caption">
-  <span class="text-2xl">Games played total: </span>
-  <span class="ml-2 text-3xl">{stats.gamesPlayed}</span>
+  {#if stats}
+    <span class="text-2xl">Games played total: </span>
+    <span class="ml-2 text-3xl">{stats.gamesPlayed}</span>
+  {:else}
+    <div class="bg-slate-700 animate-pulse h-7 w-48 inline-block"></div>
+  {/if}
 </div>
 
-{#if stats.classesPlayed}
+{#if stats?.classesPlayed}
   <div class="flex flex-row justify-center">
     {#each Object.entries(stats.classesPlayed) as [gameClass, count]}
       <div class="mx-4 flex flex-row justify-center">

@@ -10,12 +10,12 @@
   import type { Player } from '../models/player';
   import ExternalProfileLink from './external-profile-link.svelte';
 
-  export let player: Player;
+  export let player: Player | undefined = undefined;
   export let linkedProfiles: LinkedProfiles | undefined = undefined;
 
-  let steamProfileLink: string;
-  let etf2lProfileLink: string;
-  let logsTfProfileLink: string;
+  let steamProfileLink: string | undefined;
+  let etf2lProfileLink: string | undefined;
+  let logsTfProfileLink: string | undefined;
   let twitchTvProfileLink: string | undefined;
 
   const makeTwitchTvProfileLink = (linkedProfiles: LinkedProfiles) => {
@@ -28,9 +28,9 @@
   };
 
   $: {
-    steamProfileLink = `https://steamcommunity.com/profiles/${player.steamId}`;
-    etf2lProfileLink = `https://etf2l.org/forum/user/${player.etf2lProfileId}`;
-    logsTfProfileLink = `https://logs.tf/profile/${player.steamId}`;
+    steamProfileLink = player ? `https://steamcommunity.com/profiles/${player.steamId}` : undefined;
+    etf2lProfileLink = player ? `https://etf2l.org/forum/user/${player.etf2lProfileId}` : undefined;
+    logsTfProfileLink = player ? `https://logs.tf/profile/${player.steamId}` : undefined;
     twitchTvProfileLink = linkedProfiles ? makeTwitchTvProfileLink(linkedProfiles) : undefined;
   }
 </script>

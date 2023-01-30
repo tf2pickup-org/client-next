@@ -37,16 +37,12 @@
   {/if}
 </svelte:head>
 
-{#if player}
-  <div class="container mx-auto mt-5 flex flex-col flex-nowrap gap-4 xl:flex-row">
-    <div class="flex-1">
-      <PlayerDetails {player} {linkedProfiles} />
-    </div>
-
-    <div class="flex-1">
-      {#if stats}
-        <PlayerStatsAndGames {stats} {games} playerId={player.id} />
-      {/if}
-    </div>
+<div class="container mx-auto mt-5 flex flex-col flex-nowrap gap-4 xl:flex-row">
+  <div class="flex-1">
+    <PlayerDetails {player} {linkedProfiles} />
   </div>
-{/if}
+
+  <div class="flex-1">
+    <PlayerStatsAndGames {stats} {games} playerId={player?.id} />
+  </div>
+</div>

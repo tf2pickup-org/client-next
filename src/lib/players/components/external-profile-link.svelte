@@ -1,12 +1,19 @@
 <script lang="ts">
-  export let href: string;
+  import { fade } from 'svelte/transition';
+
+  export let href: string | undefined;
 </script>
 
-<a
-  {href}
-  target="_blank"
-  rel="noreferrer"
-  class="flex h-[80px] w-[80px] items-center justify-center bg-white transition-colors hover:bg-slate-100"
->
-  <slot />
-</a>
+{#if href}
+  <a
+    {href}
+    target="_blank"
+    rel="noreferrer"
+    class="flex h-[80px] w-[80px] items-center justify-center bg-white transition-colors hover:bg-slate-100"
+    in:fade={{ duration: 100 }}
+  >
+    <slot />
+  </a>
+{:else}
+  <div class="h-[80px] w-[80px] bg-slate-700 animate-pulse" in:fade={{ duration: 100 }}></div>
+{/if}
