@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { getMapName } from '$lib/shared/get-map-name';
+  import { getMapName } from '$lib/shared/get-map-name';
   import type { MapVoteResult } from '../models/map-vote-result';
 
   export let mapVoteResults: MapVoteResult[];

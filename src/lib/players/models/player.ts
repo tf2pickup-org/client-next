@@ -11,6 +11,7 @@ export interface Player {
   avatar: PlayerAvatar;
   roles: PlayerRole[];
   etf2lProfileId?: number;
+  gamesPlayed: number;
 
   skill?: Record<string, number>;
   stats?: PlayerStats;

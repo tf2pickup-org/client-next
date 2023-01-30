@@ -12,7 +12,7 @@
     <span class="text-2xl">Games played total: </span>
     <span class="ml-2 text-3xl">{stats.gamesPlayed}</span>
   {:else}
-    <div class="bg-slate-700 animate-pulse h-7 w-48 inline-block"></div>
+    <div class="inline-block h-7 w-48 animate-pulse bg-slate-700" />
   {/if}
 </div>
 

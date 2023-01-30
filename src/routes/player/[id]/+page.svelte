@@ -19,6 +19,7 @@
   let stats: PlayerStatsType;
   let games: PaginatedList<Game>;
   let linkedProfiles: LinkedProfiles;
+  let currentPage = 1;
 
   onMount(async () => {
     await Promise.all([
@@ -29,6 +30,11 @@
     games = await fetchPlayerGames(player.id);
     linkedProfiles = await fetchLinkedProfiles(player);
   });
+
+  const loadPage = async (page: number) => {
+    games = await fetchPlayerGames(player.id, (page - 1) * 10, 10);
+    currentPage = page;
+  };
 </script>
 
 <svelte:head>
@@ -43,6 +49,12 @@
   </div>
 
   <div class="flex-1">
-    <PlayerStatsAndGames {stats} {games} playerId={player?.id} />
+    <PlayerStatsAndGames
+      {stats}
+      {games}
+      playerId={player?.id}
+      {currentPage}
+      on:pageChange={event => loadPage(event.detail.page)}
+    />
   </div>
 </div>

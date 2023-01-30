@@ -18,7 +18,7 @@
   $: links = paginate(currentPage, itemsPerPage, itemCount);
 </script>
 
-<div class="flex flex-row flex-nowrap gap-3 text-white">
+<div class="flex flex-row flex-nowrap justify-center gap-3 text-white">
   {#each links as link}
     <a
       href={null}

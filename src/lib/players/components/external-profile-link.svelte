@@ -15,5 +15,5 @@
     <slot />
   </a>
 {:else}
-  <div class="h-[80px] w-[80px] bg-slate-700 animate-pulse" in:fade={{ duration: 100 }}></div>
+  <div class="h-[80px] w-[80px] animate-pulse bg-slate-700" in:fade={{ duration: 100 }} />
 {/if}

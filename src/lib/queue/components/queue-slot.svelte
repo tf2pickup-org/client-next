@@ -11,7 +11,7 @@
 >
   {#if queueSlot.player}
     <img src={queueSlot.player.avatar.small} alt="{queueSlot.player.name}'s avatar" width="32" />
-    <a href="/player/{queueSlot.player.steamId}" class="flex-grow text-center text-xl font-bold">
+    <a href="/player/{queueSlot.player.steamId}" class="flex-grow text-center text-xl">
       {queueSlot.player.name}
     </a>
 
