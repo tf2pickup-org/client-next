@@ -15,6 +15,8 @@ module.exports = {
         surface: 'rgb(255 255 255 / 90%)',
         'on-surface': 'rgb(10 26 51)',
 
+        'error': 'rgb(235, 21, 87)',
+
         'button-primary': 'rgb(235, 21, 87)',
         'button-dot': 'rgb(255, 228, 151)',
 
