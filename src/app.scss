@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  margin-left: calc(100vw - 100%);
+}
+
 body {
   background-image: url('/src/lib/assets/bg_night_blur.png');
   background-attachment: fixed;

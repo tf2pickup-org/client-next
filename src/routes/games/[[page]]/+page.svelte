@@ -16,7 +16,7 @@
 </svelte:head>
 
 <PageTransition>
-  <div class="container mx-auto my-12">
+  <div class="container mx-auto my-4">
     {#if data?.games}
       <GameList games={data.games} currentPage={data.page} on:pageChange={loadPage} />
     {/if}

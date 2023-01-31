@@ -1,10 +1,10 @@
 <script lang="ts">
+  import { page } from '$app/stores';
   import logo from '$lib/assets/logo.png';
   import signInThroughSteam from '$lib/assets/signinthroughsteam.png';
-  import { page } from '$app/stores';
 
   type PathMatcher = (path: string) => boolean;
-  
+
   interface StaticLink {
     label: string;
     href: string;
@@ -12,15 +12,17 @@
   }
 
   const staticLinks: StaticLink[] = [
-    { label: 'Lobby', href: '/', isActive: (path) => path === '/' },
-    { label: 'Games', href: '/games', isActive: (path) => path.startsWith('/games') },
-    { label: 'Players', href: '/players', isActive: (path) => path.startsWith('/players') },
-    { label: 'Rules', href: '/rules', isActive: (path) => path === '/rules' },
-    { label: 'Stats', href: '/stats', isActive: (path) => path === '/stats' },
+    { label: 'Lobby', href: '/', isActive: path => path === '/' },
+    { label: 'Games', href: '/games', isActive: path => path.startsWith('/games') },
+    { label: 'Players', href: '/players', isActive: path => path.startsWith('/players') },
+    { label: 'Rules', href: '/rules', isActive: path => path === '/rules' },
+    { label: 'Stats', href: '/stats', isActive: path => path === '/stats' },
   ];
 </script>
 
-<nav class="flex h-[76px] justify-center bg-primary shadow shadow-black/50 lg:justify-start">
+<nav
+  class="flex h-[76px] min-h-[76px] justify-center bg-primary shadow shadow-black/50 lg:justify-start"
+>
   <a href="/" class="mx-1 self-center">
     <img alt="tf2pickup.pl logo" src={logo} class="h-[60px]" />
   </a>
