@@ -1,5 +1,7 @@
+import { fetchGame } from '$lib/games/api/fetch-game';
 import type { PageLoad } from './$types';
 
 export const load = (async ({ params }) => {
-  return { gameId: params.id };
+  const game = await fetchGame(params.id);
+  return { game };
 }) satisfies PageLoad;
