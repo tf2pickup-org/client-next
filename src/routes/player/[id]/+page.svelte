@@ -2,59 +2,37 @@
   import PageTransition from '$lib/core/components/page-transition.svelte';
   import { fetchPlayerGames } from '$lib/games/api/fetch-player-games';
   import type { Game } from '$lib/games/models/game';
-  import { fetchLinkedProfiles } from '$lib/players/api/fetch-linked-profiles';
-  import { fetchPlayer } from '$lib/players/api/fetch-player';
-  import { fetchPlayerStats } from '$lib/players/api/fetch-player-stats';
   import PlayerDetails from '$lib/players/components/player-details.svelte';
   import PlayerStatsAndGames from '$lib/players/components/player-stats-and-games.svelte';
-  import type { LinkedProfiles } from '$lib/players/models/linked-profiles';
-  import type { Player } from '$lib/players/models/player';
-  import type { PlayerStats as PlayerStatsType } from '$lib/players/models/player-stats';
   import type { PaginatedList } from '$lib/shared/models/paginated-list';
   import type { PageData } from './$types';
-  import { onMount } from 'svelte';
-
+  
   export let data: PageData;
 
-  let player: Player;
-  let stats: PlayerStatsType;
-  let games: PaginatedList<Game>;
-  let linkedProfiles: LinkedProfiles;
+  let games: PaginatedList<Game> = data.games;
   let currentPage = 1;
 
-  onMount(async () => {
-    [player, stats, games] = await Promise.all([
-      fetchPlayer(data.playerId),
-      fetchPlayerStats(data.playerId),
-      fetchPlayerGames(data.playerId),
-    ]);
-
-    linkedProfiles = await fetchLinkedProfiles(player);
-  });
-
   const loadPage = async (page: number) => {
-    games = await fetchPlayerGames(player.id, (page - 1) * 10, 10);
+    games = await fetchPlayerGames(data.player.id, (page - 1) * 10, 10);
     currentPage = page;
   };
 </script>
 
 <svelte:head>
-  {#if player}
-    <title>{player.name} • tf2pickup.pl</title>
-  {/if}
+  <title>{data.player.name} • tf2pickup.pl</title>
 </svelte:head>
 
 <PageTransition>
   <div class="container mx-auto mt-5 flex flex-col flex-nowrap gap-4 xl:flex-row">
     <div class="flex-1">
-      <PlayerDetails {player} {linkedProfiles} />
+      <PlayerDetails player={data.player} linkedProfiles={data.linkedProfiles} />
     </div>
 
     <div class="flex-1">
       <PlayerStatsAndGames
-        {stats}
+        stats={data.stats}
         {games}
-        playerId={player?.id}
+        playerId={data.player.id}
         {currentPage}
         on:pageChange={event => loadPage(event.detail.page)}
       />

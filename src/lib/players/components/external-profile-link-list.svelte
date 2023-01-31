@@ -10,12 +10,12 @@
   import type { Player } from '../models/player';
   import ExternalProfileLink from './external-profile-link.svelte';
 
-  export let player: Player | undefined = undefined;
-  export let linkedProfiles: LinkedProfiles | undefined = undefined;
+  export let player: Player;
+  export let linkedProfiles: LinkedProfiles;
 
-  let steamProfileLink: string | undefined;
+  let steamProfileLink: string;
   let etf2lProfileLink: string | undefined;
-  let logsTfProfileLink: string | undefined;
+  let logsTfProfileLink: string;
   let twitchTvProfileLink: string | undefined;
 
   const makeTwitchTvProfileLink = (linkedProfiles: LinkedProfiles) => {
@@ -28,10 +28,12 @@
   };
 
   $: {
-    steamProfileLink = player ? `https://steamcommunity.com/profiles/${player.steamId}` : undefined;
-    etf2lProfileLink = player ? `https://etf2l.org/forum/user/${player.etf2lProfileId}` : undefined;
-    logsTfProfileLink = player ? `https://logs.tf/profile/${player.steamId}` : undefined;
-    twitchTvProfileLink = linkedProfiles ? makeTwitchTvProfileLink(linkedProfiles) : undefined;
+    steamProfileLink = `https://steamcommunity.com/profiles/${player.steamId}`;
+    logsTfProfileLink = `https://logs.tf/profile/${player.steamId}`;
+    etf2lProfileLink = player.etf2lProfileId
+      ? `https://etf2l.org/forum/user/${player.etf2lProfileId}`
+      : undefined;
+    twitchTvProfileLink = makeTwitchTvProfileLink(linkedProfiles);
   }
 </script>
 
@@ -40,13 +42,15 @@
     <img srcset="{steamIcon48}, {steamIcon96} 2x" src={steamIcon96} alt="steam icon" />
   </ExternalProfileLink>
 
-  <ExternalProfileLink href={etf2lProfileLink}>
-    <img srcset="{etf2lIcon64}, {etf2lIcon128} 2x" src={etf2lIcon128} alt="ETF2L.org icon" />
-  </ExternalProfileLink>
-
   <ExternalProfileLink href={logsTfProfileLink}>
     <img srcset="{logsIcon64}, {logsIcon128} 2x" src={logsIcon128} alt="logs.tf icon" />
   </ExternalProfileLink>
+
+  {#if etf2lProfileLink}
+    <ExternalProfileLink href={etf2lProfileLink}>
+      <img srcset="{etf2lIcon64}, {etf2lIcon128} 2x" src={etf2lIcon128} alt="ETF2L.org icon" />
+    </ExternalProfileLink>
+  {/if}
 
   {#if twitchTvProfileLink}
     <ExternalProfileLink href={twitchTvProfileLink}>

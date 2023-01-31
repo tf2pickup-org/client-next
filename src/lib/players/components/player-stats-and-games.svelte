@@ -6,18 +6,15 @@
   import type { PaginatedList } from '$lib/shared/models/paginated-list';
   import PlayerStats from './player-stats.svelte';
 
-  export let stats: PlayerStatsType | undefined = undefined;
-  export let games: PaginatedList<Game> | undefined = undefined;
-  export let playerId: string | undefined = undefined;
+  export let stats: PlayerStatsType;
+  export let games: PaginatedList<Game>;
+  export let playerId: string;
   export let currentPage: number = 1;
 </script>
 
 <div class="mx-2 flex flex-col gap-4 bg-white/80 p-2">
   <PlayerStats {stats} />
-
-  {#if games && playerId}
-    <PlayerGameList games={games.results} {playerId} />
-  {/if}
+  <PlayerGameList games={games.results} {playerId} />
 </div>
 
 {#if stats}
