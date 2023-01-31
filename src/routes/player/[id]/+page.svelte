@@ -22,12 +22,12 @@
   let currentPage = 1;
 
   onMount(async () => {
-    await Promise.all([
-      (async () => (player = await fetchPlayer(data.playerId)))(),
-      (async () => (stats = await fetchPlayerStats(data.playerId)))(),
+    [player, stats, games] = await Promise.all([
+      fetchPlayer(data.playerId),
+      fetchPlayerStats(data.playerId),
+      fetchPlayerGames(data.playerId),
     ]);
 
-    games = await fetchPlayerGames(player.id);
     linkedProfiles = await fetchLinkedProfiles(player);
   });
 

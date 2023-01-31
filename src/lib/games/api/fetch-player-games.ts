@@ -8,7 +8,7 @@ export const fetchPlayerGames = async (
   offset = 0,
   limit = 10,
 ): Promise<PaginatedList<Game>> => {
-  const res = await fetch(`${apiUrl}/games?playerId=${playerId}&offset=${offset}&limit=${limit}`);
+  const res = await fetch(`${apiUrl}/games?player=${playerId}&offset=${offset}&limit=${limit}`);
   if (res.ok) {
     return await res.json();
   } else {
