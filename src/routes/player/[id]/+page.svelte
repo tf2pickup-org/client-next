@@ -1,4 +1,5 @@
 <script lang="ts">
+  import PageTransition from '$lib/core/components/page-transition.svelte';
   import { fetchPlayerGames } from '$lib/games/api/fetch-player-games';
   import type { Game } from '$lib/games/models/game';
   import { fetchLinkedProfiles } from '$lib/players/api/fetch-linked-profiles';
@@ -43,18 +44,20 @@
   {/if}
 </svelte:head>
 
-<div class="container mx-auto mt-5 flex flex-col flex-nowrap gap-4 xl:flex-row">
-  <div class="flex-1">
-    <PlayerDetails {player} {linkedProfiles} />
-  </div>
+<PageTransition>
+  <div class="container mx-auto mt-5 flex flex-col flex-nowrap gap-4 xl:flex-row">
+    <div class="flex-1">
+      <PlayerDetails {player} {linkedProfiles} />
+    </div>
 
-  <div class="flex-1">
-    <PlayerStatsAndGames
-      {stats}
-      {games}
-      playerId={player?.id}
-      {currentPage}
-      on:pageChange={event => loadPage(event.detail.page)}
-    />
+    <div class="flex-1">
+      <PlayerStatsAndGames
+        {stats}
+        {games}
+        playerId={player?.id}
+        {currentPage}
+        on:pageChange={event => loadPage(event.detail.page)}
+      />
+    </div>
   </div>
-</div>
+</PageTransition>

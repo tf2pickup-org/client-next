@@ -1,4 +1,5 @@
 <script lang="ts">
+  import PageTransition from '$lib/core/components/page-transition.svelte';
   import { fetchGame } from '$lib/games/api/fetch-game';
   import GameDetails from '$lib/games/components/game-details.svelte';
   import type { Game } from '$lib/games/models/game';
@@ -30,8 +31,10 @@
   {/if}
 </svelte:head>
 
-{#if game}
-  <div class="container mx-auto my-2 xl:my-8">
-    <GameDetails {game} />
-  </div>
-{/if}
+<PageTransition>
+  {#if game}
+    <div class="container mx-auto my-2 xl:my-8">
+      <GameDetails {game} />
+    </div>
+  {/if}
+</PageTransition>
