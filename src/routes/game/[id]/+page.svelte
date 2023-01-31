@@ -1,25 +1,30 @@
 <script lang="ts">
   import PageTransition from '$lib/core/components/page-transition.svelte';
   import GameDetails from '$lib/games/components/game-details.svelte';
+  import { gameUpdated } from '$lib/games/events';
   import type { Game } from '$lib/games/models/game';
-  import { socket } from '$lib/io/socket';
   import type { PageData } from './$types';
+  import { Subject } from 'rxjs';
+  import { filter, takeUntil } from 'rxjs/operators';
   import { onDestroy, onMount } from 'svelte';
 
   export let data: PageData;
 
   let game: Game = data.game;
-
-  const updateGame = (newGame: Game) => {
-    game = newGame;
-  };
+  let unmounted = new Subject<void>();
 
   onMount(async () => {
-    socket.on('game updated', updateGame);
+    gameUpdated
+      .pipe(
+        filter(_game => _game.id === game.id),
+        takeUntil(unmounted),
+      )
+      .subscribe(newGame => (game = newGame));
   });
 
   onDestroy(() => {
-    socket.off('game updated', updateGame);
+    unmounted.next();
+    unmounted.unsubscribe();
   });
 </script>
 

@@ -1,5 +1,11 @@
-import { socket } from '$lib/io/socket';
 import { fetchQueue } from './api/fetch-queue';
+import {
+  friendshipsUpdated,
+  mapVoteResultsUpdated,
+  queueSlotsUpdated,
+  queueStateUpdated,
+  substituteRequestsUpdated,
+} from './events';
 import { makeEmptyQueue } from './make-empty-queue';
 import type { Friendship } from './models/friendship';
 import type { MapVoteResult } from './models/map-vote-result';
@@ -8,10 +14,12 @@ import type { QueueSlot } from './models/queue-slot';
 import type { QueueState } from './models/queue-state';
 import type { SubstituteRequest } from './models/substitute-request';
 import produce from 'immer';
+import type { Subscription } from 'rxjs';
 import { derived, readable } from 'svelte/store';
 
 export const queue = readable<Queue>(makeEmptyQueue(), set => {
   let value = { ...makeEmptyQueue() }; // current queue state
+  const subscriptions: Subscription[] = [];
 
   const updateSlots = (slots: QueueSlot[]) => {
     value = produce(value, draft => {
@@ -53,22 +61,20 @@ export const queue = readable<Queue>(makeEmptyQueue(), set => {
 
   const loadQueueAndListenToEvents = async () => {
     value = await fetchQueue();
-    socket.on('queue slots update', updateSlots);
-    socket.on('queue state update', updateState);
-    socket.on('map vote results update', updateMapVoteResults);
-    socket.on('substitute requests update', updateSubstituteRequests);
-    socket.on('friendships update', updateFriendships);
+
+    subscriptions.push(
+      queueSlotsUpdated.subscribe(updateSlots),
+      queueStateUpdated.subscribe(updateState),
+      mapVoteResultsUpdated.subscribe(updateMapVoteResults),
+      substituteRequestsUpdated.subscribe(updateSubstituteRequests),
+      friendshipsUpdated.subscribe(updateFriendships),
+    );
+
     set(value);
   };
 
   loadQueueAndListenToEvents();
-  return () => {
-    socket.off('queue slots update', updateSlots);
-    socket.off('queue state update', updateState);
-    socket.off('map vote results update', updateMapVoteResults);
-    socket.off('substitute requests update', updateSubstituteRequests);
-    socket.off('friendships update', updateFriendships);
-  };
+  return () => subscriptions.forEach(sub => sub.unsubscribe());
 });
 
 export const requiredPlayerCount = derived(queue, $queue => $queue.slots.length);
