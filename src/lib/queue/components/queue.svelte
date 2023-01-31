@@ -6,8 +6,8 @@
   import QueueStatus from './queue-status.svelte';
 </script>
 
-<div class="container mx-auto px-2">
-  <div class="my-7 flex flex-col gap-2">
+<div class="container mx-auto my-4 px-2">
+  <div class="my-4 flex flex-col gap-2">
     <QueueAnnouncements />
     <QueueStatus
       queueState={$queue.state}

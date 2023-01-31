@@ -1,4 +1,4 @@
-import type { Player } from '$lib/players/models/player';
+import type { Player } from './models/player';
 
 export interface PlayerGroup {
   key: string;

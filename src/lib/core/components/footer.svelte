@@ -1,4 +1,6 @@
-<footer class="flex flex-row items-center justify-center bg-white p-2 text-sm">
+<footer
+  class="flex flex-row items-center justify-center bg-white p-2 text-sm shadow shadow-black/50"
+>
   <span class="footer-entry">© 2019-2023 tf2pickup.org</span>
   <span class="footer-entry">
     <a href="https://github.com/tf2pickup-org" target="_blank" rel="noreferrer">github</a>
