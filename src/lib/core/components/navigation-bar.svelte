@@ -1,14 +1,22 @@
-<script>
+<script lang="ts">
   import logo from '$lib/assets/logo.png';
   import signInThroughSteam from '$lib/assets/signinthroughsteam.png';
   import { page } from '$app/stores';
 
-  const staticLinks = [
-    { label: 'Lobby', href: '/' },
-    { label: 'Games', href: '/games' },
-    { label: 'Players', href: '/players' },
-    { label: 'Rules', href: '/rules' },
-    { label: 'Stats', href: '/stats' },
+  type PathMatcher = (path: string) => boolean;
+  
+  interface StaticLink {
+    label: string;
+    href: string;
+    isActive: PathMatcher;
+  }
+
+  const staticLinks: StaticLink[] = [
+    { label: 'Lobby', href: '/', isActive: (path) => path === '/' },
+    { label: 'Games', href: '/games', isActive: (path) => path.startsWith('/games') },
+    { label: 'Players', href: '/players', isActive: (path) => path.startsWith('/players') },
+    { label: 'Rules', href: '/rules', isActive: (path) => path === '/rules' },
+    { label: 'Stats', href: '/stats', isActive: (path) => path === '/stats' },
   ];
 </script>
 
@@ -22,7 +30,7 @@
       <a
         href={link.href}
         class="mx-1 border-pink-700 px-4"
-        class:border-b={$page.url.pathname.split('/').filter(Boolean).includes(link.href.slice(1))}
+        class:border-b={link.isActive($page.url.pathname)}
       >
         {link.label}
       </a>
