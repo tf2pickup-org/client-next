@@ -17,10 +17,13 @@
   </div>
 
   <div class="my-4">
-    <MapVote mapVoteResults={$queue.mapVoteResults} />
+    <MapVote mapVoteResults={$queue.state === 'loading' ? undefined : $queue.mapVoteResults} />
   </div>
 
-  <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
+  <div
+    class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4"
+    class:animate-pulse={$queue.state === 'loading'}
+  >
     {#each $queue.config.classes.map(gc => gc.name) as gameClass}
       <QueueSlotList {gameClass} queueSlots={$queue.slots.filter(s => s.gameClass === gameClass)} />
     {/each}

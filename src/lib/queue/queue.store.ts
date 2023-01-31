@@ -1,5 +1,6 @@
 import { socket } from '$lib/io/socket';
 import { fetchQueue } from './api/fetch-queue';
+import { makeEmptyQueue } from './make-empty-queue';
 import type { Friendship } from './models/friendship';
 import type { MapVoteResult } from './models/map-vote-result';
 import type { Queue } from './models/queue';
@@ -9,19 +10,8 @@ import type { SubstituteRequest } from './models/substitute-request';
 import produce from 'immer';
 import { derived, readable } from 'svelte/store';
 
-const initialQueue: Queue = {
-  config: {
-    teamCount: 2,
-    classes: [],
-  },
-  slots: [],
-  state: 'loading',
-  mapVoteResults: [],
-  friendships: [],
-};
-
-export const queue = readable<Queue>(initialQueue, set => {
-  let value = { ...initialQueue }; // current queue state
+export const queue = readable<Queue>(makeEmptyQueue(), set => {
+  let value = { ...makeEmptyQueue() }; // current queue state
 
   const updateSlots = (slots: QueueSlot[]) => {
     value = produce(value, draft => {
