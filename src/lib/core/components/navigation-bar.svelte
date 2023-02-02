@@ -74,7 +74,7 @@
           </li>
         {/each}
 
-        <div class="grow"></div>
+        <div class="grow" />
         <div class="mx-5">
           <img alt="Sign in through Steam" src={signInThroughSteam} />
         </div>

@@ -1,8 +1,15 @@
 <script lang="ts">
   import ArrowRight from 'svelte-material-icons/ArrowRight.svelte';
+
+  export let alternateColor: string = '';
+  export let className: string = '';
+
+  let cssStyle: string;
+
+  $: cssStyle = alternateColor ? `--button-dot-color: ${alternateColor}` : '';
 </script>
 
-<div class="button">
+<div class="button {className}" style={cssStyle}>
   <div class="mx-4 text-xl uppercase">
     <slot />
   </div>
@@ -15,7 +22,7 @@
 <style lang="scss">
   .button {
     display: flex;
-    height: 44px;
+    min-height: 44px;
     align-items: center;
     justify-content: space-between;
     color: theme('colors.white');
@@ -36,7 +43,7 @@
       top: 0;
       width: 3px;
       height: 3px;
-      background-color: theme('colors.button-dot');
+      background-color: var(--button-dot-color, theme('colors.button-dot'));
       transition: width 300ms ease;
     }
 

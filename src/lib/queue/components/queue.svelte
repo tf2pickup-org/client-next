@@ -4,10 +4,12 @@
   import QueueAnnouncements from './queue-announcements.svelte';
   import QueueSlotList from './queue-slot-list.svelte';
   import QueueStatus from './queue-status.svelte';
+  import RequestNotificationPermission from './request-notification-permission.svelte';
 </script>
 
 <div class="container mx-auto my-4 px-2">
   <div class="my-4 flex flex-col gap-2">
+    <RequestNotificationPermission />
     <QueueAnnouncements />
     <QueueStatus
       queueState={$queue.state}

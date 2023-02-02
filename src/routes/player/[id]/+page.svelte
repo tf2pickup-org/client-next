@@ -6,7 +6,7 @@
   import PlayerStatsAndGames from '$lib/players/components/player-stats-and-games.svelte';
   import type { PaginatedList } from '$lib/shared/models/paginated-list';
   import type { PageData } from './$types';
-  
+
   export let data: PageData;
 
   let games: PaginatedList<Game> = data.games;
