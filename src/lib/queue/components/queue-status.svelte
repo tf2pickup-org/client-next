@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { QueueState } from '../models/queue-state';
-  import Loading from 'svelte-material-icons/Loading.svelte';
+  import { IconLoader3 } from '@tabler/icons-svelte';
   import { fade } from 'svelte/transition';
 
   export let queueState: QueueState;
@@ -21,7 +21,7 @@
 {:else}
   <div class="flex h-14 items-center justify-center p-2 text-4xl text-white">
     <div class="animate-spin">
-      <Loading />
+      <IconLoader3 />
     </div>
   </div>
 {/if}

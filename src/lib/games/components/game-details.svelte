@@ -9,9 +9,8 @@
   import GameSlotList from './game-details/game-slot-list.svelte';
   import GameSummaryLinks from './game-details/game-summary-links.svelte';
   import ScoreBar from './game-details/score-bar.svelte';
+  import { IconClipboardCopy, IconVideo } from '@tabler/icons-svelte';
   import { format } from 'date-fns';
-  import ClipboardMultiple from 'svelte-material-icons/ClipboardMultiple.svelte';
-  import Video from 'svelte-material-icons/Video.svelte';
 
   export let game: Game;
 
@@ -92,7 +91,7 @@
 
           {#if game.stvConnectString}
             <button on:click={() => navigator.clipboard.writeText(game.stvConnectString ?? '')}>
-              <ClipboardMultiple />
+              <IconClipboardCopy />
             </button>
           {/if}
         </div>
@@ -101,7 +100,7 @@
           <a href={stvConnectLink} target="_blank" rel="noreferrer">
             <Button>
               <div class="flex w-44 flex-row items-center gap-4 pl-2">
-                <Video />watch game
+                <IconVideo />watch game
               </div>
             </Button>
           </a>

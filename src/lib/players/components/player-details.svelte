@@ -2,6 +2,7 @@
   import type { LinkedProfiles } from '../models/linked-profiles';
   import type { Player } from '../models/player';
   import ExternalProfileLinkList from './external-profile-link-list.svelte';
+  import { IconUserPlus } from '@tabler/icons-svelte';
   import { intlFormat } from 'date-fns';
 
   export let player: Player;
@@ -20,7 +21,12 @@
       class="overflow-ellipsis whitespace-nowrap text-center font-caption text-6xl text-white md:text-start"
       >{player.name}</span
     >
-    <span class="text-center font-caption text-white md:text-start">Joined {joinedAt}</span>
+    <span
+      class="flex flex-row flex-nowrap items-center gap-1 text-center font-caption text-white md:text-start"
+    >
+      <IconUserPlus size={20} />
+      {joinedAt}
+    </span>
     <div class="grow" />
 
     <div class="hidden md:block">

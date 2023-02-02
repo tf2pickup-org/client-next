@@ -1,5 +1,5 @@
 <script lang="ts">
-  import ArrowRight from 'svelte-material-icons/ArrowRight.svelte';
+  import { IconArrowRight } from '@tabler/icons-svelte';
 
   export let alternateColor: string = '';
   export let className: string = '';
@@ -14,7 +14,7 @@
     <slot />
   </div>
   <div class="arrow-right mx-4">
-    <ArrowRight size="24" />
+    <IconArrowRight size={24} />
   </div>
   <div class="dot" />
 </div>

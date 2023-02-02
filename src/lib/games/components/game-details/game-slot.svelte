@@ -1,8 +1,7 @@
 <script lang="ts">
   import type { GameSlot } from '$lib/games/models/game-slot';
   import GameClassIcon from '$lib/shared/components/game-class-icon.svelte';
-  import Steam from 'svelte-material-icons/Steam.svelte';
-  import SwordCross from 'svelte-material-icons/SwordCross.svelte';
+  import { IconSwords, IconBrandSteam } from '@tabler/icons-svelte';
 
   export let gameSlot: GameSlot;
 </script>
@@ -22,7 +21,7 @@
         href="/player/{gameSlot.player.steamId}">{gameSlot.player.name}</a
       >
       <div class="flex items-center gap-0.5 text-sm">
-        <SwordCross size={15} />{gameSlot.player.gamesPlayed}
+        <IconSwords size={16} />{gameSlot.player.gamesPlayed}
       </div>
     </div>
     <div class="grow" />
@@ -39,7 +38,7 @@
       target="_blank"
       rel="noreferrer"
     >
-      <Steam size="24" />
+      <IconBrandSteam size={24} />
     </a>
   </div>
 </div>

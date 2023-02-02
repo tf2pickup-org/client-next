@@ -6,12 +6,12 @@
   export let mapVoteResults: MapVoteResult[] | undefined;
 </script>
 
-<div class="flex flex-col md:flex-row md:gap-8">
+<div class="flex flex-col md:flex-row gap-2 md:gap-8">
   {#if mapVoteResults !== undefined}
     {#each mapVoteResults as mapVoteResult}
       {@const mapName = getMapName(mapVoteResult.map)}
       <button type="button" disabled class="flex-1" in:fade={{ duration: 100 }}>
-        <div class="my-2 bg-white/70 font-caption shadow-md">
+        <div class="bg-white/70 font-caption shadow-md">
           <div class="flex justify-between px-2 py-1 md:hidden">
             <span>{mapVoteResult.map}</span>
             <span>{mapVoteResult.voteCount}</span>
@@ -19,9 +19,9 @@
 
           <div class="relative hidden h-48 flex-col md:flex">
             <img
-              src="https://mapthumbnails.tf2pickup.org/unsafe/414x192/{mapName}.jpg"
-              sizes="(max-width: 1024px) 380px, 414px"
-              srcset="https://mapthumbnails.tf2pickup.org/unsafe/414x192/{mapName}.jpg 414w,
+              src="https://mapthumbnails.tf2pickup.org/unsafe/419x192/{mapName}.jpg"
+              sizes="(max-width: 1024px) 380px, 419px"
+              srcset="https://mapthumbnails.tf2pickup.org/unsafe/419x192/{mapName}.jpg 419w,
                 https://mapthumbnails.tf2pickup.org/unsafe/380x96/{mapName}.jpg 380w"
               alt="{mapVoteResult.map} thumbnail"
               class="absolute top-0 bottom-0 left-0 right-0 h-48"

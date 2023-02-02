@@ -2,7 +2,7 @@
   import { page } from '$app/stores';
   import logo from '$lib/assets/logo.png';
   import signInThroughSteam from '$lib/assets/signinthroughsteam.png';
-  import Menu from 'svelte-material-icons/Menu.svelte';
+  import { IconMenu2 } from '@tabler/icons-svelte';
   import { cubicInOut } from 'svelte/easing';
   import { fade } from 'svelte/transition';
 
@@ -34,7 +34,7 @@
     class="mx-4 self-center text-white lg:hidden"
     on:click={() => (mobileMenuShown = !mobileMenuShown)}
   >
-    <Menu size="48" />
+    <IconMenu2 size={48} />
   </button>
 
   <div class="ml-5 hidden grow items-center text-lg text-white lg:flex lg:flex-row lg:flex-nowrap">
