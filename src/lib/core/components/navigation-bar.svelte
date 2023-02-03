@@ -1,6 +1,9 @@
 <script lang="ts">
   import { page } from '$app/stores';
+  import { discordInvitationLink, koFiLink } from '$environment';
   import logo from '$lib/assets/logo.png';
+  import discord from '$lib/assets/discord-mark-white.svg';
+  import kofi from '$lib/assets/kofi_s_logo_nolabel.webp';
   import signInThroughSteam from '$lib/assets/signinthroughsteam.png';
   import { IconMenu2 } from '@tabler/icons-svelte';
   import { cubicInOut } from 'svelte/easing';
@@ -37,16 +40,24 @@
     <IconMenu2 size={48} />
   </button>
 
-  <div class="ml-5 hidden grow items-center text-lg text-white lg:flex lg:flex-row lg:flex-nowrap">
+  <div class="ml-5 hidden grow items-center text-lg text-white lg:flex lg:flex-row lg:flex-nowrap gap-2">
     {#each staticLinks as link}
       <a
         href={link.href}
-        class="mx-1 border-pink-700 px-4"
+        class="border-pink-700 px-4"
         class:border-b={link.isActive($page.url.pathname)}
       >
         {link.label}
       </a>
     {/each}
+
+    <a href={discordInvitationLink} class="mx-1">
+      <img alt="Join us on discord" src={discord} height="25" class="h-6" />
+    </a>
+
+    <a href={koFiLink} class="mx-1">
+      <img alt="Support us on Ko-Fi!" src={kofi} height="120" class="h-16" />
+    </a>
 
     <div class="grow" />
 
