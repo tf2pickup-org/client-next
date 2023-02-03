@@ -1,9 +1,9 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import { discordInvitationLink, koFiLink } from '$environment';
-  import logo from '$lib/assets/logo.png';
   import discord from '$lib/assets/discord-mark-white.svg';
   import kofi from '$lib/assets/kofi_s_logo_nolabel.webp';
+  import logo from '$lib/assets/logo.png';
   import signInThroughSteam from '$lib/assets/signinthroughsteam.png';
   import { IconMenu2 } from '@tabler/icons-svelte';
   import { cubicInOut } from 'svelte/easing';
@@ -40,11 +40,13 @@
     <IconMenu2 size={48} />
   </button>
 
-  <div class="ml-5 hidden grow items-center text-lg text-white lg:flex lg:flex-row lg:flex-nowrap gap-2">
+  <div
+    class="ml-5 hidden grow items-center gap-2 text-lg text-white lg:flex lg:flex-row lg:flex-nowrap"
+  >
     {#each staticLinks as link}
       <a
         href={link.href}
-        class="border-pink-700 px-4"
+        class="border-pink-700 px-4 transition-colors hover:text-slate-300"
         class:border-b={link.isActive($page.url.pathname)}
       >
         {link.label}

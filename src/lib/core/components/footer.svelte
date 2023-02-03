@@ -1,13 +1,35 @@
+<script lang="ts">
+  interface ExternalFooterLink {
+    label: string;
+    href: string;
+  }
+
+  const externalLinks: ExternalFooterLink[] = [
+    {
+      label: 'github',
+      href: 'https://github.com/tf2pickup-org',
+    },
+    {
+      label: 'discord',
+      href: 'https://discord.gg/UVFVfc4',
+    },
+  ];
+</script>
+
 <footer
-  class="flex flex-row items-center justify-center bg-white p-2 text-sm shadow shadow-black/50"
+  class="flex flex-row items-center justify-center bg-white p-2 text-sm text-slate-900 shadow shadow-black/50"
 >
   <span class="footer-entry">© 2019-2023 tf2pickup.org</span>
-  <span class="footer-entry">
-    <a href="https://github.com/tf2pickup-org" target="_blank" rel="noreferrer">github</a>
-  </span>
-  <span class="footer-entry">
-    <a href="https://discord.gg/UVFVfc4" target="_blank" rel="noreferrer">discord</a>
-  </span>
+  {#each externalLinks as link}
+    <span class="footer-entry">
+      <a
+        href={link.href}
+        target="_blank"
+        rel="noreferrer"
+        class="text-slate-900 transition-colors hover:text-slate-700">{link.label}</a
+      >
+    </span>
+  {/each}
 </footer>
 
 <style lang="scss">
