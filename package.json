@@ -13,7 +13,7 @@
     "format": "prettier --plugin-search-dir . --write ."
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "1.0.0",
+    "@sveltejs/adapter-static": "1.0.6",
     "@sveltejs/kit": "^1.0.0",
     "@tabler/icons-svelte": "2.1.2",
     "@tailwindcss/typography": "0.5.9",
