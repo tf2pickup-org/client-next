@@ -625,12 +625,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-static@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@sveltejs/adapter-static@npm:1.0.0"
+"@sveltejs/adapter-static@npm:1.0.6":
+  version: 1.0.6
+  resolution: "@sveltejs/adapter-static@npm:1.0.6"
   peerDependencies:
     "@sveltejs/kit": ^1.0.0
-  checksum: 1b48a93189f5bd4470092f55026bd1c297cd7d3fef34304c159ac3b3e695a3bd1cb851c1b239f56041bc0b93afd63e450098e531afe369173ac0d9df6e9863a1
+  checksum: dcbd6c0f0142523fa376d4878e6edc9aaaeaf011be94bae3ae6de8cc82f6d6f4a91d4e02381bce653528e9ea74f6a20d46f6a93e80e38205215bd5df2c12bb69
   languageName: node
   linkType: hard
 
@@ -1445,7 +1445,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "client-rewrite@workspace:."
   dependencies:
-    "@sveltejs/adapter-static": 1.0.0
+    "@sveltejs/adapter-static": 1.0.6
     "@sveltejs/kit": ^1.0.0
     "@tabler/icons-svelte": 2.1.2
     "@tailwindcss/typography": 0.5.9
