@@ -1,4 +1,5 @@
 <script lang="ts">
+  import MapThumbnail from '$lib/shared/components/map-thumbnail.svelte';
   import Pagination from '$lib/shared/components/pagination.svelte';
   import { getMapName } from '$lib/shared/get-map-name';
   import type { PaginatedList } from '$lib/shared/models/paginated-list';
@@ -14,7 +15,6 @@
     {@const launchedAt = format(new Date(game.launchedAt), 'dd.MM.yyyy HH:mm')}
     {@const mapName = getMapName(game.map)}
     {@const thumbnailUrl = `https://mapthumbnails.tf2pickup.org/unsafe/960x84/${mapName}.jpg`}
-    {@const xlThumbnailUrl = `https://mapthumbnails.tf2pickup.org/unsafe/312x144/${mapName}.jpg`}
     <a
       href="/game/{game.number}"
       class="relative flex flex-col flex-nowrap items-center justify-between bg-white/50 text-primary transition-colors hover:bg-white md:h-36 md:flex-row md:bg-white/90"
@@ -27,14 +27,10 @@
       <div class="mx-8 font-caption text-2xl md:text-4xl xl:text-6xl">#{game.number}</div>
       <div class="md:text-xl xl:text-2xl">{launchedAt}</div>
 
-      <div class="relative flex h-full w-[312px] flex-col">
-        <img
-          src={xlThumbnailUrl}
-          alt="Map thumbnail"
-          class="absolute top-0 bottom-0 left-0 right-0 hidden md:block"
-          height="84"
-          loading="lazy"
-        />
+      <div class="relative flex h-full flex-col md:aspect-video">
+        <div class="absolute top-0 bottom-0 left-0 right-0 hidden md:block">
+          <MapThumbnail map={game.map} />
+        </div>
         <div class="grow" />
         <div class="z-10 text-center font-caption text-lg md:bg-white/80">{game.map}</div>
       </div>
