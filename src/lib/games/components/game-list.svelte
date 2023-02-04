@@ -17,7 +17,7 @@
     {@const thumbnailUrl = `https://mapthumbnails.tf2pickup.org/unsafe/960x84/${mapName}.jpg`}
     <a
       href="/game/{game.number}"
-      class="relative flex flex-col flex-nowrap items-center justify-between bg-white/50 text-primary transition-colors hover:bg-white md:h-36 md:flex-row md:bg-white/90"
+      class="relative flex flex-col flex-nowrap items-center justify-between bg-white/50 text-fogra-900 transition-colors hover:bg-white md:h-36 md:flex-row md:bg-white/90"
     >
       <div
         class="absolute top-0 bottom-0 left-0 right-0 -z-10 block bg-cover bg-center bg-no-repeat md:hidden"

@@ -17,7 +17,7 @@
 </script>
 
 <footer
-  class="flex flex-row items-center justify-center bg-white p-2 text-sm text-slate-900 shadow shadow-black/50"
+  class="flex flex-row items-center justify-center bg-white p-2 text-sm text-fogra-900 shadow shadow-black/50"
 >
   <span class="footer-entry">© 2019-2023 tf2pickup.org</span>
   {#each externalLinks as link}
@@ -26,7 +26,7 @@
         href={link.href}
         target="_blank"
         rel="noreferrer"
-        class="text-slate-900 transition-colors hover:text-slate-700">{link.label}</a
+        class="text-slate-900 transition-colors hover:text-fogra-700">{link.label}</a
       >
     </span>
   {/each}

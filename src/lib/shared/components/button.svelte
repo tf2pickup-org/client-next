@@ -29,7 +29,7 @@
     position: relative;
     background-image: linear-gradient(
       135deg,
-      theme('colors.button-primary') 95%,
+      theme('colors.amaranth.600') 95%,
       rgba(0, 0, 0, 0) 95%
     );
 
@@ -43,7 +43,7 @@
       top: 0;
       width: 3px;
       height: 3px;
-      background-color: var(--button-dot-color, theme('colors.button-dot'));
+      background-color: var(--button-dot-color, theme('colors.jasmine.200'));
       transition: width 300ms ease;
     }
 

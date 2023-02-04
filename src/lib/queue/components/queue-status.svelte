@@ -10,7 +10,7 @@
 
 {#if ['waiting', 'ready', 'launching'].includes(queueState)}
   <div
-    class="flex h-14 justify-center bg-queue-state-waiting p-2 text-on-surface shadow-md sm:py-2"
+    class="flex h-14 justify-center bg-white p-2 text-fogra-900 shadow-md sm:py-2"
     in:fade={{ duration: 100 }}
   >
     <div class="font-caption text-4xl">

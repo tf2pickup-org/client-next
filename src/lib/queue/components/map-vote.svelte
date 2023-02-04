@@ -21,13 +21,13 @@
               <MapThumbnail map={mapVoteResult.map} />
             </div>
 
-            <div class="z-10 bg-white/70 text-center text-xl text-on-surface 2xl:text-3xl">
+            <div class="z-10 bg-white/70 text-center text-xl text-fogra-900 2xl:text-3xl">
               {mapVoteResult.map}
             </div>
 
             <div class="flex-grow" />
 
-            <div class="z-10 bg-white/70 text-center text-lg text-on-surface">
+            <div class="z-10 bg-white/70 text-center text-lg text-fogra-900">
               {mapVoteResult.voteCount}
             </div>
           </div>

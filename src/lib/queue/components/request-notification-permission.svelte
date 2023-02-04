@@ -12,7 +12,7 @@
 
 {#if permission === 'default'}
   <div class="flex flex-col bg-amber-200 md:flex-row" out:slide>
-    <div class="flex grow flex-col items-center gap-2 py-2 px-4 text-lg text-black md:flex-row">
+    <div class="flex grow flex-col items-center gap-2 py-2 px-4 text-lg text-fogra-900 md:flex-row">
       <div class="hidden md:inline-block"><IconNotification size={24} /></div>
       <span
         >To be notified when the match is about to start, we need your permission to show browser

@@ -8,7 +8,7 @@
 </script>
 
 {#if games?.length > 0}
-  <ul class="mx-2 mb-2 list-none overflow-hidden text-ellipsis text-primary md:mx-4">
+  <ul class="text-primary mx-2 mb-2 list-none overflow-hidden text-ellipsis md:mx-4">
     {#each games as game}
       {@const gameClass = game.slots.find(s => s.player.id === playerId)?.gameClass}
       {@const launchedAt = format(new Date(game.launchedAt), 'dd.MM.yyyy HH:mm')}

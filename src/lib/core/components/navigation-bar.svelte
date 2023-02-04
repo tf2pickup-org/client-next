@@ -28,7 +28,7 @@
   let mobileMenuShown = false;
 </script>
 
-<nav class="flex h-[76px] min-h-[76px] bg-primary shadow shadow-black/50">
+<nav class="flex h-[76px] min-h-[76px] bg-fogra-700 shadow shadow-black/50">
   <a href="/" class="mx-1 my-2 flex-1 self-center lg:flex-none">
     <img alt="tf2pickup.pl logo" src={logo} height="120" class="h-[60px] object-contain" />
   </a>
@@ -70,7 +70,7 @@
 
   {#if mobileMenuShown}
     <div
-      class="fixed top-0 left-0 z-50 h-full w-full bg-primary/90"
+      class="fixed top-0 left-0 z-50 h-full w-full bg-fogra-700/90"
       in:fade={{ duration: 100, easing: cubicInOut }}
       out:fade={{ duration: 50, easing: cubicInOut }}
     >
