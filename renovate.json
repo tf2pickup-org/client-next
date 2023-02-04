@@ -1,7 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:base",
+    ":disableDependencyDashboard"
   ],
   "packageRules": [
     {
@@ -13,5 +14,5 @@
       "automerge": true
     }
   ],
-  "semanticCommits": true
+  "semanticCommits": "enabled"
 }
