@@ -11,7 +11,7 @@
 </script>
 
 <div class="flex flex-col gap-4 px-2 md:px-0">
-  {#each games.results as game}
+  {#each games.results as game (game.id)}
     {@const launchedAt = format(new Date(game.launchedAt), 'dd.MM.yyyy HH:mm')}
     {@const mapName = getMapName(game.map)}
     {@const thumbnailUrl = `https://mapthumbnails.tf2pickup.org/unsafe/960x84/${mapName}.jpg`}

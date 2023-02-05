@@ -83,3 +83,7 @@ export const currentPlayerCount = derived(
   queue,
   $queue => $queue.slots.filter(slot => Boolean(slot.player)).length,
 );
+
+export const mapVoteTotalCount = derived(queue, $queue =>
+  $queue.mapVoteResults.reduce((a, b) => a + b.voteCount, 0),
+);

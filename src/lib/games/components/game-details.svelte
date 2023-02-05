@@ -111,7 +111,7 @@
     <GameSummaryLinks {game} />
   </div>
 
-  <div class="mt-4 flex flex-col gap-4 xl:order-first xl:w-96">
+  <div class="mt-4 flex flex-col gap-4 px-2 md:px-0 xl:order-first xl:w-96">
     <div
       class="flex flex-row justify-between bg-team-blu p-4 font-caption text-2xl text-white xl:hidden"
     >
@@ -121,7 +121,7 @@
     <GameSlotList gameSlots={gameSlotsBlu} />
   </div>
 
-  <div class="mt-4 flex flex-col gap-4 xl:w-96">
+  <div class="mt-4 flex flex-col gap-4 px-2 md:px-0 xl:w-96">
     <div
       class="flex flex-row justify-between bg-team-red p-4 font-caption text-2xl text-white xl:hidden"
     >

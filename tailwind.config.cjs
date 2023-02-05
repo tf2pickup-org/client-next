@@ -52,6 +52,15 @@ module.exports = {
           '2xl': '1320px',
         },
       },
+      keyframes: {
+        pulsate: {
+          '0%, 100%': { transform: 'scale3d(1, 1, 1)' },
+          '50%': { transform: 'scale3d(1.1, 1.1, 1.1)' },
+        },
+      },
+      animation: {
+        pulsate: 'pulsate 150ms ease-in-out',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],
