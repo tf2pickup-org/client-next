@@ -12,17 +12,36 @@
     <span class="text-2xl">Games played total: </span>
     <span class="ml-2 text-3xl">{stats.gamesPlayed}</span>
   {:else}
-    <div class="inline-block h-7 w-48 animate-pulse bg-slate-700" />
+    <div class="mt-1 mb-px inline-block h-6 w-48 animate-pulse rounded bg-slate-700" />
   {/if}
 </div>
 
-{#if stats?.classesPlayed}
-  <div class="flex flex-row justify-center">
+<div class="flex flex-row justify-center">
+  {#if stats && stats.classesPlayed}
     {#each Object.entries(stats.classesPlayed) as [gameClass, count]}
       <div class="mx-4 flex flex-row justify-center">
         <GameClassIcon gameClass={noTypeCheck(gameClass)} size={30} />
         <span class="mx-2 font-caption text-xl">{count}</span>
       </div>
     {/each}
-  </div>
-{/if}
+  {:else}
+    <div class="mb-[2px] grid animate-pulse grid-cols-4 gap-4">
+      <div class="flex flex-row items-center space-x-2">
+        <div class="h-7 w-7 rounded-full bg-slate-700" />
+        <div class="h-4 w-16 rounded bg-slate-700" />
+      </div>
+      <div class="flex flex-row items-center space-x-2">
+        <div class="h-7 w-7 rounded-full bg-slate-700" />
+        <div class="h-4 w-16 rounded bg-slate-700" />
+      </div>
+      <div class="flex flex-row items-center space-x-2">
+        <div class="h-7 w-7 rounded-full bg-slate-700" />
+        <div class="h-4 w-16 rounded bg-slate-700" />
+      </div>
+      <div class="flex flex-row items-center space-x-2">
+        <div class="h-7 w-7 rounded-full bg-slate-700" />
+        <div class="h-4 w-16 rounded bg-slate-700" />
+      </div>
+    </div>
+  {/if}
+</div>
