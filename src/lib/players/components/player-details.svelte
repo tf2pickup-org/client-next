@@ -16,7 +16,7 @@
     <img src={player.avatar.large} alt="{player.name}'s avatar" class="h-[184px] w-[184px]" />
   </div>
 
-  <div class="flex flex-col self-center md:self-auto">
+  <div class="flex flex-col items-center self-center md:items-start md:self-auto">
     <span
       class="overflow-ellipsis whitespace-nowrap text-center font-caption text-6xl text-white md:text-start"
       >{player.name}</span

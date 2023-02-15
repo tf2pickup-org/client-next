@@ -15,6 +15,6 @@
   </div>
 
   {#each queueSlots as queueSlot}
-    <QueueSlot {queueSlot} />
+    <QueueSlot {queueSlot} on:joinQueue on:leaveQueue />
   {/each}
 </div>

@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { joinQueue } from '../api/join-queue';
+  import { leaveQueue } from '../api/leave-queue';
   import { queue, requiredPlayerCount, currentPlayerCount } from '../queue.store';
   import MapVote from './map-vote.svelte';
   import QueueAnnouncements from './queue-announcements.svelte';
@@ -27,6 +29,8 @@
         <QueueSlotList
           {gameClass}
           queueSlots={$queue.slots.filter(s => s.gameClass === gameClass)}
+          on:joinQueue={event => joinQueue(event.detail.slotId)}
+          on:leaveQueue={() => leaveQueue()}
         />
       {/each}
     </div>

@@ -1,10 +1,12 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import { discordInvitationLink, koFiLink } from '$environment';
+  import { apiUrl, discordInvitationLink, koFiLink } from '$environment';
   import discord from '$lib/assets/discord-mark-white.svg';
   import kofi from '$lib/assets/kofi_s_logo_nolabel.webp';
   import logo from '$lib/assets/logo.png';
   import signInThroughSteam from '$lib/assets/signinthroughsteam.png';
+  import { authenticated } from '$lib/auth/auth.store';
+  import { currentPlayer } from '$lib/profile/profile.store';
   import { IconMenu2 } from '@tabler/icons-svelte';
   import { cubicInOut } from 'svelte/easing';
   import { fade } from 'svelte/transition';
@@ -63,9 +65,27 @@
 
     <div class="grow" />
 
-    <div class="mx-5">
-      <img alt="Sign in through Steam" src={signInThroughSteam} />
-    </div>
+    {#if $authenticated === 'not authenticated'}
+      <a class="mx-5" href="{apiUrl}/auth/steam">
+        <img alt="Sign in through Steam" src={signInThroughSteam} />
+      </a>
+    {:else if $authenticated === 'authenticated' && Boolean($currentPlayer)}
+      <a
+        href="/player/{$currentPlayer.steamId}"
+        class="mr-5 flex flex-row items-center space-x-2 transition-colors hover:text-slate-300"
+      >
+        <img
+          src={$currentPlayer.avatar.medium}
+          alt="{$currentPlayer.name}'s avatar"
+          height="64"
+          width="64"
+          class="h-12 w-12"
+        />
+        <span class="text-ellipsis whitespace-nowrap font-caption text-3xl"
+          >{$currentPlayer.name}</span
+        >
+      </a>
+    {/if}
   </div>
 
   {#if mobileMenuShown}
