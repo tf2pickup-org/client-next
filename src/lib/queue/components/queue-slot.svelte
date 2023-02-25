@@ -7,15 +7,11 @@
   import { fade } from 'svelte/transition';
 
   export let queueSlot: QueueSlot;
-  let canTakeSlot: boolean = false;
   let isMySlot: boolean = false;
 
   const dispatch = createEventDispatcher();
 
-  $: {
-    canTakeSlot = !queueSlot.player;
-    isMySlot = $currentPlayer && queueSlot.player?.id === $currentPlayer?.id;
-  }
+  $: isMySlot = $currentPlayer && queueSlot.player?.id === $currentPlayer?.id;
 </script>
 
 <div class="justify-stretch flex h-12 bg-white/70 shadow-md">
@@ -45,7 +41,6 @@
   {:else if $canJoinQueue}
     <button
       class="flex flex-1 items-center justify-center text-fogra-300 opacity-0 transition-opacity duration-75 hover:opacity-100 focus:bg-white/50"
-      disabled={!canTakeSlot}
       on:click={() => dispatch('joinQueue', { slotId: queueSlot.id })}
     >
       <IconPlus />

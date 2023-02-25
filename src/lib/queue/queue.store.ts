@@ -1,3 +1,4 @@
+import { currentPlayer } from '$lib/profile/profile.store';
 import { fetchQueue } from './api/fetch-queue';
 import {
   friendshipsUpdated,
@@ -84,6 +85,16 @@ export const currentPlayerCount = derived(
   $queue => $queue.slots.filter(slot => Boolean(slot.player)).length,
 );
 
-export const mapVoteTotalCount = derived(queue, $queue =>
-  $queue.mapVoteResults.reduce((a, b) => a + b.voteCount, 0),
+export const mapVoteResults = derived(queue, $queue => $queue.mapVoteResults);
+
+export const mapVoteTotalCount = derived(mapVoteResults, $mapVoteResults =>
+  $mapVoteResults.reduce((a, b) => a + b.voteCount, 0),
 );
+
+export const mySlot = derived(
+  [currentPlayer, queue],
+  ([$currentPlayer, $queue]) =>
+    $currentPlayer && $queue.slots.find(slot => slot.player?.id === $currentPlayer.id),
+);
+
+export const isInQueue = derived(mySlot, $mySlot => Boolean($mySlot));

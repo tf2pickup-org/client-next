@@ -1,47 +1,19 @@
 <script lang="ts">
-  import MapThumbnail from '$lib/shared/components/map-thumbnail.svelte';
-  import type { MapVoteResult } from '../models/map-vote-result';
-  import { mapVoteTotalCount } from '../queue.store';
-  import { fade } from 'svelte/transition';
-
-  export let mapVoteResults: MapVoteResult[] | undefined;
+  import { mapVote } from '$lib/profile/profile.store';
+  import { mapVoteTotalCount, isInQueue, mapVoteResults } from '../queue.store';
+  import MapVoteButton from './map-vote-button.svelte';
 </script>
 
 <div class="flex flex-col gap-2 md:flex-row md:gap-8">
-  {#if mapVoteResults !== undefined}
-    {#each mapVoteResults as mapVoteResult}
-      {@const votePercent =
-        Math.round($mapVoteTotalCount > 0 ? mapVoteResult.voteCount / $mapVoteTotalCount : 0) * 100}
-      <button
-        type="button"
-        disabled
-        class="flex-1 border-0 border-white/70"
-        in:fade={{ duration: 100 }}
-      >
-        <div class="bg-white/70 font-caption text-2xl shadow-md">
-          <div class="flex justify-between px-2 py-1 md:hidden">
-            <span>{mapVoteResult.map}</span>
-            {#key votePercent}
-              <span class="animate-pulsate">{votePercent}%</span>
-            {/key}
-          </div>
-
-          <div class="relative hidden aspect-video flex-col justify-end md:flex">
-            <div class="absolute top-0 bottom-0 left-0 right-0">
-              <MapThumbnail map={mapVoteResult.map} />
-            </div>
-
-            <div
-              class="z-10 flex flex-row justify-between bg-white/60 py-2 px-4 text-center text-lg text-fogra-900 lg:text-xl xl:text-2xl"
-            >
-              <span>{mapVoteResult.map}</span>
-              {#key votePercent}
-                <span class="animate-pulsate">{votePercent}%</span>
-              {/key}
-            </div>
-          </div>
-        </div>
-      </button>
+  {#if $mapVoteResults !== undefined}
+    {#each $mapVoteResults as { map, voteCount }}
+      <MapVoteButton
+        {map}
+        votePercent={Math.round($mapVoteTotalCount > 0 ? voteCount / $mapVoteTotalCount : 0) * 100}
+        disabled={!isInQueue}
+        selected={$mapVote === map}
+        on:mapVote
+      />
     {/each}
   {:else}
     <div class="my-2 flex-1 animate-pulse bg-slate-700 shadow-md md:h-48" />

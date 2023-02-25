@@ -17,6 +17,7 @@ socket.on('connect_error', error => {
   switch (error.message) {
     case 'invalid signature':
     case 'jwt expired':
+      localStorage.removeItem('ws_token');
       connect();
       break;
 

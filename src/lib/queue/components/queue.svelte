@@ -1,6 +1,7 @@
 <script lang="ts">
   import { joinQueue } from '../api/join-queue';
   import { leaveQueue } from '../api/leave-queue';
+  import { voteForMap } from '../api/vote-for-map';
   import { queue, requiredPlayerCount, currentPlayerCount } from '../queue.store';
   import MapVote from './map-vote.svelte';
   import QueueAnnouncements from './queue-announcements.svelte';
@@ -19,7 +20,7 @@
       currentPlayerCount={$currentPlayerCount}
     />
 
-    <MapVote mapVoteResults={$queue.state === 'loading' ? undefined : $queue.mapVoteResults} />
+    <MapVote on:mapVote={event => voteForMap(event.detail.map)} />
 
     <div
       class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4"

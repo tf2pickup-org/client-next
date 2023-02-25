@@ -1,8 +1,4 @@
-import { socket } from '$lib/io/socket';
+import { callSocket } from '$lib/io/call-socket';
 import type { QueueSlot } from '../models/queue-slot';
 
-export const joinQueue = (slotId: number): Promise<QueueSlot> => {
-  return new Promise<QueueSlot>(resolve => {
-    socket.emit('join queue', { slotId }, (response: QueueSlot) => resolve(response));
-  });
-};
+export const joinQueue = (slotId: number) => callSocket<QueueSlot>('join queue', { slotId });
