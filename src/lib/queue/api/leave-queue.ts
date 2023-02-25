@@ -1,7 +1,9 @@
-import { socket } from '$lib/io/socket';
+import { callSocket } from '$lib/io/call-socket';
+import { profile } from '$lib/profile/profile.store';
 import type { QueueSlot } from '../models/queue-slot';
 
-export const leaveQueue = (): Promise<QueueSlot> =>
-  new Promise<QueueSlot>(resolve => {
-    socket.emit('leave queue', (response: QueueSlot) => resolve(response));
-  });
+export const leaveQueue = async (): Promise<QueueSlot> => {
+  const slot = await callSocket<QueueSlot>('leave queue');
+  profile.update(profile => ({ ...profile, mapVote: undefined }));
+  return slot;
+}
