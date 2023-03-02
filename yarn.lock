@@ -542,21 +542,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tabler/icons-svelte@npm:2.6.0":
-  version: 2.6.0
-  resolution: "@tabler/icons-svelte@npm:2.6.0"
+"@tabler/icons-svelte@npm:2.7.0":
+  version: 2.7.0
+  resolution: "@tabler/icons-svelte@npm:2.7.0"
   dependencies:
-    "@tabler/icons": 2.6.0
+    "@tabler/icons": 2.7.0
   peerDependencies:
     svelte: ^3.49.0
-  checksum: d165f264628213921c24a95cfb5ef5a7f8288f77defc21a5022786908cc3acb71273a492fc6877f820ec20e11e14d5df6710967d2a7c4d870a30f9bf9dd30d8e
+  checksum: 40acea37e7b82cf49ec10d606fd8d14aa76e8531a927c379b0563a7b6d28f5bf95fc534051e4b6e044fb4194b3dcf18f246be537106b3caa164593ad6161262c
   languageName: node
   linkType: hard
 
-"@tabler/icons@npm:2.6.0":
-  version: 2.6.0
-  resolution: "@tabler/icons@npm:2.6.0"
-  checksum: 6592a4f10f791dff632300895ff38e6135a86ead6b73822011138a4bdf2716d6d273069a8b6070eb049d2372e1d00ddb854df4a278c5033b8e8ae3ca2c28e3d1
+"@tabler/icons@npm:2.7.0":
+  version: 2.7.0
+  resolution: "@tabler/icons@npm:2.7.0"
+  checksum: db6b61b1a02ed74d1f9fd6943175dbfd1c8f24dae30cd56f4bc86d214d8e4ecf9e28022d16cbb3a3064780ee3543610f53e65f3592ea9f9ca22ddeebf4ec44ee
   languageName: node
   linkType: hard
 
@@ -1396,7 +1396,7 @@ __metadata:
   dependencies:
     "@sveltejs/adapter-static": 2.0.1
     "@sveltejs/kit": ^1.0.0
-    "@tabler/icons-svelte": 2.6.0
+    "@tabler/icons-svelte": 2.7.0
     "@tailwindcss/typography": 0.5.9
     "@trivago/prettier-plugin-sort-imports": 4.1.1
     "@typescript-eslint/eslint-plugin": ^5.45.0
