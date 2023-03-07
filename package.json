@@ -15,7 +15,7 @@
   "devDependencies": {
     "@sveltejs/adapter-static": "2.0.1",
     "@sveltejs/kit": "^1.0.0",
-    "@tabler/icons-svelte": "2.7.0",
+    "@tabler/icons-svelte": "2.8.0",
     "@tailwindcss/typography": "0.5.9",
     "@trivago/prettier-plugin-sort-imports": "4.1.1",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
