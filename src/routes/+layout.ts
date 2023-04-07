@@ -1,15 +1,12 @@
-import { apiUrl } from '$environment';
-import type { Queue } from '$lib/queue/types/queue';
+import { fetchProfile } from '$lib/profile/api/fetch-profile';
+import { fetchQueue } from '$lib/queue/api/fetch-queue';
 import type { LayoutLoad } from './$types';
-import { error } from '@sveltejs/kit';
 
 export const load = (async ({ fetch }) => {
-  const res = await fetch(`${apiUrl}/queue`);
-  if (res.ok) {
-    return {
-      queue: (await res.json()) as Queue,
-    };
-  } else {
-    throw error(res.status);
-  }
+  const queue = await fetchQueue(fetch);
+  const profile = await fetchProfile(fetch);
+  return {
+    queue,
+    profile,
+  };
 }) satisfies LayoutLoad;

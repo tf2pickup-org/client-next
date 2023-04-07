@@ -2,16 +2,17 @@
   import { websiteName } from '$environment';
   import Footer from '$lib/core/components/footer.svelte';
   import NavigationBar from '$lib/core/components/navigation-bar.svelte';
+  import { profile } from '$lib/profile/profile.store';
   import { queue } from '$lib/queue/queue.store';
   import '../app.scss';
   import type { LayoutData } from './$types';
-  import { onMount } from 'svelte';
 
   export let data: LayoutData;
 
-  onMount(() => {
+  $: {
     queue.set(data.queue);
-  });
+    profile.set(data.profile);
+  }
 </script>
 
 <svelte:head>

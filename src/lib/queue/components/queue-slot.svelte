@@ -16,7 +16,7 @@
         class="h-[42px] w-[42px] rounded"
       />
       <a
-        class="text-abru-900 flex-1 text-center text-xl font-bold hover:underline"
+        class="text-abru-800 flex-1 text-center text-xl font-bold hover:underline"
         href="/player/{queueSlot.player.steamId}">{queueSlot.player.name}</a
       >
       <div class="w-[42px]" />

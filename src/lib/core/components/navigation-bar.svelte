@@ -1,7 +1,10 @@
 <script lang="ts">
+  import { apiUrl } from '$environment';
   import logo from '$lib/assets/logo.png';
   import signInThroughSteam from '$lib/assets/signinthroughsteam.png';
+  import { profile } from '$lib/profile/profile.store';
   import Link from './link.svelte';
+  import Profile from './profile.svelte';
   import { IconBrandDiscord, IconHeart, IconCrown, IconChartPieFilled } from '@tabler/icons-svelte';
 </script>
 
@@ -48,9 +51,13 @@
 
       <div class="w-2" />
 
-      <a href="/auth/steam">
-        <img alt="Sign in through Steam" src={signInThroughSteam} />
-      </a>
+      {#if $profile}
+        <Profile profile={$profile} />
+      {:else}
+        <a href="{apiUrl}/auth/steam">
+          <img alt="Sign in through Steam" src={signInThroughSteam} />
+        </a>
+      {/if}
     </div>
   </div>
 </nav>
