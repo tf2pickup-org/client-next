@@ -1,4 +1,4 @@
-<footer class="fixed bottom-0 left-0 my-4 w-full">
+<footer class="my-4 w-full">
   <div class="container mx-auto">
     <div class="text-abru-100 flex flex-row text-sm font-normal">
       <span>© 2023 tf2pickup.org | version 4.0.0 alpha.7</span>

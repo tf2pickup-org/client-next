@@ -6,9 +6,14 @@
 
   let width: number, height: number;
   let src: string;
-  let thumbnailExists = true;
+  let thumbnailExists = false;
   let thumbnailLoaded = false;
-  $: src = `https://mapthumbnails.tf2pickup.org/unsafe/${width}x${height}/${getMapName(map)}.jpg`;
+  $: {
+    thumbnailExists = Boolean(width) && Boolean(height);
+    if (thumbnailExists) {
+      src = `https://mapthumbnails.tf2pickup.org/unsafe/${width}x${height}/${getMapName(map)}.jpg`;
+    }
+  }
 </script>
 
 <div

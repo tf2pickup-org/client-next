@@ -3,16 +3,73 @@
   import Footer from '$lib/core/components/footer.svelte';
   import NavigationBar from '$lib/core/components/navigation-bar.svelte';
   import { profile } from '$lib/profile/profile.store';
+  import {
+    friendshipsUpdated,
+    mapVoteResultsUpdated,
+    queueSlotsUpdated,
+    queueStateUpdated,
+    substituteRequestsUpdated,
+  } from '$lib/queue/queue.events';
   import { queue } from '$lib/queue/queue.store';
   import '../app.scss';
   import type { LayoutData } from './$types';
+  import { Subject } from 'rxjs';
+  import { takeUntil } from 'rxjs/operators';
+  import { onDestroy, onMount } from 'svelte';
 
   export let data: LayoutData;
+
+  const destroyed: Subject<void> = new Subject();
 
   $: {
     queue.set(data.queue);
     profile.set(data.profile);
   }
+
+  onMount(() => {
+    queueStateUpdated.pipe(takeUntil(destroyed)).subscribe(state =>
+      queue.update(value => {
+        value.state = state;
+        return value;
+      }),
+    );
+
+    queueSlotsUpdated.pipe(takeUntil(destroyed)).subscribe(slots => {
+      queue.update(value => {
+        for (const slot of slots) {
+          const idx = value.slots.findIndex(s => s.id === slot.id);
+          value.slots[idx] = slot;
+        }
+        return value;
+      });
+    });
+
+    mapVoteResultsUpdated.pipe(takeUntil(destroyed)).subscribe(results =>
+      queue.update(value => {
+        value.mapVoteResults = results;
+        return value;
+      }),
+    );
+
+    substituteRequestsUpdated.pipe(takeUntil(destroyed)).subscribe(requests =>
+      queue.update(value => {
+        value.substituteRequests = requests;
+        return value;
+      }),
+    );
+
+    friendshipsUpdated.pipe(takeUntil(destroyed)).subscribe(friendships =>
+      queue.update(value => {
+        value.friendships = friendships;
+        return value;
+      }),
+    );
+  });
+
+  onDestroy(() => {
+    destroyed.next();
+    destroyed.complete();
+  });
 </script>
 
 <svelte:head>
@@ -23,5 +80,7 @@
 </svelte:head>
 
 <NavigationBar />
-<slot />
+<div class="flex-1">
+  <slot />
+</div>
 <Footer />

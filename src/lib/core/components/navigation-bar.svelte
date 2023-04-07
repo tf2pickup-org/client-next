@@ -14,11 +14,9 @@
       <img alt="tf2pickup.pl logo" src={logo} height="120" class="h-[44px] object-contain" />
     </a>
 
-    <div class="hidden flex-row items-center gap-8 text-lg font-medium lg:flex">
+    <div class="hidden flex-row items-center gap-5 text-lg font-medium lg:flex">
       <Link href="/games">Games</Link>
-
       <Link href="/players">Players</Link>
-
       <Link href="/rules">Rules</Link>
 
       <Link href="/hall-of-fame">
