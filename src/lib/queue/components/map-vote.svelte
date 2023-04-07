@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { mapVoteResults, mapVoteTotalCount } from '../queue.store';
+  import { mapVote } from '$lib/profile/profile.store';
+  import { isInQueue, mapVoteResults, mapVoteTotalCount } from '../queue.store';
   import MapVoteButton from './map-vote-button.svelte';
 </script>
 
@@ -8,6 +9,9 @@
     <MapVoteButton
       {map}
       votePercent={Math.round($mapVoteTotalCount > 0 ? voteCount / $mapVoteTotalCount : 0) * 100}
+      disabled={!$isInQueue}
+      selected={$mapVote === map}
+      on:mapVote
     />
   {/each}
 </div>

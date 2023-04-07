@@ -1,6 +1,7 @@
 <script lang="ts">
   import { websiteName } from '$environment';
   import OnlinePlayerList from '$lib/players/components/online-player-list.svelte';
+  import { voteForMap } from '$lib/queue/api/vote-for-map';
   import MapVote from '$lib/queue/components/map-vote.svelte';
   import Queue from '$lib/queue/components/queue.svelte';
   import { queue, currentPlayerCount, requiredPlayerCount } from '$lib/queue/queue.store';
@@ -19,7 +20,7 @@
 
   <div class="order-3 lg:col-span-3">
     {#if $queue}
-      <MapVote />
+      <MapVote on:mapVote={event => voteForMap(event.detail.map)} />
     {/if}
   </div>
 

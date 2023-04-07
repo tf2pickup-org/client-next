@@ -15,6 +15,7 @@ export default {
           100: '#C7C4C7',
           // abru/light/60%
           400: '#A6A0A6',
+          // abru/light/25%
           500: '#564D59',
           // abru/light/30%
           600: '#605B62',
