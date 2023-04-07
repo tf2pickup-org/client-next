@@ -1,6 +1,8 @@
 <script lang="ts">
   import { websiteName } from '$environment';
   import OnlinePlayerList from '$lib/players/components/online-player-list.svelte';
+  import { joinQueue } from '$lib/queue/api/join-queue';
+  import { leaveQueue } from '$lib/queue/api/leave-queue';
   import { voteForMap } from '$lib/queue/api/vote-for-map';
   import MapVote from '$lib/queue/components/map-vote.svelte';
   import Queue from '$lib/queue/components/queue.svelte';
@@ -14,7 +16,10 @@
 <div class="container mx-auto my-4 grid gap-x-4 gap-y-8 lg:grid-cols-4">
   <div class="order-1 lg:col-span-3">
     {#if $queue}
-      <Queue />
+      <Queue
+        on:joinQueue={event => joinQueue(event.detail.slotId)}
+        on:leaveQueue={() => leaveQueue()}
+      />
     {/if}
   </div>
 
