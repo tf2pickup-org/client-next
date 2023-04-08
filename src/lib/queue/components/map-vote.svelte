@@ -5,10 +5,10 @@
 </script>
 
 <div class="grid gap-4 md:grid-cols-3">
-  {#each $mapVoteResults as { map, voteCount }, i}
+  {#each $mapVoteResults as { map, voteCount }}
     <MapVoteButton
       {map}
-      votePercent={Math.round($mapVoteTotalCount > 0 ? voteCount / $mapVoteTotalCount : 0) * 100}
+      votePercent={Math.round(($mapVoteTotalCount > 0 ? voteCount / $mapVoteTotalCount : 0) * 100)}
       disabled={!$isInQueue}
       selected={$mapVote === map}
       on:mapVote

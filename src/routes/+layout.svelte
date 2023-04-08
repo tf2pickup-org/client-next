@@ -2,6 +2,9 @@
   import { websiteName } from '$environment';
   import Footer from '$lib/core/components/footer.svelte';
   import NavigationBar from '$lib/core/components/navigation-bar.svelte';
+  import { onlinePlayers } from '$lib/players/online-players.store';
+  import { playerConnected, playerDisconnected } from '$lib/players/players.events';
+  import type { Player } from '$lib/players/types/player';
   import { profile } from '$lib/profile/profile.store';
   import {
     friendshipsUpdated,
@@ -24,6 +27,9 @@
   $: {
     queue.set(data.queue);
     profile.set(data.profile);
+    onlinePlayers.set(
+      new Map<string, Player>(data.onlinePlayers.map(player => [player.steamId, player])),
+    );
   }
 
   onMount(() => {
@@ -61,6 +67,17 @@
     friendshipsUpdated.pipe(takeUntil(destroyed)).subscribe(friendships =>
       queue.update(value => {
         value.friendships = friendships;
+        return value;
+      }),
+    );
+
+    playerConnected
+      .pipe(takeUntil(destroyed))
+      .subscribe(player => onlinePlayers.update(value => value.set(player.steamId, player)));
+
+    playerDisconnected.pipe(takeUntil(destroyed)).subscribe(player =>
+      onlinePlayers.update(value => {
+        value.delete(player.steamId);
         return value;
       }),
     );
