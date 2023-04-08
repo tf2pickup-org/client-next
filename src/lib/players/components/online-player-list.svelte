@@ -13,7 +13,7 @@
   {#each $onlinePlayersSorted as player}
     <a
       href="/player/${player.steamId}"
-      class="text-abru-100 even:bg-abru-900 odd:bg-abru-700 rounded-sm px-2 py-1 text-sm font-light"
+      class="text-abru-100 even:bg-abru-900 odd:bg-abru-700 rounded-sm px-2 py-1 text-base font-light hover:underline"
       transition:slide|local
     >
       {player.name}
