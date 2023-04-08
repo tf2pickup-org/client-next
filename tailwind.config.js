@@ -49,6 +49,8 @@ export default {
           200: '#FDCFDE',
         },
 
+        alert: '#FF9E1F',
+
         'team-blu': 'rgb(88 121 138)',
         'team-red': 'rgb(189 59 59)',
       },
