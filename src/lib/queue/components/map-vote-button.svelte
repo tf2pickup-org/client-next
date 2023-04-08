@@ -45,7 +45,7 @@
       theme('colors.transparent') 90%
     );
 
-    &:hover {
+    &:hover:enabled {
       background: linear-gradient(
         90deg,
         theme('colors.abru.600') 35%,
