@@ -36,7 +36,7 @@
         class="text-abru-100 hover:text-slate-200"
         target="_blank"
       >
-        <IconBrandDiscord size={32} />
+        <IconBrandDiscord size={32} stroke={1.5} />
       </a>
 
       <a
@@ -44,7 +44,7 @@
         class="text-abru-100 hover:text-slate-200"
         target="_blank"
       >
-        <IconHeart size={32} />
+        <IconHeart size={32} stroke={1.5} />
       </a>
 
       <div class="w-2" />
@@ -52,7 +52,7 @@
       {#if $profile}
         <Profile profile={$profile} />
       {:else}
-        <a href="{apiUrl}/auth/steam">
+        <a href="/auth/steam">
           <img alt="Sign in through Steam" src={signInThroughSteam} />
         </a>
       {/if}
