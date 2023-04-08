@@ -2,6 +2,7 @@
   import { websiteName } from '$environment';
   import Footer from '$lib/core/components/footer.svelte';
   import NavigationBar from '$lib/core/components/navigation-bar.svelte';
+  import { connect } from '$lib/io/socket';
   import { onlinePlayers } from '$lib/players/online-players.store';
   import { playerConnected, playerDisconnected } from '$lib/players/players.events';
   import type { Player } from '$lib/players/types/player';
@@ -81,6 +82,8 @@
         return value;
       }),
     );
+
+    connect(data.wsToken);
   });
 
   onDestroy(() => {

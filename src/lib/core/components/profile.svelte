@@ -82,7 +82,7 @@
         </a>
         <div class="bg-abru-700 h-px w-full" />
         <a
-          href="/sign-out"
+          href="/auth/sign-out"
           class="text-accent-600 hover:bg-abru-dark-800 flex flex-row items-center gap-2 rounded-lg px-4 py-2"
         >
           <IconLogout /><span>Sign out</span>
