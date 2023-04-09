@@ -38,17 +38,17 @@
 
 <style lang="scss">
   .map-vote-button {
-    background: theme('colors.abru.500');
+    background: theme('colors.abru.light.25');
     background: linear-gradient(
       90deg,
-      theme('colors.abru.500') 35%,
+      theme('colors.abru.light.25') 35%,
       theme('colors.transparent') 90%
     );
 
     &:hover:enabled {
       background: linear-gradient(
         90deg,
-        theme('colors.abru.600') 35%,
+        theme('colors.abru.light.30') 35%,
         theme('colors.transparent') 90%
       );
     }

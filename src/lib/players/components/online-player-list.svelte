@@ -4,8 +4,8 @@
   import { slide } from 'svelte/transition';
 </script>
 
-<div class="bg-abru-900 flex h-full flex-col rounded-lg p-2">
-  <div class="text-abru-100 my-3.5 flex flex-row justify-center gap-1">
+<div class="bg-abru-dark-6 flex h-full flex-col rounded-lg p-2">
+  <div class="text-abru-light-75 my-3.5 flex flex-row justify-center gap-1">
     <IconUserCircle />
     <span class="text-sm font-bold">Players online: {$onlinePlayers.size}</span>
   </div>
@@ -13,7 +13,7 @@
   {#each $onlinePlayersSorted as player}
     <a
       href="/player/${player.steamId}"
-      class="text-abru-100 even:bg-abru-900 odd:bg-abru-700 rounded-sm px-2 py-1 text-base font-light hover:underline"
+      class="text-abru-light-75 even:bg-abru-dark-6 odd:bg-abru-light-5 rounded-sm px-2 py-1 text-base font-light hover:underline"
       transition:slide|local
     >
       {player.name}

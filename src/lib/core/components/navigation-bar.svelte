@@ -33,7 +33,7 @@
 
       <a
         href="https://discord.gg/UVFVfc4"
-        class="text-abru-100 hover:text-slate-200"
+        class="text-abru-light-75 hover:text-slate-200"
         target="_blank"
       >
         <IconBrandDiscord size={32} stroke={1.5} />
@@ -41,7 +41,7 @@
 
       <a
         href="https://ko-fi.com/tf2pickuporg"
-        class="text-abru-100 hover:text-slate-200"
+        class="text-abru-light-75 hover:text-slate-200"
         target="_blank"
       >
         <IconHeart size={32} stroke={1.5} />

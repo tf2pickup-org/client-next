@@ -1,6 +1,6 @@
 <footer class="my-4 w-full">
   <div class="container mx-auto">
-    <div class="text-abru-100 flex flex-row text-sm font-normal">
+    <div class="text-abru-light-75 flex flex-row text-sm font-normal">
       <span>© 2023 tf2pickup.org | version 4.0.0 alpha.7</span>
       <div class="grow" />
       <div class="flex flex-row gap-5">

@@ -30,12 +30,14 @@
   }
 </script>
 
-<div class="bg-abru-600 flex h-14 flex-row justify-stretch overflow-hidden rounded-lg shadow-md">
+<div
+  class="bg-abru-light-30 flex h-14 flex-row justify-stretch overflow-hidden rounded-lg shadow-md"
+>
   {#if queueSlot.player}
     <div
       class="flex flex-1 flex-row items-center justify-center p-2 {isMySlot
-        ? 'bg-abru-100'
-        : 'bg-abru-400'}"
+        ? 'bg-abru-light-75'
+        : 'bg-abru-light-60'}"
       in:fade={{ duration: 75 }}
       out:fade={{ duration: 50 }}
     >
@@ -47,22 +49,22 @@
         class="h-[42px] w-[42px] rounded"
       />
       <a
-        class="text-abru-800 flex-1 text-center text-xl font-bold hover:underline"
+        class="text-abru-dark-3 flex-1 text-center text-xl font-bold hover:underline"
         href="/player/{queueSlot.player.steamId}">{queueSlot.player.name}</a
       >
       <div class="w-[42px] px-1">
         {#if isMySlot}
           <button
-            class="bg-abru-600 hover:bg-abru-550 flex h-[34px] w-[34px] items-center justify-center rounded text-white"
+            class="bg-abru-light-30 hover:bg-abru-light-35 flex h-[34px] w-[34px] items-center justify-center rounded text-white"
             on:click={() => dispatch('leaveQueue', { slotId: queueSlot.id })}
           >
             <IconMinus />
           </button>
         {:else if canBefriend}
           <button
-            class="bg-abru-100 flex h-[34px] w-[34px] items-center justify-center rounded {markedAsFriendByMe
+            class="bg-abru-light-75 flex h-[34px] w-[34px] items-center justify-center rounded {markedAsFriendByMe
               ? 'text-accent-600'
-              : 'text-abru-950'} disabled:text-abru-400 hover:bg-abru-200 transition-colors duration-75"
+              : 'text-abru-950'} disabled:text-abru-light-60 hover:bg-abru-light-70 transition-colors duration-75"
             disabled={markedAsFriend && !markedAsFriendByMe}
             on:click={() =>
               dispatch('markAsFriend', {
@@ -80,7 +82,7 @@
     </div>
   {:else if $canJoinQueue}
     <button
-      class="transition-color bg-abru-600 text-abru-600 hover:bg-abru-500 hover:text-abru-400 flex flex-1 items-center justify-center duration-75"
+      class="transition-color bg-abru-light-30 text-abru-light-30 hover:bg-abru-light-750 hover:text-abru-light-60 flex flex-1 items-center justify-center duration-75"
       on:click={() => dispatch('joinQueue', { slotId: queueSlot.id })}
     >
       <IconPlus />

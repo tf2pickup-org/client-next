@@ -34,7 +34,7 @@
 
 <div class="relative">
   <button
-    class="bg-abru-dark-900 text-abru-100 hover:bg-abru-dark-800 active:bg-abru-dark-900 group flex w-[300px] flex-row items-center justify-start gap-2 text-ellipsis rounded-[10px] p-[11px] text-left transition-colors duration-75"
+    class="bg-abru-dark-29 text-abru-light-75 hover:bg-abru-dark-20 active:bg-abru-950 group flex w-[300px] flex-row items-center justify-start gap-2 text-ellipsis rounded-[10px] p-[11px] text-left transition-colors duration-75"
     on:click|stopPropagation={() => (menuOpen = !menuOpen)}
   >
     <img
@@ -63,11 +63,11 @@
 
   {#if menuOpen}
     <div
-      class="bg-abru-dark-900 absolute mt-2 w-[300px] origin-top rounded-[10px] p-2 drop-shadow-xl"
+      class="bg-abru-dark-29 absolute mt-2 w-[300px] origin-top rounded-[10px] p-2 drop-shadow-xl"
       in:growDown={{ duration: 150 }}
       out:fade={{ duration: 100 }}
     >
-      <div class="text-abru-100 flex flex-col gap-1">
+      <div class="text-abru-light-75 flex flex-col gap-1">
         <a href="/players/{profile.player.steamId}" class="menu-item">
           <IconUserCircle /><span>My profile</span>
         </a>
@@ -95,15 +95,15 @@
     transition-property: background-color;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 75ms;
-    background-color: theme('colors.abru-dark.900');
+    background-color: theme('colors.abru.dark.29');
 
     &:hover {
-      background-color: theme('colors.abru.700');
+      background-color: theme('colors.abru.light.5');
     }
   }
 
   .divider {
-    background-color: theme('colors.abru.700');
+    background-color: theme('colors.abru.light.5');
     height: 1px;
     width: 236px;
     align-self: center;

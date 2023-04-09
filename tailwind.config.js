@@ -1,5 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const defaultTheme = require('tailwindcss/defaultTheme');
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -11,35 +10,33 @@ export default {
       },
       colors: {
         abru: {
-          // abru/light/75%
-          100: '#C7C4C7',
-          // abru/light/70%
-          200: '#BBB8BC',
-          // abru/light/60%
-          400: '#A6A0A6',
-          // abru/light/25%
-          500: '#564D59',
-          // abru/light/35%
-          550: '#6B666E',
-          // abru/light/30%
-          600: '#605B62',
-          // abru/light/5%
-          700: '#272129',
-          // abru/dark/3%
-          800: '#221D24',
-          900: '#19161A',
-          // abru/dark/29%
-          950: '#131014',
-        },
+          DEFAULT: '#1C1320',
 
-        'abru-dark': {
-          // abru/dark/20%
-          800: '#161216',
+          light: {
+            85: '#DDDCDD',
+            75: '#C7C4C7',
+            70: '#BBB8BC',
+            60: '#A6A0A6',
+            55: '#99959B',
+            50: '#8D898F',
+            35: '#6B666E',
+            30: '#605B62',
+            25: '#564D59',
+            15: '#3E3641',
+            10: '#332B36',
+            5: '#272129',
+            3: '#221D24',
+          },
 
-          // abru/dark/25%
-          850: '#141115',
-          // abru/dark/29%
-          900: '#131014',
+          dark: {
+            3: '#1A161B',
+            6: '#19161A',
+            10: '#181519',
+            15: '#171418',
+            20: '#161216',
+            25: '#141115',
+            29: '#131014',
+          },
         },
 
         accent: {
