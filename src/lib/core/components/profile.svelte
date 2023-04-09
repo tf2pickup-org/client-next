@@ -84,18 +84,18 @@
   {/if}
 </div>
 
-<style lang="scss">
+<style lang="postcss">
   .menu-item {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 0.5rem /* 8px */;
-    border-radius: 0.5rem /* 8px */;
     padding: 14px 24px;
+    border-radius: 0.5rem /* 8px */;
+    background-color: theme('colors.abru.dark.29');
+    gap: 0.5rem /* 8px */;
+    transition-duration: 75ms;
     transition-property: background-color;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 75ms;
-    background-color: theme('colors.abru.dark.29');
 
     &:hover {
       background-color: theme('colors.abru.light.5');
@@ -103,9 +103,9 @@
   }
 
   .divider {
-    background-color: theme('colors.abru.light.5');
-    height: 1px;
     width: 236px;
+    height: 1px;
     align-self: center;
+    background-color: theme('colors.abru.light.5');
   }
 </style>

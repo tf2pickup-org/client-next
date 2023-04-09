@@ -20,30 +20,28 @@
   {/if}
 </div>
 
-<style lang="scss">
-  @use 'sass:color';
-
+<style lang="postcss">
   .pre-ready-up-button {
-    color: theme('colors.abru.dark.3');
-    background-color: theme('colors.abru.light.85');
     position: absolute;
     right: 8px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    border-radius: 4px;
     padding: 10px 22px;
+    border-radius: 4px;
+    background-color: theme('colors.abru.light.85');
+    color: theme('colors.abru.dark.3');
     font-size: 14px;
-    line-height: 19px;
     font-weight: 700;
+    gap: 6px;
+    line-height: 19px;
     text-transform: uppercase;
-    transition-property: background-color;
     transition-duration: 75ms;
+    transition-property: background-color;
 
     &:hover {
-      background-color: color.scale(#dddcdd, $lightness: -4%);
+      /* background-color: color.scale(#dddcdd, $lightness: -4%); */
     }
   }
 </style>

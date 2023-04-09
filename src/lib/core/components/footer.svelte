@@ -16,7 +16,7 @@
   </div>
 </footer>
 
-<style lang="scss">
+<style lang="postcss">
   .link {
     &:hover {
       text-decoration: underline;

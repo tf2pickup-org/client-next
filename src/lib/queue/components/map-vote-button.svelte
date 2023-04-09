@@ -36,7 +36,7 @@
   {/if}
 </button>
 
-<style lang="scss">
+<style lang="postcss">
   .map-vote-button {
     background: theme('colors.abru.light.25');
     background: linear-gradient(

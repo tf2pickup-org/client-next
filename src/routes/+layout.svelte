@@ -15,7 +15,7 @@
     substituteRequestsUpdated,
   } from '$lib/queue/queue.events';
   import { queue } from '$lib/queue/queue.store';
-  import '../app.scss';
+  import '../app.css';
   import type { LayoutData } from './$types';
   import { Subject } from 'rxjs';
   import { takeUntil } from 'rxjs/operators';
