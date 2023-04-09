@@ -13,6 +13,7 @@
 
   let menuOpen = false;
 
+  // profile menu animation
   const growDown = (node: Element, { duration }: FadeParams): TransitionConfig => {
     const opacity = +getComputedStyle(node).opacity;
 
@@ -62,32 +63,49 @@
 
   {#if menuOpen}
     <div
-      class="bg-abru-dark-900 absolute mt-2 w-[300px] origin-top rounded-[10px] px-4 py-5 drop-shadow-xl"
+      class="bg-abru-dark-900 absolute mt-2 w-[300px] origin-top rounded-[10px] p-2 drop-shadow-xl"
       in:growDown={{ duration: 150 }}
       out:fade={{ duration: 100 }}
     >
-      <div class="text-abru-100 flex flex-col gap-[10px]">
-        <a
-          href="/players/{profile.player.steamId}"
-          class="hover:bg-abru-dark-800 flex flex-row items-center gap-2 rounded-lg px-4 py-2"
-        >
+      <div class="text-abru-100 flex flex-col gap-1">
+        <a href="/players/{profile.player.steamId}" class="menu-item">
           <IconUserCircle /><span>My profile</span>
         </a>
-        <div class="bg-abru-700 h-px w-full" />
-        <a
-          href="/settings"
-          class="hover:bg-abru-dark-800 flex flex-row items-center gap-2 rounded-lg px-4 py-2"
-        >
+        <div class="divider" />
+        <a href="/settings" class="menu-item">
           <IconSettings /><span>Settings</span>
         </a>
-        <div class="bg-abru-700 h-px w-full" />
-        <a
-          href="/auth/sign-out"
-          class="text-accent-600 hover:bg-abru-dark-800 flex flex-row items-center gap-2 rounded-lg px-4 py-2"
-        >
+        <div class="divider" />
+        <a href="/auth/sign-out" class="menu-item text-accent-600">
           <IconLogout /><span>Sign out</span>
         </a>
       </div>
     </div>
   {/if}
 </div>
+
+<style lang="scss">
+  .menu-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem /* 8px */;
+    border-radius: 0.5rem /* 8px */;
+    padding: 14px 24px;
+    transition-property: background-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 75ms;
+    background-color: theme('colors.abru-dark.900');
+
+    &:hover {
+      background-color: theme('colors.abru.700');
+    }
+  }
+
+  .divider {
+    background-color: theme('colors.abru.700');
+    height: 1px;
+    width: 236px;
+    align-self: center;
+  }
+</style>
