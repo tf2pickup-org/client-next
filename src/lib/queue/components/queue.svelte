@@ -5,5 +5,5 @@
 
 <div class="flex flex-col gap-8">
   <QueueState />
-  <QueueSlotList on:joinQueue on:leaveQueue />
+  <QueueSlotList on:joinQueue on:leaveQueue on:markAsFriend />
 </div>

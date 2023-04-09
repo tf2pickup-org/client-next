@@ -13,10 +13,14 @@ export default {
         abru: {
           // abru/light/75%
           100: '#C7C4C7',
+          // abru/light/70%
+          200: '#BBB8BC',
           // abru/light/60%
           400: '#A6A0A6',
           // abru/light/25%
           500: '#564D59',
+          // abru/light/35%
+          550: '#6B666E',
           // abru/light/30%
           600: '#605B62',
           // abru/light/5%

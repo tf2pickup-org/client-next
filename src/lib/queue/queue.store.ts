@@ -26,3 +26,5 @@ export const mySlot = derived(
 );
 
 export const isInQueue = derived(mySlot, $mySlot => Boolean($mySlot));
+
+export const friendships = derived(queue, $queue => $queue?.friendships);

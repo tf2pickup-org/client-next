@@ -13,7 +13,7 @@
       </div>
 
       {#each $queueSlots.filter(s => s.gameClass === gameClass) as queueSlot}
-        <QueueSlot {queueSlot} on:joinQueue on:leaveQueue />
+        <QueueSlot {queueSlot} on:joinQueue on:leaveQueue on:markAsFriend />
       {/each}
     </div>
   {/each}
