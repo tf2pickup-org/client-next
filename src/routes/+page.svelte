@@ -1,10 +1,10 @@
 <script lang="ts">
   import { websiteName } from '$environment';
   import Alerts from '$lib/core/components/alerts.svelte';
-  import RequestNotificationPermissions from '$lib/core/components/request-notification-permissions.svelte';
   import OnlinePlayerList from '$lib/players/components/online-player-list.svelte';
   import { joinQueue } from '$lib/queue/api/join-queue';
   import { leaveQueue } from '$lib/queue/api/leave-queue';
+  import { markAsFriend } from '$lib/queue/api/mark-as-friend';
   import { voteForMap } from '$lib/queue/api/vote-for-map';
   import MapVote from '$lib/queue/components/map-vote.svelte';
   import Queue from '$lib/queue/components/queue.svelte';
@@ -25,6 +25,7 @@
       <Queue
         on:joinQueue={event => joinQueue(event.detail.slotId)}
         on:leaveQueue={() => leaveQueue()}
+        on:markAsFriend={event => markAsFriend(event.detail.friendPlayerId)}
       />
     {/if}
   </div>
