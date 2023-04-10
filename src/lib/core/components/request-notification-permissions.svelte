@@ -7,14 +7,15 @@
 </script>
 
 {#if permission === 'default'}
-  <div class="bg-alert text-abru-dark-3 flex flex-row items-center rounded-lg px-3 py-2">
+  <div
+    class="bg-alert text-abru-dark-3 flex flex-col items-center rounded-lg px-3 py-2 md:flex-row"
+  >
     <span class="flex-1 text-lg font-medium"
       >To be notified when a game is about to start, we need your permission to show browser
       notifications.</span
     >
-    <button
-      class="bg-abru text-alert hover:bg-abru-light-10 rounded px-7 py-[5px] text-base font-bold uppercase"
-      on:click={requestPermission}>Allow notifications</button
+    <button class="allow-notifications-button" on:click={requestPermission}
+      >Allow notifications</button
     >
   </div>
 {:else if permission === 'denied'}
@@ -25,3 +26,23 @@
     >
   </div>
 {/if}
+
+<style lang="postcss">
+  .allow-notifications-button {
+    @apply transition-colors;
+    @apply duration-75;
+
+    background-color: theme('colors.abru.DEFAULT');
+    color: theme('colors.alert');
+    border-radius: 4px;
+    padding: 5px 28px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: lighten(theme('colors.abru.DEFAULT'), 4%);
+    }
+  }
+</style>
