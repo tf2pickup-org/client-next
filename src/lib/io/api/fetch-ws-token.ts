@@ -2,7 +2,7 @@ import { apiUrl } from '$environment';
 import { error } from '@sveltejs/kit';
 
 export const fetchWsToken = async (fetchF: typeof fetch = fetch): Promise<string | undefined> => {
-  const res = await fetchF(`${apiUrl}/auth/wstoken`);
+  const res = await fetchF(`${apiUrl}/auth/wstoken`, { credentials: 'include' });
   if (res.ok) {
     const { wsToken } = await res.json();
     return wsToken;
