@@ -33,10 +33,7 @@
 <svelte:body on:click={() => (menuOpen = false)} />
 
 <div class="relative">
-  <button
-    class="bg-abru-dark-29 text-abru-light-75 hover:bg-abru-dark-20 active:bg-abru-950 group flex w-[300px] flex-row items-center justify-start gap-2 text-ellipsis rounded-[10px] p-[11px] text-left transition-colors duration-75"
-    on:click|stopPropagation={() => (menuOpen = !menuOpen)}
-  >
+  <button class="profile-button" on:click|stopPropagation={() => (menuOpen = !menuOpen)}>
     <img
       src={profile.player.avatar.medium}
       width="64"
@@ -85,7 +82,36 @@
 </div>
 
 <style lang="postcss">
+  .profile-button {
+    @apply transition-colors;
+    @apply duration-75;
+
+    background-color: theme('colors.abru.dark.29');
+    color: theme('colors.abru.light.75');
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    align-items: center;
+    justify-content: start;
+    gap: 8px;
+    text-overflow: ellipsis;
+    border-radius: 10px;
+    padding: 11px;
+    text-align: left;
+
+    &:hover {
+      background-color: lighten(theme('colors.abru.dark.29'), 4%);
+    }
+
+    &:active {
+      background-color: theme('colors.abru.dark.29');
+    }
+  }
+
   .menu-item {
+    @apply transition-colors;
+    @apply duration-75;
+
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -93,12 +119,9 @@
     border-radius: 0.5rem /* 8px */;
     background-color: theme('colors.abru.dark.29');
     gap: 0.5rem /* 8px */;
-    transition-duration: 75ms;
-    transition-property: background-color;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-      background-color: theme('colors.abru.light.5');
+      background-color: lighten(theme('colors.abru.dark.29'), 4%);
     }
   }
 

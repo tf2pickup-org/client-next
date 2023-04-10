@@ -1272,6 +1272,8 @@ __metadata:
     eslint-plugin-svelte3: ^4.0.0
     jwt-decode: 3.1.2
     postcss: 8.4.21
+    postcss-import: 15.1.0
+    postcss-lighten-darken: 0.9.0
     prettier: ^2.8.0
     prettier-plugin-svelte: ^2.8.1
     prettier-plugin-tailwindcss: 0.2.6
@@ -2720,6 +2722,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"loglevel@npm:^1.8.0":
+  version: 1.8.1
+  resolution: "loglevel@npm:1.8.1"
+  checksum: a1a62db40291aaeaef2f612334c49e531bff71cc1d01a2acab689ab80d59e092f852ab164a5aedc1a752fdc46b7b162cb097d8a9eb2cf0b299511106c29af61d
+  languageName: node
+  linkType: hard
+
 "loupe@npm:^2.3.1":
   version: 2.3.6
   resolution: "loupe@npm:2.3.6"
@@ -3359,6 +3368,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss-import@npm:15.1.0":
+  version: 15.1.0
+  resolution: "postcss-import@npm:15.1.0"
+  dependencies:
+    postcss-value-parser: ^4.0.0
+    read-cache: ^1.0.0
+    resolve: ^1.1.7
+  peerDependencies:
+    postcss: ^8.0.0
+  checksum: 7bd04bd8f0235429009d0022cbf00faebc885de1d017f6d12ccb1b021265882efc9302006ba700af6cab24c46bfa2f3bc590be3f9aee89d064944f171b04e2a3
+  languageName: node
+  linkType: hard
+
 "postcss-import@npm:^14.1.0":
   version: 14.1.0
   resolution: "postcss-import@npm:14.1.0"
@@ -3380,6 +3402,18 @@ __metadata:
   peerDependencies:
     postcss: ^8.4.21
   checksum: 5c1e83efeabeb5a42676193f4357aa9c88f4dc1b3c4a0332c132fe88932b33ea58848186db117cf473049fc233a980356f67db490bd0a7832ccba9d0b3fd3491
+  languageName: node
+  linkType: hard
+
+"postcss-lighten-darken@npm:0.9.0":
+  version: 0.9.0
+  resolution: "postcss-lighten-darken@npm:0.9.0"
+  dependencies:
+    loglevel: ^1.8.0
+    postcss-value-parser: ^4.2.0
+  peerDependencies:
+    postcss: ^8.3.0
+  checksum: 0cb765a287b46a6cd0d171aceb2a14a9eac981dc895600a93c67492a0904888edb5b715ee6a3123ecb61377334143bc7f18dff47430fee5a64a80ed6e4620807
   languageName: node
   linkType: hard
 

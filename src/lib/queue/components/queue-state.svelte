@@ -41,7 +41,7 @@
     transition-property: background-color;
 
     &:hover {
-      /* background-color: color.scale(#dddcdd, $lightness: -4%); */
+      background-color: darken(theme('colors.abru.light.85'), 4%);
     }
   }
 </style>
