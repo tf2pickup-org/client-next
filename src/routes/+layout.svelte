@@ -15,6 +15,8 @@
     substituteRequestsUpdated,
   } from '$lib/queue/queue.events';
   import { queue } from '$lib/queue/queue.store';
+  import { streamsUpdated } from '$lib/streams/streams.events';
+  import { streams } from '$lib/streams/streams.store';
   import '../app.css';
   import type { LayoutData } from './$types';
   import { Subject } from 'rxjs';
@@ -31,6 +33,7 @@
     onlinePlayers.set(
       new Map<string, Player>(data.onlinePlayers.map(player => [player.steamId, player])),
     );
+    streams.set(data.streams);
   }
 
   onMount(() => {
@@ -82,6 +85,8 @@
         return value;
       }),
     );
+
+    streamsUpdated.pipe(takeUntil(destroyed)).subscribe(value => streams.set(value));
 
     socket.connect();
   });

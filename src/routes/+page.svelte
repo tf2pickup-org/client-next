@@ -9,6 +9,7 @@
   import MapVote from '$lib/queue/components/map-vote.svelte';
   import Queue from '$lib/queue/components/queue.svelte';
   import { queue, currentPlayerCount, requiredPlayerCount } from '$lib/queue/queue.store';
+  import StreamList from '$lib/streams/components/stream-list.svelte';
 </script>
 
 <svelte:head>
@@ -38,5 +39,9 @@
 
   <div class="order-last lg:order-3 lg:row-span-2">
     <OnlinePlayerList />
+  </div>
+
+  <div class="order-5 lg:col-span-4">
+    <StreamList />
   </div>
 </div>
