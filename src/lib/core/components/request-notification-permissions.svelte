@@ -19,7 +19,7 @@
     >
   </div>
 {:else if permission === 'denied'}
-  <div class="bg-accent-600 text-abru-dark-3 rounded px-3 py-2 text-lg font-medium">
+  <div class="bg-accent-600 text-abru-dark-3 rounded-lg px-3 py-2 text-lg font-medium">
     <span
       >You have disabled browser notifications. You will not be warned when a game is about to
       start.</span
