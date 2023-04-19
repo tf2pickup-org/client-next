@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { apiUrl } from '$environment';
   import logo from '$lib/assets/logo.png';
   import signInThroughSteam from '$lib/assets/signinthroughsteam.png';
   import { profile } from '$lib/profile/profile.store';
@@ -50,7 +49,7 @@
       <div class="w-2" />
 
       {#if $profile}
-        <Profile profile={$profile} />
+        <Profile {...$profile.player} />
       {:else}
         <a href="/auth/steam">
           <img alt="Sign in through Steam" src={signInThroughSteam} />

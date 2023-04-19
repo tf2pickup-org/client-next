@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Profile } from '$lib/profile/types/profile';
+  import type { PlayerAvatar } from '$lib/players/types/player-avatar';
   import {
     IconSettings,
     IconUserCircle,
@@ -9,7 +9,9 @@
   import { sineInOut } from 'svelte/easing';
   import { fade, type FadeParams, type TransitionConfig } from 'svelte/transition';
 
-  export let profile: Profile;
+  export let steamId: string;
+  export let name: string;
+  export let avatar: PlayerAvatar;
 
   let menuOpen = false;
 
@@ -35,12 +37,12 @@
 <div class="relative">
   <button class="profile-button" on:click|stopPropagation={() => (menuOpen = !menuOpen)}>
     <img
-      src={profile.player.avatar.medium}
+      src={avatar.medium}
       width="64"
       class="h-[42px] w-[42px] rounded-[3px]"
-      alt="{profile.player.name}'s avatar"
+      alt="{name}'s avatar"
     />
-    <span class="grow text-2xl">{profile.player.name}</span>
+    <span class="grow text-2xl">{name}</span>
     <div
       class="relative rotate-0 transition-transform duration-100 group-hover:rotate-45"
       class:rotate-45={menuOpen}
@@ -65,7 +67,7 @@
       out:fade={{ duration: 100 }}
     >
       <div class="text-abru-light-75 flex flex-col gap-1">
-        <a href="/players/{profile.player.steamId}" class="menu-item">
+        <a href="/players/{steamId}" class="menu-item">
           <IconUserCircle /><span>My profile</span>
         </a>
         <div class="divider" />
@@ -92,7 +94,7 @@
     flex-direction: row;
     width: 300px;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     gap: 8px;
     text-overflow: ellipsis;
     border-radius: 10px;
