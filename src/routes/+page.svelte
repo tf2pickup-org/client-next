@@ -16,7 +16,7 @@
   <title>[{$currentPlayerCount}/{$requiredPlayerCount}] {websiteName}</title>
 </svelte:head>
 
-<div class="container mx-auto my-4 grid gap-x-4 gap-y-8 lg:grid-cols-4">
+<div class="container mx-auto my-4 grid gap-x-4 gap-y-8 p-2 lg:grid-cols-4 lg:p-0">
   <div class="order-1 lg:col-span-4">
     <Alerts />
   </div>
