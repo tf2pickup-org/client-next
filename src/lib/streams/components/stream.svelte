@@ -1,26 +1,27 @@
 <script lang="ts">
-  import type { TwitchTvStream } from '../types/twitch-tv-stream';
   import { IconEye } from '@tabler/icons-svelte';
 
-  export let stream: TwitchTvStream;
+  export let userName: string;
+  export let viewerCount: number;
+  export let thumbnailUrl: string;
 
-  let thumbnailUrl: string;
+  let thumbnail: string;
 
-  $: thumbnailUrl = stream.thumbnailUrl.replace('{width}', '177').replace('{height}', '100');
+  $: thumbnail = thumbnailUrl.replace('{width}', '177').replace('{height}', '100');
 </script>
 
 <a
   class="stream-link flex flex-row gap-6 rounded-lg p-2.5"
-  href={'https://www.twitch.tv/' + stream.userName}
+  href={'https://www.twitch.tv/' + userName}
   target="_blank"
   rel="noreferrer"
 >
-  <img src={thumbnailUrl} alt="stream thumbnail" class="rounded-sm" width="177" height="100" />
+  <img src={thumbnail} alt="stream thumbnail" class="rounded-sm" width="177" height="100" />
   <div class="text-abru-light-75 flex flex-col justify-center font-medium">
-    <span class="text-lg">{stream.userName}</span>
+    <span class="text-lg">{userName}</span>
     <span class="flex flex-row items-end gap-1.5 text-sm">
       <IconEye size={18} />
-      {stream.viewerCount}
+      {viewerCount}
     </span>
   </div>
 </a>

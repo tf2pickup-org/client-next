@@ -7,7 +7,7 @@
   <div class="grid grid-cols-4 gap-4">
     <span class="col-span-4 text-[32px] font-bold text-white">Now streaming</span>
     {#each $streams as stream}
-      <Stream {stream} />
+      <Stream {...stream} />
     {/each}
   </div>
 {/if}
