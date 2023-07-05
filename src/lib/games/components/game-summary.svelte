@@ -25,12 +25,14 @@
       <MapThumbnail {map} />
     </div>
 
-    <div
-      class="bg-abru text-accent-600 absolute left-[10px] top-[10px] flex flex-row items-center gap-[3px] rounded px-[8px] py-[6px] text-base font-bold leading-4 shadow"
-    >
-      <GameLiveIndicator />
-      <span class="uppercase">live</span>
-    </div>
+    {#if isRunning}
+      <div
+        class="bg-abru text-accent-600 absolute left-[10px] top-[10px] flex flex-row items-center gap-[3px] rounded px-[8px] py-[6px] text-base font-bold leading-4 shadow"
+      >
+        <GameLiveIndicator />
+        <span class="uppercase">live</span>
+      </div>
+    {/if}
 
     <span class="text-2xl font-medium">Game #{gameNo}</span>
   </div>
