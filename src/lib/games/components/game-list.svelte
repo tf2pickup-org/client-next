@@ -3,7 +3,6 @@
   import type { Game } from '../types/game';
 
   export let games: PaginatedList<Game>;
-  export let currentPage: number = 1;
 </script>
 
 <ol>
