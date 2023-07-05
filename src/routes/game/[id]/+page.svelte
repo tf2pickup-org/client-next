@@ -12,6 +12,7 @@
   let game: Game = data.game;
   let gameSlotsBlu: GameSlot[];
   let gameSlotsRed: GameSlot[];
+  let isRunning: boolean;
 
   const slotsForTeam = (slots: GameSlot[], team: Tf2Team) =>
     slots
@@ -22,6 +23,7 @@
   $: {
     gameSlotsBlu = slotsForTeam(game.slots, 'blu');
     gameSlotsRed = slotsForTeam(game.slots, 'red');
+    isRunning = ['created', 'configuring', 'launching', 'started'].includes(game.state);
   }
 </script>
 
@@ -33,6 +35,7 @@
   <div class="order-first col-span-2">
     <GameSummary
       gameNo={game.number}
+      {isRunning}
       map={game.map}
       launchedAt={game.launchedAt}
       server={game.gameServer?.name}

@@ -1,9 +1,11 @@
 <script lang="ts">
+  import GameLiveIndicator from '$lib/shared/components/game-live-indicator.svelte';
   import MapThumbnail from '$lib/shared/components/map-thumbnail.svelte';
-  import { IconDeviceDesktopAnalytics, IconMovie } from '@tabler/icons-svelte';
+  import { IconDeviceDesktopAnalytics, IconMovie, IconLivePhoto } from '@tabler/icons-svelte';
   import { format } from 'date-fns';
 
   export let gameNo: number;
+  export let isRunning: boolean = false;
   export let map: string;
   export let launchedAt: Date;
   export let server: string | undefined;
@@ -18,15 +20,22 @@
 </script>
 
 <div class="text-abru-light-75 flex h-full flex-col overflow-hidden rounded-lg">
-  <div class="summary-caption relative flex flex-1 flex-col justify-end px-3">
+  <div class="summary-caption relative flex flex-1 flex-col justify-end px-[10px]">
     <div class="absolute bottom-0 left-0 right-0 top-0 -z-10">
       <MapThumbnail {map} />
     </div>
 
+    <div
+      class="bg-abru text-accent-600 absolute left-[10px] top-[10px] flex flex-row items-center gap-[3px] rounded px-[8px] py-[6px] text-base font-bold leading-4 shadow"
+    >
+      <GameLiveIndicator />
+      <span class="uppercase">live</span>
+    </div>
+
     <span class="text-2xl font-medium">Game #{gameNo}</span>
   </div>
-  <div class="bg-abru-dark-29 flex flex-col gap-3 p-3">
-    <div class="flex flex-col">
+  <div class="bg-abru-dark-29 flex flex-col gap-[8px] p-[10px]">
+    <div class="flex flex-col gap-[2px]">
       <span class="text-abru-light-75 font-light">map</span>
       <span class="text-abru-light-75 font-medium">{map}</span>
     </div>
@@ -41,7 +50,7 @@
       <span class="text-abru-light-75 font-medium">{launchedAtText}</span>
     </div>
 
-    <div class="h-3" />
+    <div class="h-[45px]" />
 
     {#if logsUrl}
       <a
