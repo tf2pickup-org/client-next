@@ -9,7 +9,7 @@
 <ol>
   {#each games.results as game (game.id)}
     <li class="text-white">
-      <a href="/game/{game.number}">
+      <a href="/games/{game.number}">
         #{game.number}
       </a>
     </li>
