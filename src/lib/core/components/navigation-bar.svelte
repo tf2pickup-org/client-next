@@ -1,10 +1,15 @@
 <script lang="ts">
+  import { page } from '$app/stores';
   import logo from '$lib/assets/logo.png';
   import signInThroughSteam from '$lib/assets/signinthroughsteam.png';
   import { profile } from '$lib/profile/profile.store';
   import Link from './link.svelte';
   import Profile from './profile.svelte';
   import { IconBrandDiscord, IconHeart, IconCrown, IconChartPieFilled } from '@tabler/icons-svelte';
+
+  let path: string;
+
+  $: path = $page.url.pathname;
 </script>
 
 <nav class="flex h-[95px] flex-row">
@@ -14,16 +19,16 @@
     </a>
 
     <div class="hidden flex-row items-center gap-5 text-lg font-medium lg:flex">
-      <Link href="/games">Games</Link>
-      <Link href="/players">Players</Link>
-      <Link href="/rules">Rules</Link>
+      <Link href="/games" active={path === '/games'}>Games</Link>
+      <Link href="/players" active={path === '/players'}>Players</Link>
+      <Link href="/rules" active={path === '/rules'}>Rules</Link>
 
-      <Link href="/hall-of-fame">
+      <Link href="/hall-of-fame" active={path === '/hall-of-fame'}>
         <IconCrown size={24} />
         HOF
       </Link>
 
-      <Link href="/stats">
+      <Link href="/stats" active={path === '/stats'}>
         <IconChartPieFilled size={24} />
         Stats
       </Link>
