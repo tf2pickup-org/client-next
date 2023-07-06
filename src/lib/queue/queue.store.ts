@@ -4,6 +4,7 @@ import { derived, writable } from 'svelte/store';
 
 export const queue = writable<Queue>();
 
+export const queueState = derived(queue, $queue => $queue?.state);
 export const queueConfig = derived(queue, $queue => $queue?.config);
 export const queueSlots = derived(queue, $queue => $queue?.slots);
 

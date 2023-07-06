@@ -41,7 +41,7 @@ export default {
 
         accent: {
           // main-accent/dark/25%
-          600: '#B80C4D',
+          600: '#F61059',
 
           // main-accent/light/25%
           400: '#F84C82',

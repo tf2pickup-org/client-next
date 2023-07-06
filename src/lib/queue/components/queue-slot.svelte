@@ -4,11 +4,15 @@
   import { currentPlayer } from '$lib/profile/profile.store';
   import type { Tf2ClassName } from '$lib/shared/tf2-class-name';
   import { friendships, mySlot } from '../queue.store';
+  import LeaveQueueButton from './leave-queue-button.svelte';
+  import { MarkAsFriendButtonState } from './mark-as-friend-button-state';
+  import MarkAsFriendButton from './mark-as-friend-button.svelte';
   import { IconPlus, IconMinus, IconHeart, IconHeartFilled } from '@tabler/icons-svelte';
   import { createEventDispatcher } from 'svelte';
   import { fade } from 'svelte/transition';
 
   export let id: number;
+  export let ready: boolean;
   export let gameClass: Tf2ClassName;
   export let player: Player | undefined = undefined;
 
@@ -38,9 +42,9 @@
 >
   {#if player}
     <div
-      class="flex flex-1 flex-row items-center justify-center p-2 {isMySlot
-        ? 'bg-abru-light-75'
-        : 'bg-abru-light-60'}"
+      class="taken flex flex-1 flex-row items-center justify-center p-2"
+      class:my-slot={isMySlot}
+      class:ready
       in:fade={{ duration: 75 }}
     >
       <img
@@ -55,30 +59,20 @@
         href="/player/{player.steamId}">{player.name}</a
       >
       <div class="w-[42px] px-1">
-        {#if isMySlot}
-          <button
-            class="bg-abru-light-30 hover:bg-abru-light-35 flex h-[34px] w-[34px] items-center justify-center rounded text-white"
-            on:click={() => dispatch('leaveQueue', { slotId: id })}
-          >
-            <IconMinus />
-          </button>
+        {#if isMySlot && !ready}
+          <LeaveQueueButton on:click={() => dispatch('leaveQueue', { slotId: id })} />
         {:else if canBefriend}
-          <button
-            class="bg-abru-light-75 flex h-[34px] w-[34px] items-center justify-center rounded {markedAsFriendByMe
-              ? 'text-accent-600'
-              : 'text-abru-950'} disabled:text-abru-light-60 hover:bg-abru-light-70 transition-colors duration-75"
-            disabled={markedAsFriend && !markedAsFriendByMe}
+          <MarkAsFriendButton
+            state={markedAsFriend
+              ? markedAsFriendByMe
+                ? MarkAsFriendButtonState.selected
+                : MarkAsFriendButtonState.disabled
+              : MarkAsFriendButtonState.enabled}
             on:click={() =>
               dispatch('markAsFriend', {
                 friendPlayerId: markedAsFriendByMe ? null : player?.id,
               })}
-          >
-            {#if markedAsFriendByMe}
-              <IconHeartFilled />
-            {:else}
-              <IconHeart />
-            {/if}
-          </button>
+          />
         {/if}
       </div>
     </div>
@@ -91,3 +85,17 @@
     </button>
   {/if}
 </div>
+
+<style lang="postcss">
+  .taken {
+    background-color: theme('colors.abru.light.75');
+
+    &.my-slot {
+      background-color: theme('colors.abru.light.60');
+    }
+
+    &.ready {
+      background-color: #0a955b;
+    }
+  }
+</style>

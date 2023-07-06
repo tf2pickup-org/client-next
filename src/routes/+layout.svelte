@@ -7,6 +7,7 @@
   import { playerConnected, playerDisconnected } from '$lib/players/players.events';
   import type { Player } from '$lib/players/types/player';
   import { profile } from '$lib/profile/profile.store';
+  import ReadyUpDialog from '$lib/queue/components/ready-up-dialog.svelte';
   import {
     friendshipsUpdated,
     mapVoteResultsUpdated,
@@ -14,7 +15,8 @@
     queueStateUpdated,
     substituteRequestsUpdated,
   } from '$lib/queue/queue.events';
-  import { queue } from '$lib/queue/queue.store';
+  import { mySlot, queue, queueState } from '$lib/queue/queue.store';
+  import { QueueState } from '$lib/queue/types/queue-state';
   import { streamsUpdated } from '$lib/streams/streams.events';
   import { streams } from '$lib/streams/streams.store';
   import '../app.css';
@@ -22,10 +24,15 @@
   import { Subject } from 'rxjs';
   import { takeUntil } from 'rxjs/operators';
   import { onDestroy, onMount } from 'svelte';
+  import { derived } from 'svelte/store';
 
   export let data: LayoutData;
 
   const destroyed: Subject<void> = new Subject();
+  const awaitsReadyUp = derived(
+    [queueState, mySlot],
+    ([$queueState, $mySlot]) => $queueState === QueueState.ready && $mySlot?.ready === false,
+  );
 
   $: {
     queue.set(data.queue);
@@ -109,3 +116,7 @@
   <slot />
 </div>
 <Footer />
+
+{#if $awaitsReadyUp}
+  <ReadyUpDialog />
+{/if}
