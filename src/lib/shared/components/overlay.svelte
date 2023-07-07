@@ -1,4 +1,8 @@
-<div class="overlay">
+<script>
+  import { fade } from 'svelte/transition';
+</script>
+
+<div class="overlay" in:fade={{ duration: 100 }}>
   <slot />
 </div>
 

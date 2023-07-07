@@ -1,7 +1,7 @@
 <script lang="ts">
   import { IconCopy } from '@tabler/icons-svelte';
 
-  export let connectString: string;
+  export let connectString: string | undefined;
 </script>
 
 <div
@@ -10,13 +10,16 @@
   <input
     type="text"
     class="bg-abru-light-5 text-abru-light-75 fade block flex-1 text-base focus:outline-none"
-    value={connectString}
+    class:italic={!connectString}
+    value={connectString ?? 'configuring server...'}
     readonly
   />
 
-  <button>
-    <IconCopy size={24} />
-  </button>
+  {#if connectString}
+    <button>
+      <IconCopy size={24} />
+    </button>
+  {/if}
 </div>
 
 <style lang="postcss">

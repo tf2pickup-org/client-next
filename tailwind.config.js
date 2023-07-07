@@ -40,6 +40,9 @@ export default {
         },
 
         accent: {
+          DEFAULT: '#F61059',
+          hover: '#dd0e50',
+
           // main-accent/dark/25%
           600: '#F61059',
 

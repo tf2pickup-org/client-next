@@ -1,18 +1,35 @@
 <script lang="ts">
   import { connectStringToLink } from '$lib/shared/connect-string-to-link';
-  import { IconPlayerPlayFilled } from '@tabler/icons-svelte';
+  import { IconLoader3, IconPlayerPlayFilled } from '@tabler/icons-svelte';
 
-  export let connectString: string;
+  export let connectString: string | undefined;
 
   let href: string | undefined;
 
-  $: href = connectStringToLink(connectString);
+  $: href = connectString ? connectStringToLink(connectString) : undefined;
 </script>
 
 <a
   {href}
-  class="bg-accent-600 flex flex-row items-center justify-center gap-2 rounded p-3 text-lg font-bold uppercase leading-none text-gray-100"
+  class="join-game-button flex flex-row items-center justify-center gap-2 rounded p-[14px] text-lg font-bold uppercase leading-none text-gray-100"
 >
-  <IconPlayerPlayFilled size={24} />
-  join game
+  {#if connectString}
+    <IconPlayerPlayFilled size={16} />
+    join game
+  {:else}
+    <IconLoader3 size={16} class="animate-spin" />
+  {/if}
 </a>
+
+<style lang="postcss">
+  .join-game-button {
+    @apply transition-colors;
+    @apply duration-100;
+
+    background-color: theme('colors.accent.DEFAULT');
+
+    &:hover {
+      background-color: theme('colors.accent.hover');
+    }
+  }
+</style>

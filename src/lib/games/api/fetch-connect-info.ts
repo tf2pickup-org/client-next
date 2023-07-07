@@ -6,7 +6,7 @@ export const fetchConnectInfo = async (
   gameId: string,
   fetchF: typeof fetch = fetch,
 ): Promise<ConnectInfo> => {
-  const res = await fetchF(`${apiUrl}/games/${gameId}/connect-info`);
+  const res = await fetchF(`${apiUrl}/games/${gameId}/connect-info`, { credentials: 'include' });
   if (res.ok) {
     return await res.json();
   } else {
