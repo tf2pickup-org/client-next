@@ -8,11 +8,11 @@
   export let slots: GameSlot[] = [];
 </script>
 
-<div class="flex flex-col">
+<div class="flex flex-col gap-2">
   <div
     class:bg-team-blu={team === 'blu'}
     class:bg-team-red={team === 'red'}
-    class="flex justify-between rounded-t-lg px-6 py-4 text-5xl font-bold text-white"
+    class="flex justify-between rounded-lg px-5 py-3.5 text-5xl font-bold text-gray-100"
     class:flex-row={team === 'blu'}
     class:flex-row-reverse={team === 'red'}
   >
@@ -20,7 +20,7 @@
     <span>{score ?? ''}</span>
   </div>
 
-  <div class="bg-abru-dark-29 flex flex-col gap-3 rounded-b-lg p-2.5">
+  <div class="bg-abru-dark-29 flex flex-col gap-3 rounded-lg p-2.5">
     {#each slots as slot}
       <a
         href="/player/{slot.player.steamId}"

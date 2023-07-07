@@ -1,7 +1,9 @@
 <script lang="ts">
   import GameLiveIndicator from '$lib/shared/components/game-live-indicator.svelte';
   import MapThumbnail from '$lib/shared/components/map-thumbnail.svelte';
-  import { IconDeviceDesktopAnalytics, IconMovie, IconLivePhoto } from '@tabler/icons-svelte';
+  import ConnectString from './connect-string.svelte';
+  import JoinGameButton from './join-game-button.svelte';
+  import { IconDeviceDesktopAnalytics, IconMovie } from '@tabler/icons-svelte';
   import { format } from 'date-fns';
 
   export let gameNo: number;
@@ -11,6 +13,7 @@
   export let server: string | undefined;
   export let logsUrl: string | undefined = undefined;
   export let demoUrl: string | undefined = undefined;
+  export let connectString: string | undefined = undefined;
 
   let launchedAtText: string;
 
@@ -20,39 +23,52 @@
 </script>
 
 <div class="text-abru-light-75 flex h-full flex-col overflow-hidden rounded-lg">
-  <div class="summary-caption relative flex flex-1 flex-col justify-end px-[10px]">
+  <div class="summary-caption relative flex min-h-[200px] flex-1 flex-col justify-end px-[10px]">
     <div class="absolute bottom-0 left-0 right-0 top-0 -z-10">
       <MapThumbnail {map} />
     </div>
 
+    <div
+      class="bg-abru/90 text-abru-light-75 absolute left-[10px] top-[10px] flex flex-row items-center gap-[3px] rounded px-[8px] py-[6px] text-base font-bold leading-4 shadow"
+    >
+      <span>#{gameNo}</span>
+    </div>
+
     {#if isRunning}
       <div
-        class="bg-abru text-accent-600 absolute left-[10px] top-[10px] flex flex-row items-center gap-[3px] rounded px-[8px] py-[6px] text-base font-bold leading-4 shadow"
+        class="bg-abru text-accent-600 absolute right-[10px] top-[10px] flex flex-row items-center gap-[3px] rounded px-[8px] py-[6px] text-base font-bold leading-4 shadow"
       >
         <GameLiveIndicator />
         <span class="uppercase">live</span>
       </div>
     {/if}
 
-    <span class="text-2xl font-medium">Game #{gameNo}</span>
+    <div class="info">
+      <span class="label">map</span>
+      <span class="value">{map}</span>
+    </div>
   </div>
   <div class="bg-abru-dark-29 flex flex-col gap-[8px] p-[10px]">
-    <div class="flex flex-col gap-[2px]">
-      <span class="text-abru-light-75 font-light">map</span>
-      <span class="text-abru-light-75 font-medium">{map}</span>
+    <div class="info">
+      <span class="label">server</span>
+      <span class="value">{server}</span>
     </div>
 
-    <div class="flex flex-col">
-      <span class="text-abru-light-75 font-light">server</span>
-      <span class="text-abru-light-75 font-medium">{server}</span>
+    <div class="info">
+      <span class="label">launched</span>
+      <span class="value">{launchedAtText}</span>
     </div>
 
-    <div class="flex flex-col">
-      <span class="text-abru-light-75 font-light">launched</span>
-      <span class="text-abru-light-75 font-medium">{launchedAtText}</span>
-    </div>
+    {#if isRunning && connectString}
+      <div class="flex flex-col gap-3">
+        <ConnectString {connectString} />
+        <JoinGameButton {connectString} />
+      </div>
+    {/if}
 
-    <div class="h-[45px]" />
+    {#if logsUrl || demoUrl}
+      <div class="h-[45px]" />
+    {/if}
 
     {#if logsUrl}
       <a
@@ -78,8 +94,23 @@
   .summary-caption {
     background: linear-gradient(
       180deg,
-      theme('colors.transparent') 30%,
-      theme('colors.abru.dark.29') 100%
+      theme('colors.transparent') 25%,
+      theme('colors.abru.dark.29') 95%
     );
+  }
+
+  .info {
+    display: flex;
+    flex-flow: column nowrap;
+
+    color: theme('colors.abru.light.75');
+
+    .label {
+      font-weight: 300;
+    }
+
+    .value {
+      font-weight: 500;
+    }
   }
 </style>
