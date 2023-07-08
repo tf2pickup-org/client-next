@@ -1,7 +1,33 @@
-<script>
+<script lang="ts">
+  import { preferences } from '$lib/profile/profile.store';
   import Overlay from '$lib/shared/components/overlay.svelte';
   import { leaveQueue } from '../api/leave-queue';
   import { readyUp } from '../api/ready-up';
+  import { Howl } from 'howler';
+  import { onDestroy, onMount } from 'svelte';
+
+  let notification: Notification;
+  let sound: Howl;
+
+  onMount(() => {
+    notification = new Notification('Ready up!', {
+      body: 'A new pickup game is starting',
+      icon: '/favicon.png',
+    });
+
+    const volume = parseFloat($preferences?.['soundVolume'] ?? '1.0');
+
+    sound = new Howl({
+      src: ['webm', 'wav'].map(format => `/src/lib/assets/sounds/ready_up.${format}`),
+      autoplay: true,
+      volume,
+    });
+  });
+
+  onDestroy(() => {
+    notification.close();
+    sound.stop();
+  });
 </script>
 
 <Overlay>

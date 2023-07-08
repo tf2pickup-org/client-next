@@ -6,6 +6,7 @@
   import { onlinePlayers } from '$lib/players/online-players.store';
   import { playerConnected, playerDisconnected } from '$lib/players/players.events';
   import type { Player } from '$lib/players/types/player';
+  import { profileUpdated } from '$lib/profile/profile.events';
   import { profile } from '$lib/profile/profile.store';
   import ReadyUpDialog from '$lib/queue/components/ready-up-dialog.svelte';
   import {
@@ -44,6 +45,12 @@
   }
 
   onMount(() => {
+    profileUpdated
+      .pipe(takeUntil(destroyed))
+      .subscribe(profileChanges =>
+        profile.update(value => (value ? { ...value, ...profileChanges } : undefined)),
+      );
+
     queueStateUpdated.pipe(takeUntil(destroyed)).subscribe(state =>
       queue.update(value => {
         value.state = state;

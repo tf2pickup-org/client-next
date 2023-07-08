@@ -11,3 +11,5 @@ export const isBanned = derived(activeBans, $activeBans =>
   $activeBans ? $activeBans.length > 0 : false,
 );
 export const mapVote = derived(profile, $profile => $profile?.mapVote);
+export const activeGameId = derived(profile, $profile => $profile?.activeGameId);
+export const preferences = derived(profile, $profile => $profile?.preferences);
