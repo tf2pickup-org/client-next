@@ -3,11 +3,14 @@
   import Footer from '$lib/core/components/footer.svelte';
   import NavigationBar from '$lib/core/components/navigation-bar.svelte';
   import { socket } from '$lib/io/socket';
+  import { fetchOnlinePlayers } from '$lib/players/api/fetch-online-players';
   import { onlinePlayers } from '$lib/players/online-players.store';
   import { playerConnected, playerDisconnected } from '$lib/players/players.events';
   import type { Player } from '$lib/players/types/player';
+  import { fetchProfile } from '$lib/profile/api/fetch-profile';
   import { profileUpdated } from '$lib/profile/profile.events';
   import { profile } from '$lib/profile/profile.store';
+  import { fetchQueue } from '$lib/queue/api/fetch-queue';
   import ReadyUpDialog from '$lib/queue/components/ready-up-dialog.svelte';
   import {
     friendshipsUpdated,
@@ -18,6 +21,7 @@
   } from '$lib/queue/queue.events';
   import { mySlot, queue, queueState } from '$lib/queue/queue.store';
   import { QueueState } from '$lib/queue/types/queue-state';
+  import { fetchStreams } from '$lib/streams/api/fetch-streams';
   import { streamsUpdated } from '$lib/streams/streams.events';
   import { streams } from '$lib/streams/streams.store';
   import '../app.css';
@@ -103,6 +107,16 @@
 
     streamsUpdated.pipe(takeUntil(destroyed)).subscribe(value => streams.set(value));
 
+    socket.on('connect', async () => {
+      queue.set(await fetchQueue());
+      profile.set(await fetchProfile());
+
+      const _onlinePlayers = await fetchOnlinePlayers();
+      onlinePlayers.set(
+        new Map<string, Player>(_onlinePlayers.map(player => [player.steamId, player])),
+      );
+      streams.set(await fetchStreams());
+    });
     socket.connect();
   });
 

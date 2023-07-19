@@ -2,8 +2,8 @@ import { apiUrl } from '$environment';
 import type { Profile } from '../types/profile';
 import { error } from '@sveltejs/kit';
 
-export const fetchProfile = async (fetchF: typeof fetch): Promise<Profile | undefined> => {
-  const res = await fetchF(`${apiUrl}/profile`);
+export const fetchProfile = async (fetchF: typeof fetch = fetch): Promise<Profile | undefined> => {
+  const res = await fetchF(`${apiUrl}/profile`, { credentials: 'include' });
   if (res.ok) {
     return await res.json();
   }
