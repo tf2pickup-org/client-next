@@ -18,7 +18,7 @@
     const volume = parseFloat($preferences?.['soundVolume'] ?? '1.0');
 
     sound = new Howl({
-      src: ['webm', 'wav'].map(format => `/src/lib/assets/sounds/ready_up.${format}`),
+      src: ['webm', 'wav'].map(format => `/sounds/ready_up.${format}`),
       autoplay: true,
       volume,
     });

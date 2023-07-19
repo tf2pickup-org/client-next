@@ -25,6 +25,7 @@
   import { Subject } from 'rxjs';
   import { takeUntil } from 'rxjs/operators';
   import { onDestroy, onMount } from 'svelte';
+  import { MetaTags } from 'svelte-meta-tags';
   import { derived } from 'svelte/store';
 
   export let data: LayoutData;
@@ -111,12 +112,26 @@
   });
 </script>
 
-<svelte:head>
-  <meta property="og:title" content={websiteName} />
-  <meta property="og:type" content="games.other" />
-  <meta property="og:url" content="https://tf2pickup.pl/" />
-  <meta property="og:image" content="https://tf2pickup.pl/assets/favicon.png" />
-</svelte:head>
+<MetaTags
+  title={websiteName}
+  description="Polish TF2 6v6 pick-up games"
+  canonical="https://tf2pickup.pl/"
+  openGraph={{
+    url: 'https://tf2pickup.pl/',
+    title: websiteName,
+    description: 'Polish TF2 6v6 pick-up games',
+    images: [
+      {
+        url: 'https://tf2pickup.pl/assets/favicon.png',
+        width: 256,
+        height: 256,
+        alt: `${websiteName} icon`,
+      },
+    ],
+    site_name: 'SiteName',
+    type: 'games.other',
+  }}
+/>
 
 <NavigationBar />
 <div class="flex-1">
