@@ -1,4 +1,5 @@
 <script lang="ts">
+  import PageTransition from '$lib/core/components/page-transition.svelte';
   import { fetchConnectInfo } from '$lib/games/api/fetch-connect-info';
   import GameSummary from '$lib/games/components/game-summary.svelte';
   import TeamPlayerList from '$lib/games/components/team-player-list.svelte';
@@ -49,16 +50,18 @@
   <title>#{$game.number} • tf2pickup.pl</title>
 </svelte:head>
 
-<div class="container mx-auto mt-12 grid grid-cols-8 gap-x-4">
-  <div class="order-first col-span-2">
-    <GameSummary />
-  </div>
+<PageTransition>
+  <div class="container mx-auto mt-12 grid grid-cols-8 gap-x-4">
+    <div class="order-first col-span-2">
+      <GameSummary />
+    </div>
 
-  <div class="col-span-3">
-    <TeamPlayerList team="blu" />
-  </div>
+    <div class="col-span-3">
+      <TeamPlayerList team="blu" />
+    </div>
 
-  <div class="col-span-3">
-    <TeamPlayerList team="red" />
+    <div class="col-span-3">
+      <TeamPlayerList team="red" />
+    </div>
   </div>
-</div>
+</PageTransition>

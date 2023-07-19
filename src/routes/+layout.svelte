@@ -128,13 +128,13 @@
         alt: `${websiteName} icon`,
       },
     ],
-    site_name: 'SiteName',
+    site_name: websiteName,
     type: 'games.other',
   }}
 />
 
 <NavigationBar />
-<div class="flex-1">
+<div class="relative flex-1">
   <slot />
 </div>
 <Footer />
