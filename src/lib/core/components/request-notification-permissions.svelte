@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Banner, { BannerRole } from '$lib/shared/components/banner.svelte';
+
   let permission = typeof window === 'undefined' ? null : Notification.permission;
 
   const requestPermission = () => {
@@ -7,24 +9,19 @@
 </script>
 
 {#if permission === 'default'}
-  <div
-    class="bg-alert text-abru-dark-3 flex flex-col items-center rounded-lg px-3 py-2 md:flex-row"
-  >
-    <span class="flex-1 text-lg font-medium"
+  <Banner role={BannerRole.alert}>
+    <span class="flex-1"
       >To be notified when a game is about to start, we need your permission to show browser
       notifications.</span
     >
     <button class="allow-notifications-button" on:click={requestPermission}
       >Allow notifications</button
     >
-  </div>
+  </Banner>
 {:else if permission === 'denied'}
-  <div class="bg-accent-600 text-abru-dark-3 rounded-lg px-3 py-2 text-lg font-medium">
-    <span
-      >You have disabled browser notifications. You will not be warned when a game is about to
-      start.</span
-    >
-  </div>
+  <Banner role={BannerRole.warning}>
+    You have disabled browser notifications. You will not be warned when a game is about to start.
+  </Banner>
 {/if}
 
 <style lang="postcss">

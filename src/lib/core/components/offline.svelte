@@ -1,11 +1,8 @@
 <script lang="ts">
   import { ioConnected } from '$lib/io/io.store';
+  import Banner, { BannerRole } from '$lib/shared/components/banner.svelte';
 </script>
 
 {#if $ioConnected === false}
-  <div class="bg-accent-600 rounded-lg px-3 py-2">
-    <span class="text-abru-dark-3 text-lg font-medium">
-      You are disconnected from the server.
-    </span>
-  </div>
+  <Banner role={BannerRole.warning}>You are disconnected from the server.</Banner>
 {/if}
