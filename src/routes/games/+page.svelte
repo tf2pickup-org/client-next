@@ -23,7 +23,7 @@
       <GameList games={data.games} />
     {/if}
 
-    <div class="self-center">
+    <div>
       <Pagination
         currentPage={data.page}
         itemCount={data.games.itemCount}
