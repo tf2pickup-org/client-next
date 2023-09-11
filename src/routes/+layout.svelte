@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { websiteName } from '$environment';
+  import { PUBLIC_WEBSITE_NAME } from '$env/static/public';
   import Footer from '$lib/core/components/footer.svelte';
   import NavigationBar from '$lib/core/components/navigation-bar.svelte';
   import { socket } from '$lib/io/socket';
@@ -127,22 +127,22 @@
 </script>
 
 <MetaTags
-  title={websiteName}
+  title={PUBLIC_WEBSITE_NAME}
   description="Polish TF2 6v6 pick-up games"
   canonical="https://tf2pickup.pl/"
   openGraph={{
     url: 'https://tf2pickup.pl/',
-    title: websiteName,
+    title: PUBLIC_WEBSITE_NAME,
     description: 'Polish TF2 6v6 pick-up games',
     images: [
       {
         url: 'https://tf2pickup.pl/assets/favicon.png',
         width: 256,
         height: 256,
-        alt: `${websiteName} icon`,
+        alt: `${PUBLIC_WEBSITE_NAME} icon`,
       },
     ],
-    site_name: websiteName,
+    site_name: PUBLIC_WEBSITE_NAME,
     type: 'games.other',
   }}
 />

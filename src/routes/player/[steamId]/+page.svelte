@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { websiteName } from '$environment';
+  import { PUBLIC_WEBSITE_NAME } from '$env/static/public';
   import type { PageData } from './$types';
 
   export let data: PageData;
 </script>
 
 <svelte:head>
-  <title>{data.player.name} • {websiteName}</title>
+  <title>{data.player.name} • {PUBLIC_WEBSITE_NAME}</title>
 </svelte:head>

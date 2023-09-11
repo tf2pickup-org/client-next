@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { websiteName } from '$environment';
+  import { PUBLIC_WEBSITE_NAME } from '$env/static/public';
 </script>
 
 <svelte:head>
-  <title>rules • {websiteName}</title>
+  <title>rules • {PUBLIC_WEBSITE_NAME}</title>
 </svelte:head>

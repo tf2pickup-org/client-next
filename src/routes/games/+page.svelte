@@ -1,6 +1,6 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
-  import { websiteName } from '$environment';
+  import { PUBLIC_WEBSITE_NAME } from '$env/static/public';
   import PageTransition from '$lib/core/components/page-transition.svelte';
   import GameList from '$lib/games/components/game-list.svelte';
   import Pagination from '$lib/shared/components/pagination.svelte';
@@ -14,7 +14,7 @@
 </script>
 
 <svelte:head>
-  <title>games • {websiteName}</title>
+  <title>games • {PUBLIC_WEBSITE_NAME}</title>
 </svelte:head>
 
 <PageTransition>

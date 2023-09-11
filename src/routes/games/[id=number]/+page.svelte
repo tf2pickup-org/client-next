@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { PUBLIC_WEBSITE_NAME } from '$env/static/public';
   import PageTransition from '$lib/core/components/page-transition.svelte';
   import { fetchConnectInfo } from '$lib/games/api/fetch-connect-info';
   import GameSummary from '$lib/games/components/game-summary.svelte';
@@ -47,7 +48,7 @@
 </script>
 
 <svelte:head>
-  <title>#{$game.number} • tf2pickup.pl</title>
+  <title>#{$game.number} • {PUBLIC_WEBSITE_NAME}</title>
 </svelte:head>
 
 <PageTransition>

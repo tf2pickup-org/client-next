@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { websiteName } from '$environment';
+  import { PUBLIC_WEBSITE_NAME } from '$env/static/public';
   import Alerts from '$lib/core/components/alerts.svelte';
   import PageTransition from '$lib/core/components/page-transition.svelte';
   import OnlinePlayerList from '$lib/players/components/online-player-list.svelte';
@@ -14,7 +14,7 @@
 </script>
 
 <svelte:head>
-  <title>[{$currentPlayerCount}/{$requiredPlayerCount}] {websiteName}</title>
+  <title>[{$currentPlayerCount}/{$requiredPlayerCount}] {PUBLIC_WEBSITE_NAME}</title>
 </svelte:head>
 
 <PageTransition>

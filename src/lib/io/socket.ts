@@ -1,9 +1,9 @@
-import { apiUrl } from '$environment';
+import { PUBLIC_API_URL } from '$env/static/public';
 import { fetchWsToken } from './api/fetch-ws-token';
 import { ioConnected } from './io.store';
 import { io } from 'socket.io-client';
 
-export const socket = io(apiUrl, {
+export const socket = io(PUBLIC_API_URL, {
   secure: true,
   reconnection: true,
   rejectUnauthorized: false,
