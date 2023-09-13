@@ -62,7 +62,7 @@
 
   {#if menuOpen}
     <div
-      class="bg-abru-dark-29 absolute mt-2 w-[300px] origin-top rounded-[10px] p-2 drop-shadow-xl"
+      class="bg-abru-dark-29 absolute z-50 mt-2 w-[300px] origin-top rounded-[10px] p-2 drop-shadow-xl"
       in:growDown={{ duration: 150 }}
       out:fade={{ duration: 100 }}
     >
