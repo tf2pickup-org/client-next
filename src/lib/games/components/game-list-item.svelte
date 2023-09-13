@@ -17,8 +17,8 @@
 
   {#if score}
     <div class="flex flex-row gap-2">
-      <span class="bg-team-red rounded-[3px] px-3.5 uppercase">red: {score.red}</span>
       <span class="bg-team-blu rounded-[3px] px-3.5 uppercase">blu: {score.blu}</span>
+      <span class="bg-team-red rounded-[3px] px-3.5 uppercase">red: {score.red}</span>
     </div>
   {/if}
 
