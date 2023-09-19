@@ -53,9 +53,9 @@
     <PlayerPresentation />
 
     <div class="flex flex-col">
-      <div class="text-abru-light-75 text-2xl font-bold">Game history</div>
-      <PlayerGameList games={$games} />
-      {#if $games}
+      {#if $games?.itemCount > 0}
+        <div class="text-abru-light-75 text-2xl font-bold">Game history</div>
+        <PlayerGameList games={$games} />
         <Pagination currentPage={page} itemCount={$games.itemCount} on:pageChange={loadPage} />
       {/if}
     </div>

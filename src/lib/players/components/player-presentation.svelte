@@ -3,8 +3,8 @@
   import { Tf2ClassName } from '$lib/shared/tf2-class-name';
   import type { LinkedProfile } from '../types/linked-profile';
   import type { Player } from '../types/player';
+  import type { PlayerStats } from '../types/player-stats';
   import PlayerPresentationLink from './player-presentation-link.svelte';
-  import type PlayerStats from './player-stats.svelte';
   import {
     IconAlignBoxBottomRight,
     IconBrandSteam,
@@ -66,7 +66,7 @@
           <GameClassIcon {gameClass} size={32} />
           {#if $stats}
             <span class="min-w-[60px] text-center text-2xl font-bold"
-              >{$stats.classesPlayed[gameClass] ?? 0}</span
+              >{$stats.classesPlayed?.[gameClass] ?? 0}</span
             >
           {:else}
             <div class="flex h-8 min-w-[60px] flex-row items-end justify-center">
