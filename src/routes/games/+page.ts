@@ -8,5 +8,6 @@ export const load = (async ({ url, fetch }) => {
   return {
     games: await fetchGames((page - 1) * gamesPerPage, gamesPerPage, fetch),
     page,
+    gamesPerPage,
   };
 }) satisfies PageLoad;

@@ -57,7 +57,12 @@
       {#if $games?.itemCount > 0}
         <div class="text-abru-light-75 mb-4 text-2xl font-bold">Game history</div>
         <PlayerGameList />
-        <Pagination currentPage={page} itemCount={$games.itemCount} on:pageChange={loadPage} />
+        <Pagination
+          currentPage={page}
+          itemCount={$games.itemCount}
+          itemsPerPage={data.gamesPerPage}
+          on:pageChange={loadPage}
+        />
       {/if}
     </div>
   </div>

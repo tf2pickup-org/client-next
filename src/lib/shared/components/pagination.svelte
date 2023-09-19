@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { paginate, PaginationRole, type PaginationLink } from './paginate';
+  import { paginate } from './paginate';
   import { IconChevronLeft, IconChevronRight } from '@tabler/icons-svelte';
   import { createEventDispatcher } from 'svelte';
 
@@ -8,8 +8,8 @@
   export let itemCount: number = 0;
 
   const dispatch = createEventDispatcher();
-  let links: PaginationLink[] = [];
-  let lastPage: number;
+  let around: number[] = [];
+  let last: number;
 
   const dispatchPageChange = (event: Event, page: number) => {
     event.preventDefault();
@@ -18,8 +18,7 @@
   };
 
   $: {
-    links = paginate(currentPage, itemsPerPage, itemCount);
-    lastPage = Math.ceil(itemCount / itemsPerPage);
+    ({ last, around } = paginate(currentPage, itemsPerPage, itemCount));
   }
 </script>
 
@@ -33,15 +32,15 @@
     <IconChevronLeft />
   </a>
 
-  {#each links.filter(l => l.role === PaginationRole.direct) as link}
+  {#each around as page}
     <a
       href={null}
       class="page"
-      class:active-page={currentPage === link.page}
-      on:click={event => dispatchPageChange(event, link.page)}
+      class:active-page={currentPage === page}
+      on:click={event => dispatchPageChange(event, page)}
     >
       <span class="px-[10px]">
-        {link.page}
+        {page}
       </span>
     </a>
   {/each}
@@ -49,7 +48,7 @@
   <a
     href={null}
     class="page"
-    class:page--disabled={currentPage >= lastPage}
+    class:page--disabled={currentPage >= last}
     on:click={event => dispatchPageChange(event, currentPage + 1)}
   >
     <IconChevronRight />

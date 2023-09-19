@@ -30,6 +30,7 @@
       <Pagination
         currentPage={data.page}
         itemCount={data.games.itemCount}
+        itemsPerPage={data.gamesPerPage}
         on:pageChange={loadPage}
       />
     </div>
