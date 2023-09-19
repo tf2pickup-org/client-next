@@ -8,7 +8,9 @@
   $: playersSorted = players?.toSorted((a, b) => a.name.localeCompare(b.name));
 </script>
 
-<div class="player-group col-span-9 grid grid-cols-9 content-start">
+<div
+  class="player-group col-span-1 grid grid-cols-9 content-start md:col-span-3 lg:col-span-5 xl:col-span-9"
+>
   {#if playersSorted}
     {#each playersSorted as player}
       <a href="/players/{player.steamId}" class="truncate whitespace-nowrap hover:underline"

@@ -22,10 +22,10 @@
 </svelte:head>
 
 <PageTransition>
-  <div class="container mx-auto">
+  <div class="container mx-auto px-4 md:px-0">
     <PageHeader>Players</PageHeader>
 
-    <div class="text-abru-light-75 flex flex-row justify-between text-2xl font-bold">
+    <div class="text-abru-light-75 hidden flex-row justify-between text-2xl font-bold md:flex">
       {#each groups as letter}
         <a href="#{letter}" style="uppercase">{letter}</a>
       {/each}
@@ -33,7 +33,9 @@
 
     {#each groups as letter}
       <div class="bg-abru-light-15 my-4 h-[2px]" />
-      <div class="text-abru-light-75 grid min-h-[120px] grid-cols-10 gap-x-2">
+      <div
+        class="text-abru-light-75 grid min-h-[120px] grid-cols-3 gap-x-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-10"
+      >
         <a id={letter} class="text-[64px] font-bold leading-none">{letter}</a>
         <PlayerGroup players={playersGrouped.get(letter)} />
       </div>
