@@ -12,7 +12,7 @@
   $: path = $page.url.pathname;
 </script>
 
-<nav class="flex h-[95px] flex-row">
+<nav class="flex min-h-[95px] flex-row">
   <div class="container mx-auto flex flex-row items-center justify-between self-center">
     <a href="/" class="mx-1 self-center">
       <img alt="tf2pickup.pl logo" src={logo} height="120" class="h-[44px] object-contain" />
