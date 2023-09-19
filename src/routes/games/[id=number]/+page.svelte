@@ -19,6 +19,8 @@
   let unmounted = new Subject<void>();
 
   $: {
+    game.set(data.game);
+    connectInfo.set(data.connectInfo);
     const isRunning = ['created', 'configuring', 'launching', 'started'].includes($game.state);
 
     if (isRunning && $connectInfo && $game.connectInfoVersion !== $connectInfo.connectInfoVersion) {
@@ -39,9 +41,6 @@
     unmounted.next();
     unmounted.complete();
   });
-
-  game.set(data.game);
-  connectInfo.set(data.connectInfo);
 
   setContext('game', game);
   setContext('game.connectInfo', connectInfo);
