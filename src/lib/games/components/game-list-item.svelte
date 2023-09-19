@@ -1,43 +1,78 @@
 <script lang="ts">
   import DisplayDate from '$lib/shared/components/date.svelte';
+  import GameLiveIndicator from '$lib/shared/components/game-live-indicator.svelte';
   import MapThumbnail from '$lib/shared/components/map-thumbnail.svelte';
   import type { Game } from '../types/game';
+  import type { GameState } from '../types/game-state';
 
   export let number: number;
   export let launchedAt: Date;
   export let map: string;
+  export let state: GameState;
   export let score: Game['score'] | undefined = undefined;
+
+  let isRunning: boolean;
+
+  $: isRunning = ['created', 'configuring', 'launching', 'started'].includes(state);
 </script>
 
-<a
-  class="text-abru-light-75 game-list-item relative flex h-[80px] flex-row items-center gap-6 overflow-hidden rounded-lg px-6 font-medium"
-  href="/games/{number}"
->
+<a class="game-list-item" href="/games/{number}">
+  <div class="min-w-[14px]">
+    {#if isRunning}
+      <GameLiveIndicator />
+    {/if}
+  </div>
+
   <span class="text-2xl">#{number}</span>
 
-  {#if score}
-    <div class="flex flex-row gap-2">
-      <span class="bg-team-blu rounded-[3px] px-3.5 uppercase">blu: {score.blu}</span>
-      <span class="bg-team-red rounded-[3px] px-3.5 uppercase">red: {score.red}</span>
+  <div class="mx-2" />
+
+  {#if state === 'interrupted'}
+    <div class="bg-abru-light-25 col-span-2 justify-self-stretch rounded-[3px] px-3.5 text-center">
+      force-ended
     </div>
+  {:else if score && score.blu !== undefined && score.red !== undefined}
+    <div class="bg-team-blu min-w-[80px] rounded-[3px] px-3.5 text-center uppercase">
+      blu: {score.blu}
+    </div>
+    <div class="bg-team-red min-w-[80px] rounded-[3px] px-3.5 text-center uppercase">
+      red: {score.red}
+    </div>
+  {:else}
+    <div class="col-span-2" />
   {/if}
 
-  <span>{map}</span>
-  <span><DisplayDate date={launchedAt} /></span>
+  <span class="mx-4 justify-self-start">{map}</span>
+  <span class="justify-self-start whitespace-nowrap"><DisplayDate date={launchedAt} /></span>
 
-  <div class="absolute bottom-0 left-1/3 right-0 top-0 -z-10">
+  <div class="absolute bottom-0 left-1/3 right-0 top-0 -z-10 overflow-hidden rounded-lg">
     <MapThumbnail {map} />
   </div>
 </a>
 
 <style lang="postcss">
   .game-list-item {
+    display: grid;
+    position: relative;
+    grid-column: span 7 / span 7;
+    grid-template-columns: subgrid;
+    place-items: center;
+
+    height: 80px;
+    padding: 8px;
+
+    color: theme('colors.abru.light.75');
+    font-weight: 500;
+
     background: theme('colors.abru.light.15');
     background: linear-gradient(
       90deg,
       theme('colors.abru.light.15') 35%,
       theme('colors.transparent') 90%
     );
+
+    overflow: hidden;
+    border-radius: 8px;
 
     &:hover {
       background: linear-gradient(

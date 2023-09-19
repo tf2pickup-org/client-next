@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { PUBLIC_THUMBNAIL_SERVICE_URL } from '$env/static/public';
   import { getMapName } from '../get-map-name';
   import { IconPhotoOff } from '@tabler/icons-svelte';
 
@@ -11,7 +12,7 @@
   $: {
     thumbnailExists = Boolean(width) && Boolean(height);
     if (thumbnailExists) {
-      src = `https://mapthumbnails.tf2pickup.org/unsafe/${width}x${height}/${getMapName(map)}.jpg`;
+      src = `${PUBLIC_THUMBNAIL_SERVICE_URL}/unsafe/${width}x${height}/${getMapName(map)}.jpg`;
     }
   }
 </script>

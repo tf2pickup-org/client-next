@@ -6,10 +6,17 @@
   export let games: PaginatedList<Game>;
 </script>
 
-<ol>
+<div class="game-list">
   {#each games.results as game (game.id)}
-    <li class="my-3">
-      <GameListItem {...game} />
-    </li>
+    <GameListItem {...game} />
   {/each}
-</ol>
+</div>
+
+<style lang="postcss">
+  .game-list {
+    display: grid;
+    grid-template-columns: repeat(6, auto) 1fr;
+    column-gap: 8px;
+    row-gap: 10px;
+  }
+</style>
