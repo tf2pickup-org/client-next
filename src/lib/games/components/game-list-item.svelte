@@ -23,7 +23,7 @@
     {/if}
   </div>
 
-  <span class="text-2xl">#{number}</span>
+  <span class="text-2xl" class:text-accent={isRunning}>#{number}</span>
 
   <div class="mx-2" />
 
