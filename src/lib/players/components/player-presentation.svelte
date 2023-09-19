@@ -23,11 +23,15 @@
   );
 
   let joinedAtText: string;
+  let isAdmin: boolean;
 
-  $: joinedAtText = format(
-    typeof $player.joinedAt === 'string' ? new Date($player.joinedAt) : $player.joinedAt,
-    'MMMM dd, yyyy',
-  );
+  $: {
+    joinedAtText = format(
+      typeof $player.joinedAt === 'string' ? new Date($player.joinedAt) : $player.joinedAt,
+      'MMMM dd, yyyy',
+    );
+    isAdmin = $player.roles.includes('admin');
+  }
 </script>
 
 <div class="bg-abru-dark-29 text-abru-light-75 flex flex-row gap-[10px] rounded-lg p-[10px]">
@@ -39,9 +43,17 @@
     alt="{$player.name}'s avatar"
   />
 
-  <div class="flex grow flex-col p-[22px]">
-    <div class="flex grow flex-row">
-      <span class="-mt-[6px] grow text-[48px] font-bold leading-none">{$player.name}</span>
+  <div class="flex grow flex-col justify-between p-[22px]">
+    <div class="flex grow flex-row gap-[10px]">
+      <span class="-mt-[6px] text-[48px] font-bold leading-none">{$player.name}</span>
+      {#if isAdmin}
+        <span
+          class="bg-alert text-abru-light-3 my-2 self-baseline rounded-[3px] px-[8px] py-[6px] font-bold leading-none"
+          >admin</span
+        >
+      {/if}
+
+      <div class="grow" />
 
       <div class="flex flex-col">
         <span class="text-base font-light">Joined:</span>
