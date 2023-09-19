@@ -3,6 +3,7 @@
   import { PUBLIC_WEBSITE_NAME } from '$env/static/public';
   import PageTransition from '$lib/core/components/page-transition.svelte';
   import GameList from '$lib/games/components/game-list.svelte';
+  import PageHeader from '$lib/shared/components/page-header.svelte';
   import Pagination from '$lib/shared/components/pagination.svelte';
   import type { PageData } from './$types';
 
@@ -19,6 +20,8 @@
 
 <PageTransition>
   <div class="container mx-auto">
+    <PageHeader>Games</PageHeader>
+
     {#if data.games}
       <GameList games={data.games} />
     {/if}
