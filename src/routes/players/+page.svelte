@@ -34,7 +34,7 @@
     {#each groups as letter}
       <div class="bg-abru-light-15 my-4 h-[2px]" />
       <div class="text-abru-light-75 grid grid-cols-10">
-        <a id={letter} class="text-[64px] font-bold">{letter}</a>
+        <a id={letter} class="text-[64px] font-bold leading-none">{letter}</a>
         <PlayerGroup players={playersGrouped.get(letter)} />
       </div>
     {/each}
