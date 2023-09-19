@@ -67,7 +67,7 @@
       out:fade={{ duration: 100 }}
     >
       <div class="text-abru-light-75 flex flex-col gap-1">
-        <a href="/player/{steamId}" class="menu-item">
+        <a href="/players/{steamId}" class="menu-item">
           <IconUserCircle /><span>My profile</span>
         </a>
         <div class="divider" />

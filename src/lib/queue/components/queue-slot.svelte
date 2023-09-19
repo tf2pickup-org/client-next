@@ -56,7 +56,7 @@
       />
       <a
         class="text-abru-dark-3 flex-1 text-center text-xl font-bold hover:underline"
-        href="/player/{player.steamId}">{player.name}</a
+        href="/players/{player.steamId}">{player.name}</a
       >
       <div class="w-[42px] px-1">
         {#if isMySlot && !ready}

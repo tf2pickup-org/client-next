@@ -38,7 +38,7 @@
   <div class="bg-abru-dark-29 flex flex-col gap-3 rounded-lg p-2.5">
     {#each $slots as slot}
       <a
-        href="/player/{slot.player.steamId}"
+        href="/players/{slot.player.steamId}"
         class="bg-abru-light-75 hover:bg-abru-light-70 flex flex-row items-center gap-2.5 rounded p-2.5 transition-colors duration-75"
       >
         <GameClassIcon gameClass={slot.gameClass} size={24} />
