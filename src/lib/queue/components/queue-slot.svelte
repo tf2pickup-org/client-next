@@ -7,7 +7,7 @@
   import LeaveQueueButton from './leave-queue-button.svelte';
   import { MarkAsFriendButtonState } from './mark-as-friend-button-state';
   import MarkAsFriendButton from './mark-as-friend-button.svelte';
-  import { IconPlus, IconMinus, IconHeart, IconHeartFilled } from '@tabler/icons-svelte';
+  import { IconPlus } from '@tabler/icons-svelte';
   import { createEventDispatcher } from 'svelte';
   import { fade } from 'svelte/transition';
 
@@ -88,10 +88,10 @@
 
 <style lang="postcss">
   .taken {
-    background-color: theme('colors.abru.light.75');
+    background-color: theme('colors.abru.light.60');
 
     &.my-slot {
-      background-color: theme('colors.abru.light.60');
+      background-color: theme('colors.abru.light.75');
     }
 
     &.ready {
