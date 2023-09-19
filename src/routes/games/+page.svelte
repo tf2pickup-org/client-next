@@ -23,7 +23,7 @@
     <PageHeader>Games</PageHeader>
 
     {#if data.games}
-      <GameList games={data.games} />
+      <GameList games={data.games.results} />
     {/if}
 
     <div>

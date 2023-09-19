@@ -32,6 +32,7 @@
   setContext('player', player);
   setContext('player.stats', stats);
   setContext('player.linkedProfiles', linkedProfiles);
+  setContext('player.games', games);
 
   const loadPage = async (event: CustomEvent<{ page: number }>) => {
     page = event.detail.page;
@@ -55,7 +56,7 @@
     <div class="flex flex-col">
       {#if $games?.itemCount > 0}
         <div class="text-abru-light-75 mb-4 text-2xl font-bold">Game history</div>
-        <PlayerGameList games={$games} />
+        <PlayerGameList />
         <Pagination currentPage={page} itemCount={$games.itemCount} on:pageChange={loadPage} />
       {/if}
     </div>

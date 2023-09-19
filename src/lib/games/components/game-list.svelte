@@ -1,13 +1,19 @@
 <script lang="ts">
-  import type { PaginatedList } from '$lib/shared/types/paginated-list';
+  import type { Tf2ClassName } from '$lib/shared/tf2-class-name';
   import type { Game } from '../types/game';
   import GameListItem from './game-list-item.svelte';
 
-  export let games: PaginatedList<Game>;
+  interface ClassPlayed {
+    classPlayed?: Tf2ClassName;
+  }
+
+  type GameWithClassPlayed = Game & ClassPlayed;
+
+  export let games: GameWithClassPlayed[];
 </script>
 
 <div class="game-list">
-  {#each games.results as game (game.id)}
+  {#each games as game (game.id)}
     <GameListItem {...game} />
   {/each}
 </div>
