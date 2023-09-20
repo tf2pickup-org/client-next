@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { PUBLIC_WEBSITE_NAME } from '$env/static/public';
   import PageTransition from '$lib/core/components/page-transition.svelte';
   import { fetchConnectInfo } from '$lib/games/api/fetch-connect-info';
   import GameSummary from '$lib/games/components/game-summary.svelte';
@@ -45,10 +44,6 @@
   setContext('game', game);
   setContext('game.connectInfo', connectInfo);
 </script>
-
-<svelte:head>
-  <title>#{$game.number} • {PUBLIC_WEBSITE_NAME}</title>
-</svelte:head>
 
 <PageTransition>
   <div class="container mx-auto mt-12 grid grid-cols-8 gap-x-4">

@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { PUBLIC_WEBSITE_NAME } from '$env/static/public';
   import PageTransition from '$lib/core/components/page-transition.svelte';
   import type { Game } from '$lib/games/types/game';
   import { fetchPlayerGames } from '$lib/players/api/fetch-player-games';
@@ -44,10 +43,6 @@
     games.set($games);
   };
 </script>
-
-<svelte:head>
-  <title>{data.player.name} • {PUBLIC_WEBSITE_NAME}</title>
-</svelte:head>
 
 <PageTransition>
   <div class="container mx-auto mt-12 flex flex-col gap-[30px]">

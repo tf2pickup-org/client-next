@@ -1,5 +1,10 @@
 <script lang="ts">
-  import { PUBLIC_WEBSITE_NAME } from '$env/static/public';
+  import { page } from '$app/stores';
+  import {
+    PUBLIC_WEBSITE_DESCRIPTION,
+    PUBLIC_WEBSITE_NAME,
+    PUBLIC_WEBSITE_URL,
+  } from '$env/static/public';
   import Footer from '$lib/core/components/footer.svelte';
   import NavigationBar from '$lib/core/components/navigation-bar.svelte';
   import { socket } from '$lib/io/socket';
@@ -29,7 +34,7 @@
   import { Subject } from 'rxjs';
   import { takeUntil } from 'rxjs/operators';
   import { onDestroy, onMount } from 'svelte';
-  import { MetaTags } from 'svelte-meta-tags';
+  import { MetaTags, type MetaTagsProps } from 'svelte-meta-tags';
   import { derived } from 'svelte/store';
 
   export let data: LayoutData;
@@ -40,6 +45,8 @@
     ([$queueState, $mySlot]) => $queueState === QueueState.ready && $mySlot?.ready === false,
   );
 
+  let metaTags: MetaTagsProps;
+
   $: {
     queue.set(data.queue);
     profile.set(data.profile);
@@ -47,6 +54,28 @@
       new Map<string, Player>(data.onlinePlayers.map(player => [player.steamId, player])),
     );
     streams.set(data.streams);
+
+    metaTags = {
+      titleTemplate: `%s • ${PUBLIC_WEBSITE_NAME}`,
+      description: `${PUBLIC_WEBSITE_DESCRIPTION}`,
+      canonical: PUBLIC_WEBSITE_URL,
+      openGraph: {
+        url: PUBLIC_WEBSITE_URL,
+        title: PUBLIC_WEBSITE_NAME,
+        description: PUBLIC_WEBSITE_DESCRIPTION,
+        images: [
+          {
+            url: `${PUBLIC_WEBSITE_URL}/favicon.png`,
+            width: 256,
+            height: 256,
+            alt: `${PUBLIC_WEBSITE_NAME} icon`,
+          },
+        ],
+        site_name: PUBLIC_WEBSITE_NAME,
+        type: 'games.other',
+      },
+      ...($page.data.metaTags ?? {}),
+    };
   }
 
   onMount(() => {
@@ -126,26 +155,7 @@
   });
 </script>
 
-<MetaTags
-  title={PUBLIC_WEBSITE_NAME}
-  description="Polish TF2 6v6 pick-up games"
-  canonical="https://tf2pickup.pl/"
-  openGraph={{
-    url: 'https://tf2pickup.pl/',
-    title: PUBLIC_WEBSITE_NAME,
-    description: 'Polish TF2 6v6 pick-up games',
-    images: [
-      {
-        url: 'https://tf2pickup.pl/assets/favicon.png',
-        width: 256,
-        height: 256,
-        alt: `${PUBLIC_WEBSITE_NAME} icon`,
-      },
-    ],
-    site_name: PUBLIC_WEBSITE_NAME,
-    type: 'games.other',
-  }}
-/>
+<MetaTags {...metaTags} />
 
 <NavigationBar />
 <div class="relative flex-1">

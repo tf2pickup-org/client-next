@@ -1,6 +1,5 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
-  import { PUBLIC_WEBSITE_NAME } from '$env/static/public';
   import PageTransition from '$lib/core/components/page-transition.svelte';
   import GameList from '$lib/games/components/game-list.svelte';
   import PageHeader from '$lib/shared/components/page-header.svelte';
@@ -13,10 +12,6 @@
     goto(`?page=${event.detail.page}`);
   };
 </script>
-
-<svelte:head>
-  <title>games • {PUBLIC_WEBSITE_NAME}</title>
-</svelte:head>
 
 <PageTransition>
   <div class="container mx-auto">

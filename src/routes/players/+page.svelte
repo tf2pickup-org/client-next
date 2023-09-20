@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { PUBLIC_WEBSITE_NAME } from '$env/static/public';
   import PageTransition from '$lib/core/components/page-transition.svelte';
   import type { Player } from '$lib/players/types/player';
   import PageHeader from '$lib/shared/components/page-header.svelte';
@@ -16,10 +15,6 @@
 
   $: playersGrouped = groupPlayers(data.players);
 </script>
-
-<svelte:head>
-  <title>players • {PUBLIC_WEBSITE_NAME}</title>
-</svelte:head>
 
 <PageTransition>
   <div class="container mx-auto px-4 md:px-0">
