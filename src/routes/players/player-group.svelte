@@ -5,7 +5,9 @@
 
   let playersSorted: Player[] | undefined;
 
-  $: playersSorted = players?.toSorted((a, b) => a.name.localeCompare(b.name));
+  $: playersSorted = players
+    ? [...players].sort((a, b) => a.name.localeCompare(b.name))
+    : undefined;
 </script>
 
 <div
