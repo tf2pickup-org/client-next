@@ -8,9 +8,9 @@
   import type { ConnectInfo } from '$lib/games/types/connect-info';
   import type { Game } from '$lib/games/types/game';
   import type { PageData } from './$types';
-  import { Subject, filter, takeUntil } from 'rxjs';
+  import { Subject, filter, takeUntil, tap } from 'rxjs';
   import { onDestroy, onMount, setContext } from 'svelte';
-  import { writable } from 'svelte/store';
+  import { get, writable } from 'svelte/store';
 
   export let data: PageData;
 
@@ -21,11 +21,6 @@
   $: {
     game.set(data.game);
     connectInfo.set(data.connectInfo);
-    const isRunning = ['created', 'configuring', 'launching', 'started'].includes($game.state);
-
-    if (isRunning && $connectInfo && $game.connectInfoVersion !== $connectInfo.connectInfoVersion) {
-      fetchConnectInfo($game.id).then($connectInfo => connectInfo.set($connectInfo));
-    }
   }
 
   onMount(() => {
@@ -34,7 +29,24 @@
         filter(_game => _game.id === $game.id),
         takeUntil(unmounted),
       )
-      .subscribe(newGame => game.set(newGame));
+      .subscribe($game => {
+        console.log($game.connectInfoVersion);
+        game.set($game);
+
+        const isRunning = ['created', 'configuring', 'launching', 'started'].includes($game.state);
+        const $connectInfo = get(connectInfo);
+
+        if (
+          data.isMyGame &&
+          isRunning &&
+          $game.connectInfoVersion !== $connectInfo?.connectInfoVersion
+        ) {
+          fetchConnectInfo($game.id).then($connectInfo => {
+            console.log($connectInfo);
+            connectInfo.set($connectInfo);
+          });
+        }
+      });
   });
 
   onDestroy(() => {
