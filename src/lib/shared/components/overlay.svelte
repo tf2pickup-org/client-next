@@ -19,7 +19,7 @@
     align-items: center;
     justify-content: center;
 
-    background: rgba(62, 54, 65, 0.4);
-    backdrop-filter: blur(12.4px);
+    background: theme('colors.abru.dark.3 / 50%');
+    backdrop-filter: blur(1px);
   }
 </style>
