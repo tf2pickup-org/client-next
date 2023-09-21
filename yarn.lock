@@ -761,10 +761,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/howler@npm:2.2.7":
-  version: 2.2.7
-  resolution: "@types/howler@npm:2.2.7"
-  checksum: e9d6723f946a7526c8562436c06ad64d55f63a0573bfbf08c776e3785ab520a3138da84058f280b0fe7d8a819af77af3dd62d88f873a316d3723dc2ad575aa0d
+"@types/howler@npm:2.2.9":
+  version: 2.2.9
+  resolution: "@types/howler@npm:2.2.9"
+  checksum: 5d1637b107ec837a7faf9b3018f6197d370e8b22e59089dd80123be8d6c7083e93e7124cd6f6bd0d0319bfb506254a6338e46bbabf7ab5a723994926e2a6ae7d
   languageName: node
   linkType: hard
 
@@ -1386,7 +1386,7 @@ __metadata:
     "@sveltejs/kit": ^1.5.0
     "@tabler/icons-svelte": 2.14.0
     "@trivago/prettier-plugin-sort-imports": 4.1.1
-    "@types/howler": 2.2.7
+    "@types/howler": 2.2.9
     "@types/lodash": 4.14.198
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
@@ -1395,7 +1395,7 @@ __metadata:
     eslint: ^8.28.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-svelte3: ^4.0.0
-    howler: 2.2.3
+    howler: 2.2.4
     jwt-decode: 3.1.2
     lodash: 4.17.21
     postcss: 8.4.30
@@ -2446,10 +2446,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"howler@npm:2.2.3":
-  version: 2.2.3
-  resolution: "howler@npm:2.2.3"
-  checksum: c04ce19411f4d86f8508d411a93aea943f128c2686b3df3c61383fd4ed8f5551232c4389aba3a8d4c8b0eeb34ae51df5a9c3ccd9ba48583ac53e9bf9fcbd1ecf
+"howler@npm:2.2.4":
+  version: 2.2.4
+  resolution: "howler@npm:2.2.4"
+  checksum: 14ad7ed8825ac4439a63429d25f3ba6f44daca1d6df4ad6b04f33e342269b80db5608d9f1e6e980e2d47027c7ceba7811068eba7f56e8e75f2601086e07f0b73
   languageName: node
   linkType: hard
 
