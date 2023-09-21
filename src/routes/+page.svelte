@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { PUBLIC_WEBSITE_NAME } from '$env/static/public';
   import Alerts from '$lib/core/components/alerts.svelte';
   import PageTransition from '$lib/core/components/page-transition.svelte';
   import OnlinePlayerList from '$lib/players/components/online-player-list.svelte';
@@ -9,13 +8,9 @@
   import { voteForMap } from '$lib/queue/api/vote-for-map';
   import MapVote from '$lib/queue/components/map-vote.svelte';
   import Queue from '$lib/queue/components/queue.svelte';
-  import { queue, currentPlayerCount, requiredPlayerCount } from '$lib/queue/queue.store';
+  import { queue } from '$lib/queue/queue.store';
   import StreamList from '$lib/streams/components/stream-list.svelte';
 </script>
-
-<svelte:head>
-  <title>[{$currentPlayerCount}/{$requiredPlayerCount}] {PUBLIC_WEBSITE_NAME}</title>
-</svelte:head>
 
 <PageTransition>
   <div class="container mx-auto my-4 grid gap-x-4 gap-y-8 p-2 lg:grid-cols-4 lg:p-0">

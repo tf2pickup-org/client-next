@@ -47,14 +47,7 @@
 
   let metaTags: MetaTagsProps;
 
-  $: {
-    queue.set(data.queue);
-    profile.set(data.profile);
-    onlinePlayers.set(
-      new Map<string, Player>(data.onlinePlayers.map(player => [player.steamId, player])),
-    );
-    streams.set(data.streams);
-
+  page.subscribe($page => {
     metaTags = {
       titleTemplate: `%s • ${PUBLIC_WEBSITE_NAME}`,
       description: `${PUBLIC_WEBSITE_DESCRIPTION}`,
@@ -76,6 +69,15 @@
       },
       ...($page.data.metaTags ?? {}),
     };
+  });
+
+  $: {
+    queue.set(data.queue);
+    profile.set(data.profile);
+    onlinePlayers.set(
+      new Map<string, Player>(data.onlinePlayers.map(player => [player.steamId, player])),
+    );
+    streams.set(data.streams);
   }
 
   onMount(() => {
