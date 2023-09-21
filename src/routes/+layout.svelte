@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { page } from '$app/stores';
   import {
     PUBLIC_WEBSITE_DESCRIPTION,
     PUBLIC_WEBSITE_NAME,
@@ -34,7 +33,6 @@
   import { Subject } from 'rxjs';
   import { takeUntil } from 'rxjs/operators';
   import { onDestroy, onMount } from 'svelte';
-  import { MetaTags, type MetaTagsProps } from 'svelte-meta-tags';
   import { derived } from 'svelte/store';
 
   export let data: LayoutData;
@@ -44,32 +42,6 @@
     [queueState, mySlot],
     ([$queueState, $mySlot]) => $queueState === QueueState.ready && $mySlot?.ready === false,
   );
-
-  let metaTags: MetaTagsProps;
-
-  page.subscribe($page => {
-    metaTags = {
-      titleTemplate: `%s • ${PUBLIC_WEBSITE_NAME}`,
-      description: `${PUBLIC_WEBSITE_DESCRIPTION}`,
-      canonical: PUBLIC_WEBSITE_URL,
-      openGraph: {
-        url: PUBLIC_WEBSITE_URL,
-        title: PUBLIC_WEBSITE_NAME,
-        description: PUBLIC_WEBSITE_DESCRIPTION,
-        images: [
-          {
-            url: `${PUBLIC_WEBSITE_URL}/favicon.png`,
-            width: 256,
-            height: 256,
-            alt: `${PUBLIC_WEBSITE_NAME} icon`,
-          },
-        ],
-        site_name: PUBLIC_WEBSITE_NAME,
-        type: 'games.other',
-      },
-      ...($page.data.metaTags ?? {}),
-    };
-  });
 
   $: {
     queue.set(data.queue);
@@ -157,7 +129,11 @@
   });
 </script>
 
-<MetaTags {...metaTags} />
+<svelte:head>
+  <title>{PUBLIC_WEBSITE_NAME}</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={PUBLIC_WEBSITE_NAME} />
+</svelte:head>
 
 <NavigationBar />
 <div class="relative flex-1">

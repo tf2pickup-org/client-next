@@ -1421,7 +1421,6 @@ __metadata:
     stylelint-config-svelte-roboleary: 0.4.0
     svelte: ^3.54.0
     svelte-check: ^3.0.1
-    svelte-meta-tags: 2.8.0
     tailwindcss: 3.3.3
     tslib: ^2.4.1
     typescript: ^5.0.0
@@ -4110,15 +4109,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"schema-dts@npm:^1.1.2":
-  version: 1.1.2
-  resolution: "schema-dts@npm:1.1.2"
-  peerDependencies:
-    typescript: ">=4.1.0"
-  checksum: 29703363b26215174268bf205a12ea78f1d264c8e696316de36ed8be2ab23e691ccea251899ba9245d89a45af5978c8a1ee162b7a4d07db999fd3300d842b4b6
-  languageName: node
-  linkType: hard
-
 "semver@npm:2 || 3 || 4 || 5":
   version: 5.7.1
   resolution: "semver@npm:5.7.1"
@@ -4680,17 +4670,6 @@ __metadata:
   peerDependencies:
     svelte: ^3.19.0 || ^4.0.0
   checksum: 09518aad14288b15e723e69376d2044330f52f49c2730a5e1357b4bee5928c04c5e4022f713856f51ef08ccf3fb5639e870ac89a44c0cb573cedf395017e2402
-  languageName: node
-  linkType: hard
-
-"svelte-meta-tags@npm:2.8.0":
-  version: 2.8.0
-  resolution: "svelte-meta-tags@npm:2.8.0"
-  dependencies:
-    schema-dts: ^1.1.2
-  peerDependencies:
-    svelte: ^3.55.0 || ^4.0.0
-  checksum: f88317603506f1c7eb52174afd76a1c99008b4de1044b9dcb0f1c94d11d3b05185a409ce662192ee228d2f987f5dd7429e567bd971fa86b79150197ab3ce06b7
   languageName: node
   linkType: hard
 

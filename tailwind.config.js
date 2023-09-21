@@ -54,6 +54,7 @@ export default {
         },
 
         alert: '#FF9E1F',
+        steam: '#6F9F31',
 
         'team-blu': 'rgb(88 121 138)',
         'team-red': 'rgb(189 59 59)',

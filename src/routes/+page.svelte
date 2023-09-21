@@ -1,4 +1,9 @@
 <script lang="ts">
+  import {
+    PUBLIC_WEBSITE_DESCRIPTION,
+    PUBLIC_WEBSITE_NAME,
+    PUBLIC_WEBSITE_URL,
+  } from '$env/static/public';
   import Alerts from '$lib/core/components/alerts.svelte';
   import PageTransition from '$lib/core/components/page-transition.svelte';
   import OnlinePlayerList from '$lib/players/components/online-player-list.svelte';
@@ -8,9 +13,23 @@
   import { voteForMap } from '$lib/queue/api/vote-for-map';
   import MapVote from '$lib/queue/components/map-vote.svelte';
   import Queue from '$lib/queue/components/queue.svelte';
-  import { queue } from '$lib/queue/queue.store';
+  import { currentPlayerCount, queue, requiredPlayerCount } from '$lib/queue/queue.store';
   import StreamList from '$lib/streams/components/stream-list.svelte';
 </script>
+
+<svelte:head>
+  <title>[{$currentPlayerCount}/{$requiredPlayerCount}] {PUBLIC_WEBSITE_NAME}</title>
+  <meta name="description" content={PUBLIC_WEBSITE_DESCRIPTION} />
+  <link rel="canonical" href={PUBLIC_WEBSITE_URL} />
+
+  <meta property="og:url" content={PUBLIC_WEBSITE_URL} />
+  <meta property="og:title" content={PUBLIC_WEBSITE_NAME} />
+  <meta property="og:description" content={PUBLIC_WEBSITE_DESCRIPTION} />
+  <meta property="og:image" content="{PUBLIC_WEBSITE_URL}/favicon.png" />
+  <meta property="og:image:alt" content="tf2pickup.pl icon" />
+  <meta property="og:image:width" content="256" />
+  <meta property="og:image:height" content="256" />
+</svelte:head>
 
 <PageTransition>
   <div class="container mx-auto my-4 grid gap-x-4 gap-y-8 p-2 lg:grid-cols-4 lg:p-0">

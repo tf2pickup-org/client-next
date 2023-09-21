@@ -1,4 +1,3 @@
-import { PUBLIC_WEBSITE_URL } from '$env/static/public';
 import { fetchGames } from '$lib/games/api/fetch-games';
 import type { PageLoad } from './$types';
 
@@ -10,9 +9,5 @@ export const load = (async ({ url, fetch }) => {
     games: await fetchGames((page - 1) * gamesPerPage, gamesPerPage, fetch),
     page,
     gamesPerPage,
-    metaTags: {
-      title: 'games',
-      canonical: `${PUBLIC_WEBSITE_URL}/games`,
-    },
   };
 }) satisfies PageLoad;

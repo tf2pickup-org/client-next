@@ -3,10 +3,25 @@
   export let active: boolean = false;
 </script>
 
-<a
-  {href}
-  class="text-abru-light-75 hover:bg-abru-dark-20/40 flex flex-row flex-nowrap items-center gap-1 rounded px-2.5 py-1 transition-colors duration-75"
-  class:bg-abru-dark-20={active}
->
+<a {href} class="link" class:bg-abru-dark-20={active}>
   <slot />
 </a>
+
+<style lang="postcss">
+  .link {
+    @apply transition-colors;
+    @apply duration-75;
+
+    color: theme('colors.abru.light.75');
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 4px;
+    border-radius: 4px;
+    padding: 4px 10px;
+
+    &:hover {
+      background-color: theme('colors.abru.dark.20 / 40%');
+    }
+  }
+</style>
