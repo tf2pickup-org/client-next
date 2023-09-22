@@ -1,9 +1,6 @@
 <script lang="ts">
-  import {
-    PUBLIC_WEBSITE_DESCRIPTION,
-    PUBLIC_WEBSITE_NAME,
-    PUBLIC_WEBSITE_URL,
-  } from '$env/static/public';
+  import { page } from '$app/stores';
+  import { PUBLIC_WEBSITE_NAME } from '$env/static/public';
   import Footer from '$lib/core/components/footer.svelte';
   import NavigationBar from '$lib/core/components/navigation-bar.svelte';
   import { socket } from '$lib/io/socket';
@@ -13,7 +10,7 @@
   import type { Player } from '$lib/players/types/player';
   import { fetchProfile } from '$lib/profile/api/fetch-profile';
   import { profileUpdated } from '$lib/profile/profile.events';
-  import { profile } from '$lib/profile/profile.store';
+  import { activeGameId, profile } from '$lib/profile/profile.store';
   import { fetchQueue } from '$lib/queue/api/fetch-queue';
   import ReadyUpDialog from '$lib/queue/components/ready-up-dialog.svelte';
   import {
@@ -30,6 +27,7 @@
   import { streams } from '$lib/streams/streams.store';
   import '../app.css';
   import type { LayoutData } from './$types';
+  import RunningGameSnackbar from './running-game-snackbar.svelte';
   import { Subject } from 'rxjs';
   import { takeUntil } from 'rxjs/operators';
   import { onDestroy, onMount } from 'svelte';
@@ -143,4 +141,8 @@
 
 {#if $awaitsReadyUp}
   <ReadyUpDialog />
+{/if}
+
+{#if $page.url.pathname === '/' && $activeGameId}
+  <RunningGameSnackbar />
 {/if}
