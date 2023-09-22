@@ -2,12 +2,21 @@
   import { profile } from '$lib/profile/profile.store';
   import GameLiveIndicator from '$lib/shared/components/game-live-indicator.svelte';
   import MapThumbnail from '$lib/shared/components/map-thumbnail.svelte';
+  import { connectStringToLink } from '$lib/shared/connect-string-to-link';
   import type { ConnectInfo } from '../types/connect-info';
   import type { Game } from '../types/game';
   import ConnectString from './connect-string.svelte';
+  import GameSummaryLink from './game-summary-link.svelte';
   import JoinGameButton from './join-game-button.svelte';
   import JoinGameTimer from './join-game-timer.svelte';
-  import { IconDeviceDesktopAnalytics, IconMovie, IconX } from '@tabler/icons-svelte';
+  import {
+    IconDeviceDesktopAnalytics,
+    IconEye,
+    IconLoader3,
+    IconMovie,
+    IconPlayerPlayFilled,
+    IconX,
+  } from '@tabler/icons-svelte';
   import { format } from 'date-fns';
   import { getContext } from 'svelte';
   import { derived, type Writable } from 'svelte/store';
@@ -24,6 +33,18 @@
     ([$game, $profile]) =>
       $profile && $game.slots.some(slot => slot.player.id === $profile.player.id),
   );
+
+  let connectLink: string | undefined;
+  let stvConnectLink: string | undefined;
+
+  $: {
+    connectLink = $connectInfo?.connectString
+      ? connectStringToLink($connectInfo.connectString)
+      : undefined;
+    stvConnectLink = $game.stvConnectString
+      ? connectStringToLink($game.stvConnectString)
+      : undefined;
+  }
 </script>
 
 <div class="text-abru-light-75 flex flex-col overflow-hidden rounded-lg">
@@ -69,41 +90,47 @@
 
     {#if $isRunning}
       {#if $isMyGame}
-        <div class="flex flex-col gap-3">
+        <div class="flex flex-col gap-2">
           {#if $connectInfo?.joinGameServerTimeout}
             <div class="info">
               <div class="label">join in</div>
               <JoinGameTimer timeout={new Date($connectInfo.joinGameServerTimeout)} />
             </div>
           {/if}
+
           <ConnectString connectString={$connectInfo?.connectString} />
-          <JoinGameButton connectString={$connectInfo?.connectString} />
+          <JoinGameButton href={connectLink}>
+            {#if connectLink}
+              <IconPlayerPlayFilled size={16} />
+              join game
+            {:else}
+              <IconLoader3 size={24} class="animate-spin" />
+            {/if}
+          </JoinGameButton>
         </div>
       {:else}
         <ConnectString connectString={$game.stvConnectString} />
+        <JoinGameButton href={stvConnectLink}>
+          {#if stvConnectLink}
+            <IconEye size={24} />
+            watch stv
+          {:else}
+            <IconLoader3 size={24} class="animate-spin" />
+          {/if}
+        </JoinGameButton>
       {/if}
     {/if}
 
-    {#if $game.logsUrl || $game.demoUrl}
-      <div class="h-[45px]" />
-    {/if}
-
     {#if $game.logsUrl}
-      <a
-        href={$game.logsUrl}
-        target="_blank"
-        class="bg-abru-light-3 hover:bg-abru-light-5 flex items-center justify-center gap-2 rounded py-2 text-xl font-medium transition-colors duration-75"
-        ><IconDeviceDesktopAnalytics /><span class="uppercase">logs</span></a
+      <GameSummaryLink href={$game.logsUrl}>
+        <IconDeviceDesktopAnalytics />logs</GameSummaryLink
       >
     {/if}
 
     {#if $game.demoUrl}
-      <a
-        href={$game.demoUrl}
-        target="_blank"
-        class="bg-abru-light-3 hover:bg-abru-light-5 flex items-center justify-center gap-2 rounded py-2 text-xl font-medium transition-colors duration-75"
-        ><IconMovie /><span class="uppercase">demo</span></a
-      >
+      <GameSummaryLink href={$game.demoUrl}>
+        <IconMovie />demo
+      </GameSummaryLink>
     {/if}
   </div>
 </div>
