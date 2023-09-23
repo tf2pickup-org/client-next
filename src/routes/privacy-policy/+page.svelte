@@ -1,5 +1,6 @@
 <script lang="ts">
   import { PUBLIC_WEBSITE_NAME, PUBLIC_WEBSITE_URL } from '$env/static/public';
+  import PageTransition from '$lib/core/components/page-transition.svelte';
   import Markdown from '$lib/shared/components/markdown.svelte';
   import PageHeader from '$lib/shared/components/page-header.svelte';
   import type { PageData } from './$types';
@@ -21,10 +22,12 @@
   <meta property="og:image:height" content="256" />
 </svelte:head>
 
-<div class="container mx-auto flex flex-col">
-  <PageHeader>Privacy policy</PageHeader>
-  <div class="bg-abru-light-50 mb-12 h-px" />
-  <article class="prose prose-invert mb-16 max-w-none">
-    <Markdown source={data.body} />
-  </article>
-</div>
+<PageTransition>
+  <div class="container mx-auto flex flex-col">
+    <PageHeader>Privacy policy</PageHeader>
+    <div class="bg-abru-light-50 mb-12 h-px" />
+    <article class="prose prose-invert mb-16 max-w-none">
+      <Markdown source={data.body} />
+    </article>
+  </div>
+</PageTransition>
