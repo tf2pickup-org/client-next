@@ -27,6 +27,7 @@
   import { streams } from '$lib/streams/streams.store';
   import '../app.css';
   import type { LayoutData } from './$types';
+  import AcceptRulesDialog from './accept-rules-dialog.svelte';
   import RunningGameSnackbar from './running-game-snackbar.svelte';
   import { Subject } from 'rxjs';
   import { takeUntil } from 'rxjs/operators';
@@ -138,6 +139,10 @@
   <slot />
 </div>
 <Footer />
+
+{#if $profile?.hasAcceptedRules === false}
+  <AcceptRulesDialog rules={data.rules?.body ?? ''} />
+{/if}
 
 {#if $awaitsReadyUp}
   <ReadyUpDialog />
