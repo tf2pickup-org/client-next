@@ -1,7 +1,7 @@
 <script lang="ts">
   import { isPreReadied, preReadyTimeout } from '../pre-ready-up.store';
   import { IconCoffee } from '@tabler/icons-svelte';
-  import { fade, fly } from 'svelte/transition';
+  import { fade } from 'svelte/transition';
 
   const formatTimeout = (timeout: number) => {
     const minutes = Math.floor(timeout / 60);

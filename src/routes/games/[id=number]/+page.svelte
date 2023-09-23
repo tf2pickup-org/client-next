@@ -8,7 +8,7 @@
   import type { ConnectInfo } from '$lib/games/types/connect-info';
   import type { Game } from '$lib/games/types/game';
   import type { PageData } from './$types';
-  import { Subject, filter, takeUntil, tap } from 'rxjs';
+  import { Subject, filter, takeUntil } from 'rxjs';
   import { onDestroy, onMount, setContext } from 'svelte';
   import { get, writable } from 'svelte/store';
 

@@ -11,7 +11,7 @@
   import { Tf2ClassName } from '../tf2-class-name';
 
   export let gameClass: Tf2ClassName;
-  export let size: number = 64;
+  export let size = 64;
 
   let icon: string;
 

@@ -1,6 +1,6 @@
 <script lang="ts">
   export let href: string;
-  export let active: boolean = false;
+  export let active = false;
 </script>
 
 <a {href} class="link" class:bg-abru-dark-20={active}>

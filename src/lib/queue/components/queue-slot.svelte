@@ -16,10 +16,10 @@
   export let gameClass: Tf2ClassName;
   export let player: Player | undefined = undefined;
 
-  let isMySlot: boolean = false;
-  let canBefriend: boolean = false;
-  let markedAsFriend: boolean = false;
-  let markedAsFriendByMe: boolean = false;
+  let isMySlot = false;
+  let canBefriend = false;
+  let markedAsFriend = false;
+  let markedAsFriendByMe = false;
 
   const dispatch = createEventDispatcher();
 

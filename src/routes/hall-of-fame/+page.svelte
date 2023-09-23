@@ -1,5 +1,10 @@
-<script>
+<script lang="ts">
   import { PUBLIC_WEBSITE_NAME, PUBLIC_WEBSITE_URL } from '$env/static/public';
+  import PageTransition from '$lib/core/components/page-transition.svelte';
+  import type { PageData } from './$types';
+  import Board from './board.svelte';
+
+  export let data: PageData;
 </script>
 
 <svelte:head>
@@ -15,3 +20,10 @@
   <meta property="og:image:width" content="256" />
   <meta property="og:image:height" content="256" />
 </svelte:head>
+
+<PageTransition>
+  <div class="container mx-auto grid grid-cols-2 gap-4">
+    <Board title="All classes" records={data.mostActivePlayers} />
+    <Board title="Medics" records={data.mostActiveMedics} />
+  </div>
+</PageTransition>

@@ -4,6 +4,6 @@ import type { QueueSlot } from '../types/queue-slot';
 
 export const leaveQueue = async (): Promise<QueueSlot> => {
   const slot = await callSocket<QueueSlot>('leave queue');
-  profile.update(profile => ({ ...profile, mapVote: undefined }));
+  profile.update(profile => (profile ? { ...profile, mapVote: undefined } : undefined));
   return slot;
 };

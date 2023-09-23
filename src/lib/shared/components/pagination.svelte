@@ -3,9 +3,9 @@
   import { IconChevronLeft, IconChevronRight } from '@tabler/icons-svelte';
   import { createEventDispatcher } from 'svelte';
 
-  export let currentPage: number = 1;
-  export let itemsPerPage: number = 10;
-  export let itemCount: number = 0;
+  export let currentPage = 1;
+  export let itemsPerPage = 10;
+  export let itemCount = 0;
 
   const dispatch = createEventDispatcher();
   let around: number[] = [];

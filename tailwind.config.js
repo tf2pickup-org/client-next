@@ -58,6 +58,10 @@ export default {
 
         'team-blu': 'rgb(88 121 138)',
         'team-red': 'rgb(189 59 59)',
+
+        'place-1st': '#E3C392',
+        'place-2nd': '#BBBBBB',
+        'place-3rd': '#E3A592',
       },
       aspectRatio: {
         '3/1': '3 / 1',
