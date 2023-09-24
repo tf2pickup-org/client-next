@@ -23,8 +23,10 @@
 </svelte:head>
 
 <PageTransition>
-  <div class="container mx-auto grid grid-cols-2 gap-x-4">
-    <div class="col-span-2">
+  <div
+    class="container mx-auto grid grid-cols-1 gap-x-4 gap-y-2 p-2 lg:grid-cols-2 lg:gap-y-0 lg:p-0"
+  >
+    <div class="lg:col-span-2">
       <PageHeader>Hall of fame</PageHeader>
     </div>
     <Board title="All classes" records={data.mostActivePlayers} />
