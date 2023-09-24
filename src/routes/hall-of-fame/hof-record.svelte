@@ -33,6 +33,9 @@
 
 <style lang="postcss">
   .hof-record {
+    @apply transition-colors;
+    @apply duration-75;
+
     display: grid;
     grid-column: span 4 / span 4;
     grid-template-columns: subgrid;
