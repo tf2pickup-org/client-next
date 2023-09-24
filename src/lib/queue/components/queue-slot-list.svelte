@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { profile } from '$lib/profile/profile.store';
   import GameClassIcon from '$lib/shared/components/game-class-icon.svelte';
   import { queueConfig, queueSlots } from '../queue.store';
   import QueueSlot from './queue-slot.svelte';
@@ -13,7 +14,10 @@
       </div>
 
       {#each $queueSlots.filter(s => s.gameClass === gameClass) as queueSlot}
-        <QueueSlot {...queueSlot} on:joinQueue on:leaveQueue on:markAsFriend />
+        {@const restricted = $profile?.restrictions?.some(r =>
+          r.gameClasses?.some(gc => gc === queueSlot.gameClass),
+        )}
+        <QueueSlot {...queueSlot} {restricted} on:joinQueue on:leaveQueue on:markAsFriend />
       {/each}
     </div>
   {/each}

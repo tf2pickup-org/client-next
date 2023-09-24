@@ -6,7 +6,7 @@
 </script>
 
 <button
-  class="bg-abru-light-75 text-abru-950 disabled:text-abru-light-60 hover:bg-abru-light-70 flex h-[34px] w-[34px] items-center justify-center rounded transition-colors duration-75"
+  class="mark-as-friend-button"
   class:selected={state === MarkAsFriendButtonState.selected}
   disabled={state === MarkAsFriendButtonState.disabled}
   on:click
@@ -19,6 +19,31 @@
 </button>
 
 <style lang="postcss">
+  .mark-as-friend-button {
+    @apply transition-colors;
+    @apply duration-75;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 34px;
+    width: 34px;
+
+    border-radius: 4px;
+
+    color: theme('colors.black');
+    background-color: theme('colors.abru.light.75');
+
+    &:disabled {
+      color: theme('colors.abru.light.60');
+    }
+
+    &:hover {
+      background-color: theme('colors.abru.light.70');
+    }
+  }
+
   .selected {
     color: theme('colors.accent.600');
   }

@@ -7,7 +7,7 @@
   import LeaveQueueButton from './leave-queue-button.svelte';
   import { MarkAsFriendButtonState } from './mark-as-friend-button-state';
   import MarkAsFriendButton from './mark-as-friend-button.svelte';
-  import { IconPlus } from '@tabler/icons-svelte';
+  import { IconLock, IconPlus } from '@tabler/icons-svelte';
   import { createEventDispatcher } from 'svelte';
   import { fade } from 'svelte/transition';
 
@@ -15,6 +15,7 @@
   export let ready: boolean;
   export let gameClass: Tf2ClassName;
   export let player: Player | undefined = undefined;
+  export let restricted = false;
 
   let isMySlot = false;
   let canBefriend = false;
@@ -38,7 +39,7 @@
 </script>
 
 <div
-  class="bg-abru-light-30 flex h-14 flex-row justify-stretch overflow-hidden rounded-lg shadow-md"
+  class="bg-abru-light-30 text-abru-light-50 flex h-14 flex-row justify-center overflow-hidden rounded-lg shadow-md"
 >
   {#if player}
     <div
@@ -77,16 +78,35 @@
       </div>
     </div>
   {:else if $canJoinQueue}
-    <button
-      class="transition-color bg-abru-light-30 text-abru-light-30 hover:bg-abru-light-750 hover:text-abru-light-60 flex flex-1 items-center justify-center duration-75"
-      on:click={() => dispatch('joinQueue', { slotId: id })}
-    >
-      <IconPlus />
-    </button>
+    {#if restricted}
+      <IconLock size={32} class="self-center" />
+    {:else}
+      <button class="join-queue-button" on:click={() => dispatch('joinQueue', { slotId: id })}>
+        <IconPlus />
+      </button>
+    {/if}
   {/if}
 </div>
 
 <style lang="postcss">
+  .join-queue-button {
+    @apply transition-colors;
+    @apply duration-75;
+
+    display: flex;
+    flex: 1 1 0%;
+    align-items: center;
+    justify-content: center;
+
+    background-color: theme('colors.abru.light.30');
+    color: theme('colors.abru.light.30');
+
+    &:hover {
+      background-color: theme('colors.abru.light.25');
+      color: theme('colors.abru.light.60');
+    }
+  }
+
   .taken {
     background-color: theme('colors.abru.light.60');
 
