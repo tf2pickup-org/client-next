@@ -1538,7 +1538,7 @@ __metadata:
     rxjs: 7.8.1
     socket.io-client: 4.7.2
     stylelint: ^15.4.0
-    stylelint-config-standard: ^32.0.0
+    stylelint-config-standard: ^34.0.0
     stylelint-config-svelte-roboleary: 0.4.0
     svelte: ^3.54.0
     svelte-check: ^3.0.1
@@ -4660,6 +4660,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"stylelint-config-recommended@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "stylelint-config-recommended@npm:13.0.0"
+  peerDependencies:
+    stylelint: ^15.10.0
+  checksum: a56eb6d1a7c7f3a7a172b54bc34218859ba22a5a06816fb4d0964f66cb83cf372062f2c97830e994ad68243548e15fc49abf28887c3261ab1b471b3aa69f8e82
+  languageName: node
+  linkType: hard
+
 "stylelint-config-roboleary@npm:>=0.1.0":
   version: 0.4.1
   resolution: "stylelint-config-roboleary@npm:0.4.1"
@@ -4675,7 +4684,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-config-standard@npm:>=22.0.0, stylelint-config-standard@npm:^32.0.0":
+"stylelint-config-standard@npm:>=22.0.0":
   version: 32.0.0
   resolution: "stylelint-config-standard@npm:32.0.0"
   dependencies:
@@ -4683,6 +4692,17 @@ __metadata:
   peerDependencies:
     stylelint: ^15.4.0
   checksum: 05f7481f93e0fd3d2e69ba6ef3b3b8347c2340fcc6732e3f4289cc1067ae74e87f6474b4385b8936a0ff062cc3dd08c5cc50e27d96994c6176a69d055a75537a
+  languageName: node
+  linkType: hard
+
+"stylelint-config-standard@npm:^34.0.0":
+  version: 34.0.0
+  resolution: "stylelint-config-standard@npm:34.0.0"
+  dependencies:
+    stylelint-config-recommended: ^13.0.0
+  peerDependencies:
+    stylelint: ^15.10.0
+  checksum: 536249800c04b48a9c354067765f042713982e8222be17bb897a27d26546e50adfb87e6f1e4541807d720de3554345da99ab470e13e8d7ab0ab326c73ae3df61
   languageName: node
   linkType: hard
 
