@@ -31,10 +31,10 @@
     @apply transition-colors;
     @apply duration-75;
 
-    background-color: theme('colors.abru.light.15');
+    background-color: theme('colors.abru.light.15.DEFAULT');
 
     &:hover {
-      background-color: lighten(theme('colors.abru.light.15'), 4%);
+      background-color: lighten(theme('colors.abru.light.15.DEFAULT'), 4%);
     }
   }
 </style>

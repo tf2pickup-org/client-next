@@ -2,8 +2,8 @@
   import { PUBLIC_WEBSITE_NAME, PUBLIC_WEBSITE_URL } from '$env/static/public';
   import PageTransition from '$lib/core/components/page-transition.svelte';
   import { fetchConnectInfo } from '$lib/games/api/fetch-connect-info';
-  import GameSummary from '$lib/games/components/game-summary.svelte';
-  import TeamPlayerList from '$lib/games/components/team-player-list.svelte';
+  import GameSummary from './game-summary.svelte';
+  import TeamPlayerList from './team-player-list.svelte';
   import { gameUpdated } from '$lib/games/game.events';
   import type { ConnectInfo } from '$lib/games/types/connect-info';
   import type { Game } from '$lib/games/types/game';

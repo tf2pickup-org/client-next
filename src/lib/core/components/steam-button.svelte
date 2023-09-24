@@ -25,7 +25,7 @@
       font-weight: bold;
       letter-spacing: 0.05em;
 
-      @media only screen and (min-width: theme('screens.lg')) {
+      @media screen(lg) {
         font-size: 16px;
       }
     }

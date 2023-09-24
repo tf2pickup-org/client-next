@@ -17,7 +17,7 @@
     padding: 32px;
     box-shadow: 0px 29px 37px 3px rgba(0, 0, 0, 0.4);
 
-    @media only screen and (min-width: theme('screens.lg')) {
+    @media screen(lg) {
       margin: 48px;
       max-width: 1280px;
     }

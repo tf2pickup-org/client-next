@@ -74,11 +74,11 @@
   }
 
   .active-page {
-    background-color: theme('colors.abru.light.15');
+    background-color: theme('colors.abru.light.15.DEFAULT');
   }
 
   .page--disabled {
-    color: theme('colors.abru.light.15');
+    color: theme('colors.abru.light.15.DEFAULT');
     cursor: default;
 
     &:hover {

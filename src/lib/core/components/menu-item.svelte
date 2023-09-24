@@ -30,7 +30,7 @@
       background-color: theme('colors.abru.dark.20 / 40%');
     }
 
-    @media only screen and (min-width: theme('screens.lg')) {
+    @media screen(lg) {
       background-color: initial;
 
       font-size: 18px;

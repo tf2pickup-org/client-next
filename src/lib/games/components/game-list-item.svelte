@@ -79,10 +79,10 @@
     color: theme('colors.abru.light.75');
     font-weight: 500;
 
-    background: theme('colors.abru.light.15');
+    background: theme('colors.abru.light.15.DEFAULT');
     background: linear-gradient(
       90deg,
-      theme('colors.abru.light.15') 35%,
+      theme('colors.abru.light.15.DEFAULT') 35%,
       theme('colors.transparent') 90%
     );
 

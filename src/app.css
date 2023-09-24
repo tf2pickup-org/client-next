@@ -24,26 +24,36 @@ body {
   }
 }
 
-.accent-button {
+.button {
   @apply transition-colors;
   @apply duration-75;
 
   display: flex;
+  flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
+  gap: 8px;
 
   padding: 12px 24px;
   font-size: 16px;
+  line-height: normal;
   font-weight: 700;
-
-  color: theme('colors.abru.light.85');
-  background-color: theme('colors.accent.DEFAULT');
-
   border-radius: 4px;
 
   text-transform: uppercase;
 
+  color: theme('colors.ash');
+
+  background-color: theme('colors.abru.light.15.DEFAULT');
   &:hover {
-    background-color: theme('colors.accent.hover');
+    background-color: theme('colors.abru.light.15.hover');
+    /* background-color: #37303a;   */
+  }
+
+  &--accent {
+    background-color: theme('colors.accent.DEFAULT');
+    &:hover {
+      background-color: theme('colors.accent.hover');
+    }
   }
 }

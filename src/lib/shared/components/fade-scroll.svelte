@@ -44,14 +44,14 @@
   }
 
   .mask-top {
-    @media only screen and (min-width: theme('screens.lg')) {
+    @media screen(lg) {
       padding-right: 16px;
     }
     --top-mask-size: 96px !important;
   }
 
   .mask-bottom {
-    @media only screen and (min-width: theme('screens.lg')) {
+    @media screen(lg) {
       padding-right: 16px;
     }
     --bottom-mask-size: 96px !important;

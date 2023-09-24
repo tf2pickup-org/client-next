@@ -19,7 +19,7 @@
 
     <div class="flex flex-row justify-center">
       <button
-        class="accent-button"
+        class="button button--accent"
         on:click={() => {
           disabled = true;
           acceptRules();
@@ -36,7 +36,7 @@
   .rules-wrapper {
     max-height: calc(100vh - 64px);
 
-    @media only screen and (min-width: theme('screens.lg')) {
+    @media screen(lg) {
       max-height: calc(100vh - 300px);
     }
   }

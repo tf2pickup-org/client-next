@@ -12,6 +12,8 @@ export default {
         abru: {
           DEFAULT: '#1C1320',
 
+          // use https://pinetools.com/darken-color for darkening colors
+
           light: {
             85: '#DDDCDD',
             75: '#C7C4C7',
@@ -22,7 +24,10 @@ export default {
             35: '#6B666E',
             30: '#605B62',
             25: '#564D59',
-            15: '#3E3641',
+            15: {
+              DEFAULT: '#3E3641',
+              hover: '#37303A', // darken by 10%
+            },
             10: '#332B36',
             5: '#272129',
             3: '#221D24',
@@ -52,6 +57,8 @@ export default {
           // main-accent/light/75%
           200: '#FDCFDE',
         },
+
+        ash: '#F4F4ED',
 
         alert: '#FF9E1F',
         steam: '#6F9F31',

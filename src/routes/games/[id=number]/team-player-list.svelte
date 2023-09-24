@@ -1,9 +1,9 @@
 <script lang="ts">
   import GameClassIcon from '$lib/shared/components/game-class-icon.svelte';
   import { tf2ClassOrder } from '$lib/shared/tf2-class-order';
-  import type { Game } from '../types/game';
-  import type { GameSlot } from '../types/game-slot';
-  import type { Tf2Team } from '../types/tf2-team';
+  import type { Game } from '$lib/games/types/game';
+  import type { GameSlot } from '$lib/games/types/game-slot';
+  import type { Tf2Team } from '$lib/games/types/tf2-team';
   import { getContext } from 'svelte';
   import { derived, type Writable } from 'svelte/store';
 
@@ -27,7 +27,7 @@
   <div
     class:bg-team-blu={team === 'blu'}
     class:bg-team-red={team === 'red'}
-    class="flex justify-between rounded-lg px-5 py-3.5 text-5xl font-bold text-gray-100"
+    class="text-ash flex justify-between rounded-lg px-5 py-3.5 text-5xl font-bold"
     class:flex-row={team === 'blu'}
     class:flex-row-reverse={team === 'red'}
   >

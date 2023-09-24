@@ -54,9 +54,9 @@
     }
 
     &.is-1st {
-      background-color: theme('colors.abru.light.15');
+      background-color: theme('colors.abru.light.15.DEFAULT');
       &:hover {
-        background-color: theme('colors.abru.light.15 / 90%');
+        background-color: theme('colors.abru.light.15.DEFAULT / 90%');
       }
     }
 
