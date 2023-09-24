@@ -1,6 +1,7 @@
 <script lang="ts">
   import { PUBLIC_WEBSITE_NAME, PUBLIC_WEBSITE_URL } from '$env/static/public';
   import PageTransition from '$lib/core/components/page-transition.svelte';
+  import PageHeader from '$lib/shared/components/page-header.svelte';
   import type { PageData } from './$types';
   import Board from './board.svelte';
 
@@ -22,7 +23,10 @@
 </svelte:head>
 
 <PageTransition>
-  <div class="container mx-auto grid grid-cols-2 gap-4">
+  <div class="container mx-auto grid grid-cols-2 gap-x-4">
+    <div class="col-span-2">
+      <PageHeader>Hall of fame</PageHeader>
+    </div>
     <Board title="All classes" records={data.mostActivePlayers} />
     <Board title="Medics" records={data.mostActiveMedics} />
   </div>
