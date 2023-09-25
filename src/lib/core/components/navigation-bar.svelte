@@ -13,7 +13,7 @@
 >
   {#if menuOpen}
     <div
-      class="bg-abru-light-3 absolute left-0 right-0 top-[95px] z-50"
+      class="bg-abru-light-3 fixed left-0 right-0 bottom-0 top-[95px] z-50"
       transition:fly={{ y: -15 }}
     >
       <Menu />

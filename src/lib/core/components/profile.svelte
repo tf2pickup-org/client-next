@@ -34,7 +34,7 @@
 
 <svelte:body on:click={() => (menuOpen = false)} />
 
-<div class="relative">
+<div class="relative grow lg:grow-0">
   <button class="profile-button" on:click|stopPropagation={() => (menuOpen = !menuOpen)}>
     <img
       src={avatar.medium}
@@ -88,21 +88,27 @@
     @apply transition-colors;
     @apply duration-75;
 
-    background-color: theme('colors.abru.dark.29');
-    color: theme('colors.abru.light.75');
     display: flex;
     flex-direction: row;
-    width: 300px;
     align-items: center;
     justify-content: flex-start;
     gap: 8px;
-    text-overflow: ellipsis;
-    border-radius: 10px;
+
+    width: 100%;
     padding: 11px;
+    border-radius: 10px;
+    text-overflow: ellipsis;
+
+    background-color: theme('colors.abru.dark.29');
+    color: theme('colors.abru.light.75');
     text-align: left;
 
+    @media screen(lg) {
+      width: 300px;
+    }
+
     &:hover {
-      background-color: lighten(theme('colors.abru.dark.29'), 4%);
+      background-color: lighten(theme('colors.abru.dark.29'), 2%);
     }
 
     &:active {
@@ -123,7 +129,7 @@
     gap: 0.5rem /* 8px */;
 
     &:hover {
-      background-color: lighten(theme('colors.abru.dark.29'), 4%);
+      background-color: lighten(theme('colors.abru.dark.29'), 2%);
     }
   }
 
