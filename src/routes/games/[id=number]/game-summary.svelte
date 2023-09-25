@@ -2,7 +2,6 @@
   import { profile } from '$lib/profile/profile.store';
   import GameLiveIndicator from '$lib/shared/components/game-live-indicator.svelte';
   import MapThumbnail from '$lib/shared/components/map-thumbnail.svelte';
-  import { connectStringToLink } from '$lib/shared/connect-string-to-link';
   import ConnectString from '$lib/games/components/connect-string.svelte';
   import GameSummaryLink from './game-summary-link.svelte';
   import JoinGameButton from '$lib/games/components/join-game-button.svelte';
