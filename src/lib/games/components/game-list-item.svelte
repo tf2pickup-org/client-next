@@ -37,20 +37,16 @@
   </div>
 
   {#if state === 'interrupted'}
-    <div class="bg-abru-light-25 col-span-2 justify-self-stretch rounded-[3px] px-3.5 text-center">
-      force-ended
-    </div>
+    <div class="label label--interrupted">force-ended</div>
   {:else if score && score.blu !== undefined && score.red !== undefined}
-    <div class="bg-team-blu min-w-[80px] rounded-[3px] px-3.5 text-center uppercase">
+    <div class="label label--blu">
       blu: {score.blu}
     </div>
-    <div class="bg-team-red min-w-[80px] rounded-[3px] px-3.5 text-center uppercase">
+    <div class="label label--red">
       red: {score.red}
     </div>
   {:else if ['created', 'configuring', 'launching'].includes(state)}
-    <div
-      class="bg-alert text-abru-light-3 col-span-2 justify-self-stretch rounded-[3px] px-3.5 text-center"
-    >
+    <div class="label label--launching">
       {state}
     </div>
   {:else}
@@ -79,10 +75,10 @@
     color: theme('colors.abru.light.75');
     font-weight: 500;
 
-    background: theme('colors.abru.light.15.DEFAULT');
+    background: theme('colors.abru.light.15');
     background: linear-gradient(
       90deg,
-      theme('colors.abru.light.15.DEFAULT') 35%,
+      theme('colors.abru.light.15') 35%,
       theme('colors.transparent') 90%
     );
 
@@ -92,9 +88,38 @@
     &:hover {
       background: linear-gradient(
         90deg,
-        theme('colors.abru.light.25') 35%,
+        lighten(theme('colors.abru.light.15'), 3%) 35%,
         theme('colors.transparent') 90%
       );
+    }
+
+    .label {
+      border-radius: 3px;
+      padding: 0 13px;
+      text-align: center;
+
+      &--blu {
+        background-color: theme('colors.team-blu');
+        text-transform: uppercase;
+      }
+
+      &--red {
+        background-color: theme('colors.team-red');
+        text-transform: uppercase;
+      }
+
+      &--interrupted {
+        background-color: theme('colors.abru.light.25');
+        grid-column: span 2 / span 2;
+        justify-self: stretch;
+      }
+
+      &--launching {
+        background-color: theme('colors.alert');
+        color: theme('colors.abru.light.3');
+        grid-column: span 2 / span 2;
+        justify-self: stretch;
+      }
     }
   }
 </style>

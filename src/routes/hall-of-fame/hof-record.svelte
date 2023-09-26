@@ -54,23 +54,23 @@
     }
 
     &.is-1st {
-      background-color: theme('colors.abru.light.15.DEFAULT');
+      background-color: theme('colors.abru.light.15');
       &:hover {
-        background-color: theme('colors.abru.light.15.DEFAULT / 90%');
+        background-color: darken(theme('colors.abru.light.15'), 2%);
       }
     }
 
     &.is-2nd {
       background-color: theme('colors.abru.light.10');
       &:hover {
-        background-color: theme('colors.abru.light.10 / 90%');
+        background-color: darken(theme('colors.abru.light.10'), 2%);
       }
     }
 
     &.is-3rd {
       background-color: theme('colors.abru.light.5');
       &:hover {
-        background-color: theme('colors.abru.light.5 / 75%');
+        background-color: darken(theme('colors.abru.light.5'), 2%);
       }
     }
   }

@@ -13,7 +13,9 @@
 
   const dispatchPageChange = (event: Event, page: number) => {
     event.preventDefault();
-    dispatch('pageChange', { page });
+    if (page > 0 && page < last) {
+      dispatch('pageChange', { page });
+    }
     return false;
   };
 
@@ -74,11 +76,11 @@
   }
 
   .active-page {
-    background-color: theme('colors.abru.light.15.DEFAULT');
+    background-color: theme('colors.abru.light.15');
   }
 
   .page--disabled {
-    color: theme('colors.abru.light.15.DEFAULT');
+    color: theme('colors.abru.light.15');
     cursor: default;
 
     &:hover {

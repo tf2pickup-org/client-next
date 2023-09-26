@@ -44,9 +44,9 @@ body {
 
   color: theme('colors.ash');
 
-  background-color: theme('colors.abru.light.15.DEFAULT');
+  background-color: theme('colors.abru.light.15');
   &:hover {
-    background-color: darken(theme('colors.abru.light.15.DEFAULT'), 5%);
+    background-color: darken(theme('colors.abru.light.15'), 5%);
   }
 
   &:disabled {

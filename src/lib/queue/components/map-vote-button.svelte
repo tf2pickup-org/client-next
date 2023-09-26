@@ -48,7 +48,7 @@
     &:hover:enabled {
       background: linear-gradient(
         90deg,
-        theme('colors.abru.light.30') 35%,
+        lighten(theme('colors.abru.light.25'), 3%) 35%,
         theme('colors.transparent') 90%
       );
     }
