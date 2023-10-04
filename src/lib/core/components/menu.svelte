@@ -19,7 +19,7 @@
     HOF
   </MenuItem>
 
-  <MenuItem href="/stats" active={$page.url.pathname === '/stats'}>
+  <MenuItem href="/statistics" active={$page.url.pathname === '/statistics'}>
     <IconChartPieFilled size={36} class="lg:hidden" />
     <IconChartPieFilled size={24} stroke={1.5} class="hidden lg:block" />
     Stats
