@@ -3,7 +3,6 @@
   import PageTransition from '$lib/core/components/page-transition.svelte';
   import { fetchConnectInfo } from '$lib/games/api/fetch-connect-info';
   import GameSummary from './game-summary.svelte';
-  import TeamPlayerList from './team-player-list.svelte';
   import { gameUpdated } from '$lib/games/game.events';
   import type { ConnectInfo } from '$lib/games/types/connect-info';
   import type { Game } from '$lib/games/types/game';
@@ -11,6 +10,8 @@
   import { Subject, filter, takeUntil } from 'rxjs';
   import { onDestroy, onMount, setContext } from 'svelte';
   import { get, writable } from 'svelte/store';
+  import GameSlotList from './game-slot-list.svelte';
+  import { replacePlayer } from '$lib/games/api/replace-player';
 
   export let data: PageData;
 
@@ -78,12 +79,10 @@
       <GameSummary />
     </div>
 
-    <div class="col-span-3">
-      <TeamPlayerList team="blu" />
-    </div>
-
-    <div class="col-span-3">
-      <TeamPlayerList team="red" />
+    <div class="col-span-6">
+      <GameSlotList
+        on:replacePlayer={event => replacePlayer(event.detail.gameId, event.detail.replaceeId)}
+      />
     </div>
   </div>
 </PageTransition>
