@@ -32,7 +32,7 @@ jobs:
       - name: Build
         run: yarn build
 
-  build-docker-image:
+  docker:
     runs-on: ubuntu-latest
 
     strategy:
