@@ -1,8 +1,10 @@
 <script lang="ts">
+  import { goto } from '$app/navigation';
   import { page } from '$app/stores';
   import { PUBLIC_WEBSITE_NAME } from '$env/static/public';
   import Footer from '$lib/core/components/footer.svelte';
   import NavigationBar from '$lib/core/components/navigation-bar.svelte';
+  import { gameCreated } from '$lib/games/game.events';
   import { socket } from '$lib/io/socket';
   import { fetchOnlinePlayers } from '$lib/players/api/fetch-online-players';
   import { onlinePlayers } from '$lib/players/online-players.store';
@@ -108,6 +110,12 @@
     );
 
     streamsUpdated.pipe(takeUntil(destroyed)).subscribe(value => streams.set(value));
+
+    gameCreated.pipe(takeUntil(destroyed)).subscribe(game => {
+      if ($page.url.pathname === '/' && $profile?.activeGameId === game.id) {
+        goto(`/games/${game.number}`);
+      }
+    });
 
     socket.on('connect', async () => {
       queue.set(await fetchQueue());
