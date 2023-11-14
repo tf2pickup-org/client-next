@@ -47,7 +47,7 @@
     "vitest": "^0.34.0"
   },
   "type": "module",
-  "packageManager": "yarn@3.6.4",
+  "packageManager": "yarn@3.7.0",
   "dependencies": {
     "@tabler/icons-svelte": "2.40.0",
     "date-fns": "2.30.0",
