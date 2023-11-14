@@ -31,7 +31,6 @@
         takeUntil(unmounted),
       )
       .subscribe($game => {
-        console.log($game.connectInfoVersion);
         game.set($game);
 
         const isRunning = ['created', 'configuring', 'launching', 'started'].includes($game.state);
@@ -42,10 +41,7 @@
           isRunning &&
           $game.connectInfoVersion !== $connectInfo?.connectInfoVersion
         ) {
-          fetchConnectInfo($game.id).then($connectInfo => {
-            console.log($connectInfo);
-            connectInfo.set($connectInfo);
-          });
+          fetchConnectInfo($game.id).then($connectInfo => connectInfo.set($connectInfo));
         }
       });
   });

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Howl } from 'howler';
   import { goto } from '$app/navigation';
   import { page } from '$app/stores';
   import { PUBLIC_WEBSITE_NAME } from '$env/static/public';
@@ -12,7 +13,7 @@
   import type { Player } from '$lib/players/types/player';
   import { fetchProfile } from '$lib/profile/api/fetch-profile';
   import { profileUpdated } from '$lib/profile/profile.events';
-  import { activeGameId, profile } from '$lib/profile/profile.store';
+  import { activeGameId, preferences, profile } from '$lib/profile/profile.store';
   import { fetchQueue } from '$lib/queue/api/fetch-queue';
   import ReadyUpDialog from '$lib/queue/components/ready-up-dialog.svelte';
   import {
@@ -35,6 +36,8 @@
   import { takeUntil } from 'rxjs/operators';
   import { onDestroy, onMount } from 'svelte';
   import { derived } from 'svelte/store';
+  import { readyUp } from '$lib/queue/api/ready-up';
+  import { leaveQueue } from '$lib/queue/api/leave-queue';
 
   export let data: LayoutData;
 
@@ -43,6 +46,14 @@
     [queueState, mySlot],
     ([$queueState, $mySlot]) => $queueState === QueueState.ready && $mySlot?.ready === false,
   );
+
+  let notification: Notification;
+  let sound: Howl;
+
+  const closeNotification = () => {
+    notification?.close();
+    sound?.stop();
+  };
 
   $: {
     queue.set(data.queue);
@@ -111,8 +122,28 @@
 
     streamsUpdated.pipe(takeUntil(destroyed)).subscribe(value => streams.set(value));
 
+    let previousAwaitsReadyUp: boolean | undefined = undefined;
+    awaitsReadyUp.subscribe($awaitsReadyUp => {
+      if ($awaitsReadyUp && previousAwaitsReadyUp === false) {
+        notification = new Notification('Ready up!', {
+          body: 'A new pickup game is starting',
+          icon: '/favicon.png',
+        });
+
+        const volume = parseFloat($preferences?.['soundVolume'] ?? '1.0');
+
+        sound = new Howl({
+          src: ['webm', 'wav'].map(format => `/sounds/ready_up.${format}`),
+          autoplay: true,
+          volume,
+        });
+      }
+
+      previousAwaitsReadyUp = $awaitsReadyUp;
+    });
+
     gameCreated.pipe(takeUntil(destroyed)).subscribe(game => {
-      if ($page.url.pathname === '/' && $profile?.activeGameId === game.id) {
+      if ($page.url.pathname === '/' && game.slots.some(s => s.player.id === $profile?.player.id)) {
         goto(`/games/${game.number}`);
       }
     });
@@ -153,7 +184,16 @@
 {/if}
 
 {#if $awaitsReadyUp}
-  <ReadyUpDialog />
+  <ReadyUpDialog
+    on:readyUp={() => {
+      readyUp();
+      closeNotification();
+    }}
+    on:leaveQueue={() => {
+      leaveQueue();
+      closeNotification();
+    }}
+  />
 {/if}
 
 {#if $page.url.pathname === '/' && $activeGameId}

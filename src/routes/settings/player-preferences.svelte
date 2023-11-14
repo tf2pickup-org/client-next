@@ -1,7 +1,7 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
   import type { PlayerPreferences } from '$lib/profile/types/player-preferences';
-  import { IconVolume, IconVolume2, IconVolume3, IconVolumeOff } from '@tabler/icons-svelte';
+  import { IconVolume, IconVolume2, IconVolume3 } from '@tabler/icons-svelte';
   import { getContext } from 'svelte';
   import type { Writable } from 'svelte/store';
 
@@ -11,13 +11,11 @@
   let changed = false;
   let saving = false;
 
-  $: {
-    soundVolume = parseFloat($preferences.soundVolume ?? '1.0');
-  }
+  $: soundVolume = parseFloat($preferences.soundVolume ?? '1.0');
 </script>
 
-<div class="bg-abru-dark-25 p-[24px] text-abru-light-75 rounded-lg">
-  <div class="text-2xl font-bold mb-3">Preferences</div>
+<div class="bg-abru-dark-25 text-abru-light-75 rounded-lg p-[24px]">
+  <div class="mb-3 text-2xl font-bold">Preferences</div>
 
   <form
     method="POST"
@@ -33,7 +31,7 @@
     }}
     on:change={() => (changed = true)}
   >
-    <div class="text-base mb-3">Notification sound volume</div>
+    <div class="mb-3 text-base">Notification sound volume</div>
     <div class="flex flex-row items-center gap-2">
       {#if soundVolume === 0}
         <IconVolume3 />
@@ -55,7 +53,7 @@
       />
     </div>
 
-    <button type="submit" class="mt-10 button button--accent" disabled={!changed || saving}
+    <button type="submit" class="button button--accent mt-10" disabled={!changed || saving}
       >Save changes</button
     >
   </form>

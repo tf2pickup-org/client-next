@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { GameLaunchTimeSpan } from '$lib/statistics/types/game-launch-time-span';
   import { onMount } from 'svelte';
-  import Chart, { type ChartData, type ScriptableContext } from 'chart.js/auto';
+  import Chart, { type ChartData } from 'chart.js/auto';
 
   export let data: GameLaunchTimeSpan[];
 

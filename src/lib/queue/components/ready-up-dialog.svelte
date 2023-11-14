@@ -1,33 +1,8 @@
 <script lang="ts">
-  import { preferences } from '$lib/profile/profile.store';
   import Overlay from '$lib/shared/components/overlay.svelte';
-  import { leaveQueue } from '../api/leave-queue';
-  import { readyUp } from '../api/ready-up';
-  import { Howl } from 'howler';
-  import { onDestroy, onMount } from 'svelte';
+  import { createEventDispatcher } from 'svelte';
 
-  let notification: Notification;
-  let sound: Howl;
-
-  onMount(() => {
-    notification = new Notification('Ready up!', {
-      body: 'A new pickup game is starting',
-      icon: '/favicon.png',
-    });
-
-    const volume = parseFloat($preferences?.['soundVolume'] ?? '1.0');
-
-    sound = new Howl({
-      src: ['webm', 'wav'].map(format => `/sounds/ready_up.${format}`),
-      autoplay: true,
-      volume,
-    });
-  });
-
-  onDestroy(() => {
-    notification.close();
-    sound.stop();
-  });
+  const dispatch = createEventDispatcher();
 </script>
 
 <Overlay>
@@ -42,11 +17,11 @@
     <div class="flex flex-col gap-4">
       <button
         class="bg-accent-600 w-[242px] rounded py-[12px] text-xl font-bold uppercase text-gray-50"
-        on:click={readyUp}>I'm ready</button
+        on:click={() => dispatch('readyUp')}>I'm ready</button
       >
       <button
         class="bg-abru-light-5 w-[242px] rounded py-[12px] text-xl font-bold text-gray-50"
-        on:click={leaveQueue}>Can't play right now</button
+        on:click={() => dispatch('leaveQueue')}>Can't play right now</button
       >
     </div>
   </div>
