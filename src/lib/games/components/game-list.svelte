@@ -21,8 +21,17 @@
 <style lang="postcss">
   .game-list {
     display: grid;
-    grid-template-columns: repeat(6, auto) 1fr;
     column-gap: 8px;
     row-gap: 10px;
+
+    grid-template-columns: 22px auto 1fr 1fr auto;
+
+    @media screen(sm) {
+      grid-template-columns: 22px repeat(4, auto) 1fr 1fr;
+    }
+
+    @media screen(xl) {
+      grid-template-columns: 22px repeat(5, auto) 1fr;
+    }
   }
 </style>

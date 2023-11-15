@@ -60,7 +60,7 @@
 </svelte:head>
 
 <PageTransition>
-  <div class="container mx-auto mt-12 flex flex-col gap-[30px]">
+  <div class="container mx-auto mt-12 flex flex-col gap-[30px] p-2 lg:p-0">
     <PlayerPresentation />
 
     <div class="flex flex-col">

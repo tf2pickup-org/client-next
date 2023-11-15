@@ -29,7 +29,7 @@
 </svelte:head>
 
 <PageTransition>
-  <div class="container mx-auto">
+  <div class="container mx-auto p-2 lg:p-0">
     <PageHeader>Games</PageHeader>
 
     {#if data.games}
