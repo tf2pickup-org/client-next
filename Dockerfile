@@ -4,8 +4,9 @@ WORKDIR /app
 ARG branding=tf2pickup.pl
 
 COPY . .
-RUN yarn install --immutable
-RUN yarn build:${branding}
+RUN yarn install --immutable \
+  && yarn cache clean \
+  && yarn build:${branding}
 
 USER node
 CMD [ "node", "build/index.js" ]
