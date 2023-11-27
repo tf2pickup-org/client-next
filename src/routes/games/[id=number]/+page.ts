@@ -1,10 +1,12 @@
 import { fetchConnectInfo } from '$lib/games/api/fetch-connect-info.js';
 import { fetchGame } from '$lib/games/api/fetch-game';
+import { fetchGameEvents } from '$lib/games/api/fetch-game-events';
 import type { ConnectInfo } from '$lib/games/types/connect-info.js';
 import type { PageLoad } from './$types';
 
 export const load = (async ({ params, fetch, parent }) => {
   const game = await fetchGame(params.id, fetch);
+  const events = await fetchGameEvents(params.id, fetch);
   let connectInfo: ConnectInfo | undefined;
   let isMyGame = false;
 
@@ -25,6 +27,7 @@ export const load = (async ({ params, fetch, parent }) => {
 
   return {
     game,
+    events,
     connectInfo,
     isMyGame,
   };

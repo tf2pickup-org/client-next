@@ -32,6 +32,7 @@
 
 <style lang="postcss">
   .fade-scroll {
+    max-height: 100%;
     mask-image: linear-gradient(
       to bottom,
       transparent 0,
@@ -47,13 +48,13 @@
     @media screen(lg) {
       padding-right: 16px;
     }
-    --top-mask-size: 96px !important;
+    --top-mask-size: 48px !important;
   }
 
   .mask-bottom {
     @media screen(lg) {
       padding-right: 16px;
     }
-    --bottom-mask-size: 96px !important;
+    --bottom-mask-size: 48px !important;
   }
 </style>

@@ -12,15 +12,20 @@
   import { get, writable } from 'svelte/store';
   import GameSlotList from './game-slot-list.svelte';
   import { replacePlayer } from '$lib/games/api/replace-player';
+  import type { GameEvent } from '$lib/games/types/game-event';
+  import GameEventList from './game-event-list.svelte';
+  import FadeScroll from '$lib/shared/components/fade-scroll.svelte';
 
   export let data: PageData;
 
   let game = writable<Game>();
+  let events = writable<GameEvent[]>();
   let connectInfo = writable<ConnectInfo | undefined>();
   let unmounted = new Subject<void>();
 
   $: {
     game.set(data.game);
+    events.set(data.events);
     connectInfo.set(data.connectInfo);
   }
 
@@ -52,6 +57,7 @@
   });
 
   setContext('game', game);
+  setContext('game.events', events);
   setContext('game.connectInfo', connectInfo);
 </script>
 
@@ -71,8 +77,16 @@
 
 <PageTransition>
   <div class="container mx-auto mt-12 grid grid-cols-8 gap-x-4">
-    <div class="order-first col-span-2">
+    <div class="order-first col-span-2 flex flex-col">
       <GameSummary />
+
+      <span class="col-span-2 mb-4 mt-8 text-2xl font-bold text-white">Game events</span>
+
+      <div class="h-[260px]">
+        <FadeScroll>
+          <GameEventList />
+        </FadeScroll>
+      </div>
     </div>
 
     <div class="col-span-6">
