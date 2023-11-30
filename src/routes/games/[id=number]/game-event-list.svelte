@@ -7,7 +7,7 @@
   const events = derived(getContext<Writable<GameEvent[]>>('game.events'), $events =>
     $events
       .filter(({ event }) => renderedEvents.includes(event))
-      .toSorted((a, b) => b.at.getTime() - a.at.getTime()),
+      .toSorted((a, b) => new Date(b.at).getTime() - new Date(a.at).getTime()),
   );
 </script>
 

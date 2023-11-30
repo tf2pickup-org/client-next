@@ -7,7 +7,7 @@
   import type { ConnectInfo } from '$lib/games/types/connect-info';
   import type { Game } from '$lib/games/types/game';
   import type { PageData } from './$types';
-  import { Subject, filter, takeUntil } from 'rxjs';
+  import { Subject, filter, fromEvent, takeUntil } from 'rxjs';
   import { onDestroy, onMount, setContext } from 'svelte';
   import { get, writable } from 'svelte/store';
   import GameSlotList from './game-slot-list.svelte';
@@ -15,13 +15,22 @@
   import type { GameEvent } from '$lib/games/types/game-event';
   import GameEventList from './game-event-list.svelte';
   import FadeScroll from '$lib/shared/components/fade-scroll.svelte';
+  import { socket } from '$lib/io/socket';
+  import { joinRoom } from '$lib/io/api/join-room';
+  import { leaveRoom } from '$lib/io/api/leave-room';
 
   export let data: PageData;
+
+  const room = `/games/${data.game.number}/events`;
 
   let game = writable<Game>();
   let events = writable<GameEvent[]>();
   let connectInfo = writable<ConnectInfo | undefined>();
   let unmounted = new Subject<void>();
+
+  fromEvent<GameEvent[]>(socket, 'events updated')
+    .pipe(takeUntil(unmounted))
+    .subscribe($events => events.set($events));
 
   $: {
     game.set(data.game);
@@ -49,9 +58,12 @@
           fetchConnectInfo($game.id).then($connectInfo => connectInfo.set($connectInfo));
         }
       });
+
+    joinRoom(room);
   });
 
   onDestroy(() => {
+    leaveRoom(room);
     unmounted.next();
     unmounted.complete();
   });

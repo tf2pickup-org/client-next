@@ -24,7 +24,7 @@
   import GameClassIcon from '$lib/shared/components/game-class-icon.svelte';
 
   export let event: GameEventType;
-  export let at: Date;
+  export let at: string;
 
   export let gameServerName: string | undefined = undefined;
   export let actor: Player | undefined = undefined;
@@ -46,7 +46,7 @@
   class:game-event--info={[GameEventType.gameServerInitialized].includes(event)}
   class:game-event--warning={[GameEventType.substituteRequested].includes(event)}
 >
-  <span class="at">{format(at, 'HH:mm')}</span>
+  <span class="at">{format(new Date(at), 'HH:mm')}</span>
   <div>
     {#if event === GameEventType.gameCreated}
       <span>Game created</span>
