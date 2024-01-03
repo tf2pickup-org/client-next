@@ -57,6 +57,6 @@
     "marked": "9.1.6",
     "postcss-lighten-darken": "0.9.0",
     "rxjs": "7.8.1",
-    "socket.io-client": "4.7.2"
+    "socket.io-client": "4.7.3"
   }
 }
