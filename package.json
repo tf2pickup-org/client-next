@@ -24,7 +24,7 @@
     "@types/lodash": "4.14.202",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
-    "autoprefixer": "10.4.16",
+    "autoprefixer": "10.4.17",
     "chart.js": "4.4.1",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^9.0.0",
