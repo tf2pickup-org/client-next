@@ -871,9 +871,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-node@npm:4.0.0":
-  version: 4.0.0
-  resolution: "@sveltejs/adapter-node@npm:4.0.0"
+"@sveltejs/adapter-node@npm:4.0.1":
+  version: 4.0.1
+  resolution: "@sveltejs/adapter-node@npm:4.0.1"
   dependencies:
     "@rollup/plugin-commonjs": ^25.0.7
     "@rollup/plugin-json": ^6.1.0
@@ -881,7 +881,7 @@ __metadata:
     rollup: ^4.9.5
   peerDependencies:
     "@sveltejs/kit": ^2.4.0
-  checksum: 992bf66acc430fb80d6ad0361d1a2d40867cbe94f9855867cfbe3975e711eb7601b5772328e60a6ee495757c611a6051321dbe3320a7250cbd6cbd6fe55aec5c
+  checksum: 7864db134b664a5a97421ac8e4f8410c3a410baf3e37a32b0a00c7e77d07b4b10364de4b837f9b61a994013fb015b5b4b05557295682b5a9510403aa43814377
   languageName: node
   linkType: hard
 
@@ -1744,7 +1744,7 @@ __metadata:
   resolution: "client-next@workspace:."
   dependencies:
     "@playwright/test": ^1.28.1
-    "@sveltejs/adapter-node": 4.0.0
+    "@sveltejs/adapter-node": 4.0.1
     "@sveltejs/kit": ^1.5.0
     "@tabler/icons-svelte": 2.46.0
     "@tailwindcss/typography": 0.5.10
