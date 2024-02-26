@@ -8,7 +8,6 @@ export default defineConfig({
       '/api': {
         target: process.env.BACKEND_URL || 'http://localhost:3000',
         rewrite: (path: string) => path.replace(/^\/api/, ''),
-        secure: true,
         changeOrigin: true,
         cookieDomainRewrite: {
           'api.tf2pickup.pl': 'tf2pickup.pl',

@@ -1,8 +1,9 @@
+import { PUBLIC_WS_URL } from '$env/static/public';
 import { fetchWsToken } from './api/fetch-ws-token';
 import { ioConnected } from './io.store';
 import { io } from 'socket.io-client';
 
-export const socket = io('/', {
+export const socket = io(PUBLIC_WS_URL, {
   autoConnect: false,
   auth: async cb => {
     try {
