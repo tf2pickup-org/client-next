@@ -10,7 +10,7 @@
 
 {#if permission === 'default'}
   <Banner role={BannerRole.alert}>
-    <span class="flex-1"
+    <span class="flex-1 text-center sm:text-start"
       >To be notified when a game is about to start, we need your permission to show browser
       notifications.</span
     >
