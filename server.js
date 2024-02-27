@@ -10,7 +10,7 @@ const api = createProxyMiddleware({
   target: backendUri,
   changeOrigin: true,
   cookieDomainRewrite: {
-    'api.tf2pickup.pl': 'tf2pickup.pl',
+    'api.tf2pickup.pl': 'next.tf2pickup.pl',
   },
   pathRewrite: {
     '^/api': '',
