@@ -33,6 +33,6 @@ polka()
 
     return handler(req, res, next);
   })
-  .listen(4000, () => {
+  .listen(3000, () => {
     console.log(`> Running on 3000`);
   });
