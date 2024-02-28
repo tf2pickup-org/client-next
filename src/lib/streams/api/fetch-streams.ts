@@ -12,5 +12,5 @@ export const fetchStreams = async (fetchF: typeof fetch = fetch): Promise<Twitch
     return [];
   }
 
-  throw error(res.status);
+  error(res.status);
 };

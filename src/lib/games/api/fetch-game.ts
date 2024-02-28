@@ -7,6 +7,6 @@ export const fetchGame = async (gameId: string, fetchF: typeof fetch = fetch): P
   if (res.ok) {
     return await res.json();
   } else {
-    throw error(res.status);
+    error(res.status);
   }
 };

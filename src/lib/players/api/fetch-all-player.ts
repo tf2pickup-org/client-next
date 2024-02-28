@@ -8,5 +8,5 @@ export const fetchAllPlayers = async (fetchF: typeof fetch = fetch): Promise<Pla
     return await res.json();
   }
 
-  throw error(res.status);
+  error(res.status);
 };

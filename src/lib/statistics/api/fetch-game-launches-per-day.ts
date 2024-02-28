@@ -16,5 +16,5 @@ export const fetchGameLaunchesPerDay = async (
     return await res.json();
   }
 
-  throw error(res.status);
+  error(res.status);
 };

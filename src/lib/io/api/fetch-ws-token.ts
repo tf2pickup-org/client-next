@@ -12,5 +12,5 @@ export const fetchWsToken = async (fetchF: typeof fetch = fetch): Promise<string
     return undefined;
   }
 
-  throw error(res.status);
+  error(res.status);
 };

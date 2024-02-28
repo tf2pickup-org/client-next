@@ -10,6 +10,6 @@ export const acceptRules = async () => {
   if (res.ok) {
     profile.update(profile => (profile ? { ...profile, hasAcceptedRules: true } : undefined));
   } else {
-    throw error(res.status);
+    error(res.status);
   }
 };

@@ -3,5 +3,5 @@ import type { PageServerLoad } from './$types';
 import { redirect } from '@sveltejs/kit';
 
 export const load = (async () => {
-  throw redirect(302, `${PUBLIC_API_URL}/auth/sign-out`);
+  redirect(302, `${PUBLIC_API_URL}/auth/sign-out`);
 }) satisfies PageServerLoad;

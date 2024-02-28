@@ -7,6 +7,6 @@ export const fetchQueue = async (fetchF: typeof fetch = fetch): Promise<Queue> =
   if (res.ok) {
     return await res.json();
   } else {
-    throw error(res.status);
+    error(res.status);
   }
 };

@@ -10,5 +10,5 @@ export const fetchMostPlayedMaps = async (
     return await res.json();
   }
 
-  throw error(res.status);
+  error(res.status);
 };

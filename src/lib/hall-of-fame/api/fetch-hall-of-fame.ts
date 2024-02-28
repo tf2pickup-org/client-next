@@ -8,5 +8,5 @@ export const fetchHallOfFame = async (fetchF: typeof fetch = fetch): Promise<Hal
     return await res.json();
   }
 
-  throw error(res.status);
+  error(res.status);
 };

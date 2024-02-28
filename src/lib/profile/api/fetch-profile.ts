@@ -12,5 +12,5 @@ export const fetchProfile = async (fetchF: typeof fetch = fetch): Promise<Profil
     return undefined;
   }
 
-  throw error(res.status);
+  error(res.status);
 };
