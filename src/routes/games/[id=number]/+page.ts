@@ -13,12 +13,8 @@ export const load = (async ({ params, fetch, parent }) => {
   if (['created', 'configuring', 'launching', 'started'].includes(game.state)) {
     const { profile } = await parent();
 
-    if (
-      profile &&
-      ['active', 'waiting for substitute'].includes(
-        game.slots.find(slot => slot.player.id === profile.player.id)?.status ?? '',
-      )
-    ) {
+    const mySlot = game.slots.find(slot => slot.player.id === profile.player.id);
+    if (mySlot && ['active', 'waiting for substitute'].includes(mySlot.status)) {
       // I'm a member of this game
       isMyGame = true;
       connectInfo = await fetchConnectInfo(params.id, fetch);
