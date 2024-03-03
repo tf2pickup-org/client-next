@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { goto } from '$app/navigation';
   import {
     PUBLIC_WEBSITE_DESCRIPTION,
     PUBLIC_WEBSITE_NAME,
@@ -6,7 +7,9 @@
   } from '$env/static/public';
   import Alerts from '$lib/core/components/alerts.svelte';
   import PageTransition from '$lib/core/components/page-transition.svelte';
+  import { gameCreated } from '$lib/games/game.events';
   import OnlinePlayerList from '$lib/players/components/online-player-list.svelte';
+  import { profile } from '$lib/profile/profile.store';
   import { joinQueue } from '$lib/queue/api/join-queue';
   import { leaveQueue } from '$lib/queue/api/leave-queue';
   import { markAsFriend } from '$lib/queue/api/mark-as-friend';
@@ -15,6 +18,23 @@
   import Queue from '$lib/queue/components/queue.svelte';
   import { currentPlayerCount, queue, requiredPlayerCount } from '$lib/queue/queue.store';
   import StreamList from '$lib/streams/components/stream-list.svelte';
+  import { Subject, takeUntil } from 'rxjs';
+  import { onDestroy, onMount } from 'svelte';
+
+  const destroyed: Subject<void> = new Subject();
+
+  onMount(() => {
+    gameCreated.pipe(takeUntil(destroyed)).subscribe(game => {
+      if (game.slots.some(s => s.player.id === $profile?.player.id)) {
+        goto(`/games/${game.number}`);
+      }
+    });
+  });
+
+  onDestroy(() => {
+    destroyed.next();
+    destroyed.complete();
+  });
 </script>
 
 <svelte:head>
