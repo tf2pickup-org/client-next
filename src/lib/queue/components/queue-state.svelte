@@ -4,7 +4,7 @@
 </script>
 
 <div
-  class="bg-abru-light-70 relative flex h-[55px] flex-row items-center justify-center rounded-lg p-2 shadow-md sm:py-2"
+  class="relative flex h-[55px] flex-row items-center justify-center rounded-lg bg-abru-light-70 p-2 shadow-md sm:py-2"
 >
   <div class="mx-4 flex-1 text-xl font-bold lg:text-center">
     <span>Players:</span>

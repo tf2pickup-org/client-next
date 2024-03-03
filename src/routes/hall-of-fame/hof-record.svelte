@@ -17,11 +17,11 @@
   class:is-3rd={place === 3}
 >
   {#if place === 1}
-    <IconAwardFilled size={32} class="text-place-1st place-self-center"></IconAwardFilled>
+    <IconAwardFilled size={32} class="place-self-center text-place-1st"></IconAwardFilled>
   {:else if place === 2}
-    <IconAwardFilled size={32} class="text-place-2nd place-self-center"></IconAwardFilled>
+    <IconAwardFilled size={32} class="place-self-center text-place-2nd"></IconAwardFilled>
   {:else if place === 3}
-    <IconAwardFilled size={32} class="text-place-3rd place-self-center"></IconAwardFilled>
+    <IconAwardFilled size={32} class="place-self-center text-place-3rd"></IconAwardFilled>
   {:else}
     <span class="place-self-center">{place}.</span>
   {/if}

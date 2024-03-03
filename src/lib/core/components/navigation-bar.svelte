@@ -13,7 +13,7 @@
 >
   {#if menuOpen}
     <div
-      class="bg-abru-light-3 fixed left-0 right-0 bottom-0 top-[95px] z-50"
+      class="fixed bottom-0 left-0 right-0 top-[95px] z-50 bg-abru-light-3"
       transition:fly={{ y: -15 }}
     >
       <Menu />
@@ -25,7 +25,7 @@
       <img alt="tf2pickup.pl logo" src={logo} height="120" class="h-[44px] object-contain" />
     </a>
 
-    <button class="text-abru-light-75 mx-4 lg:hidden" on:click={() => (menuOpen = !menuOpen)}>
+    <button class="mx-4 text-abru-light-75 lg:hidden" on:click={() => (menuOpen = !menuOpen)}>
       {#if menuOpen}
         <IconX size={48} />
       {:else}

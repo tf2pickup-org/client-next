@@ -19,7 +19,7 @@
 </script>
 
 <div
-  class="text-abru-dark-3 flex flex-col items-center rounded-lg px-3 py-2 text-lg font-medium md:flex-row {classes}"
+  class="flex flex-col items-center rounded-lg px-3 py-2 text-lg font-medium text-abru-dark-3 md:flex-row {classes}"
 >
   <slot />
 </div>

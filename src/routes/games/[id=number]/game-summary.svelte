@@ -36,21 +36,21 @@
   );
 </script>
 
-<div class="text-abru-light-75 flex flex-col overflow-hidden rounded-lg">
+<div class="flex flex-col overflow-hidden rounded-lg text-abru-light-75">
   <div class="summary-caption relative flex min-h-[200px] flex-1 flex-col justify-end px-[10px]">
     <div class="absolute bottom-0 left-0 right-0 top-0 -z-10">
       <MapThumbnail map={$game.map} />
     </div>
 
     <div
-      class="bg-abru/90 text-abru-light-75 absolute left-[10px] top-[10px] flex flex-row items-center gap-[3px] rounded px-[8px] py-[6px] text-base font-bold leading-4 shadow"
+      class="absolute left-[10px] top-[10px] flex flex-row items-center gap-[3px] rounded bg-abru/90 px-[8px] py-[6px] text-base font-bold leading-4 text-abru-light-75 shadow"
     >
       <span>#{$game.number}</span>
     </div>
 
     {#if $isRunning}
       <div
-        class="bg-abru text-accent-600 absolute right-[10px] top-[10px] flex flex-row items-center gap-[3px] rounded px-[8px] py-[6px] text-base font-bold leading-4 shadow"
+        class="absolute right-[10px] top-[10px] flex flex-row items-center gap-[3px] rounded bg-abru px-[8px] py-[6px] text-base font-bold leading-4 text-accent-600 shadow"
       >
         <GameLiveIndicator />
         <span class="uppercase">live</span>
@@ -59,7 +59,7 @@
 
     {#if $game.state === 'interrupted'}
       <div
-        class="bg-abru text-accent-600 absolute right-[10px] top-[10px] flex h-[28px] flex-row items-stretch gap-[3px] rounded px-[8px] py-[6px] shadow"
+        class="absolute right-[10px] top-[10px] flex h-[28px] flex-row items-stretch gap-[3px] rounded bg-abru px-[8px] py-[6px] text-accent-600 shadow"
       >
         <IconX size={18} />
         <span class="text-sm font-bold leading-none">force-ended</span>
@@ -71,7 +71,7 @@
       <span class="value">{$game.map}</span>
     </div>
   </div>
-  <div class="bg-abru-dark-29 flex flex-col gap-[8px] p-[10px]">
+  <div class="flex flex-col gap-[8px] bg-abru-dark-29 p-[10px]">
     <div class="info">
       <span class="label">launched</span>
       <span class="value">{$launchedAt}</span>

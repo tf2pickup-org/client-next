@@ -29,7 +29,7 @@
 
   <a
     href={PUBLIC_DISCORD_INVITATION}
-    class="text-abru-light-75 hidden hover:text-slate-200 xl:inline-block"
+    class="hidden text-abru-light-75 hover:text-slate-200 xl:inline-block"
     target="_blank"
   >
     <IconBrandDiscord size={32} stroke={1.5} />
@@ -37,14 +37,14 @@
 
   <a
     href="https://ko-fi.com/tf2pickuporg"
-    class="text-abru-light-75 hidden hover:text-slate-200 xl:inline-block"
+    class="hidden text-abru-light-75 hover:text-slate-200 xl:inline-block"
     target="_blank"
   >
     <IconHeart size={32} stroke={1.5} />
   </a>
 
   <div class="hidden w-2 lg:block" />
-  <div class="bg-abru-light-15 my-2 h-[2px] grow lg:hidden" />
+  <div class="my-2 h-[2px] grow bg-abru-light-15 lg:hidden" />
 
   {#if $profile}
     <Profile {...$profile.player} />

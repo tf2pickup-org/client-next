@@ -28,7 +28,7 @@
 
 <div class="flex flex-col">
   <span class="text-2xl font-medium">{timeoutText}</span>
-  <div class="bg-abru-light-5 h-1 flex-1 rounded-full">
-    <div class="bg-abru-light-75 h-1 rounded-full" style="width: 75%" />
+  <div class="h-1 flex-1 rounded-full bg-abru-light-5">
+    <div class="h-1 rounded-full bg-abru-light-75" style="width: 75%" />
   </div>
 </div>

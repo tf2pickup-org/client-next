@@ -32,10 +32,10 @@
 </script>
 
 <div
-  class="border-abru-light-25 bg-abru-light-5 text-abru-light-75 flex flex-row gap-4 rounded border px-3 py-[10px] text-base font-medium"
+  class="flex flex-row gap-4 rounded border border-abru-light-25 bg-abru-light-5 px-3 py-[10px] text-base font-medium text-abru-light-75"
 >
   <div
-    class="bg-abru-light-5 text-abru-light-75 fade block flex-1 cursor-text select-all overflow-hidden whitespace-nowrap text-base"
+    class="fade block flex-1 cursor-text select-all overflow-hidden whitespace-nowrap bg-abru-light-5 text-base text-abru-light-75"
     class:italic={!connectString}
   >
     {connectString ?? stateDescription}

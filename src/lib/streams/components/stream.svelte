@@ -17,7 +17,7 @@
   rel="noreferrer"
 >
   <img src={thumbnail} alt="stream thumbnail" class="rounded-sm" width="177" height="100" />
-  <div class="text-abru-light-75 flex flex-col justify-center font-medium">
+  <div class="flex flex-col justify-center font-medium text-abru-light-75">
     <span class="text-lg">{userName}</span>
     <span class="flex flex-row items-end gap-1.5 text-sm">
       <IconEye size={18} />

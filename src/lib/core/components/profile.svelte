@@ -62,11 +62,11 @@
 
   {#if menuOpen}
     <div
-      class="bg-abru-dark-29 absolute z-50 mt-2 w-[300px] origin-top rounded-[10px] p-2 drop-shadow-xl"
+      class="absolute z-50 mt-2 w-[300px] origin-top rounded-[10px] bg-abru-dark-29 p-2 drop-shadow-xl"
       in:growDown={{ duration: 150 }}
       out:fade={{ duration: 100 }}
     >
-      <div class="text-abru-light-75 flex flex-col gap-1">
+      <div class="flex flex-col gap-1 text-abru-light-75">
         <a href="/players/{steamId}" class="menu-item">
           <IconUserCircle /><span>My profile</span>
         </a>

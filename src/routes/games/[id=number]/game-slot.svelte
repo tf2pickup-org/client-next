@@ -24,7 +24,7 @@
 {#if slot.status === 'active'}
   <a
     href="/players/{slot.player.steamId}"
-    class="bg-abru-light-75 hover:bg-abru-light-70 flex items-center gap-2.5 rounded p-2.5 transition-colors duration-75"
+    class="flex items-center gap-2.5 rounded bg-abru-light-75 p-2.5 transition-colors duration-75 hover:bg-abru-light-70"
     class:flex-row={side === 'right'}
     class:flex-row-reverse={side === 'left'}
   >

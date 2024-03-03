@@ -34,7 +34,7 @@
   }
 </script>
 
-<div class="bg-abru-dark-29 text-abru-light-75 flex flex-row gap-[10px] rounded-lg p-[10px]">
+<div class="flex flex-row gap-[10px] rounded-lg bg-abru-dark-29 p-[10px] text-abru-light-75">
   <img
     src={$player.avatar.large}
     width="184"
@@ -48,7 +48,7 @@
       <span class="-mt-[6px] text-[48px] font-bold leading-none">{$player.name}</span>
       {#if isAdmin}
         <span
-          class="bg-alert text-abru-light-3 my-2 self-baseline rounded-[3px] px-[8px] py-[6px] font-bold leading-none"
+          class="my-2 self-baseline rounded-[3px] bg-alert px-[8px] py-[6px] font-bold leading-none text-abru-light-3"
           >admin</span
         >
       {/if}
@@ -68,11 +68,11 @@
           <span class="justify-self-start text-2xl font-bold">{$stats.gamesPlayed}</span>
         {:else}
           <div class="flex h-8 flex-row items-end justify-self-start">
-            <div class="bg-abru-light-10 h-7 w-[50px] animate-pulse rounded" />
+            <div class="h-7 w-[50px] animate-pulse rounded bg-abru-light-10" />
           </div>
         {/if}
 
-        <div class="bg-abru-light-15 row-span-2 mx-2 h-[48px] w-[2px]" />
+        <div class="row-span-2 mx-2 h-[48px] w-[2px] bg-abru-light-15" />
 
         {#each [Tf2ClassName.scout, Tf2ClassName.soldier, Tf2ClassName.demoman, Tf2ClassName.medic] as gameClass}
           <GameClassIcon {gameClass} size={32} />
@@ -82,7 +82,7 @@
             >
           {:else}
             <div class="flex h-8 min-w-[60px] flex-row items-end justify-center">
-              <div class="bg-abru-light-10 h-7 w-[55px] animate-pulse rounded" />
+              <div class="h-7 w-[55px] animate-pulse rounded bg-abru-light-10" />
             </div>
           {/if}
         {/each}

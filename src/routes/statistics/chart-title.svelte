@@ -1,1 +1,1 @@
-<span class="text-abru-light-75 text-2xl font-bold"><slot /></span>
+<span class="text-2xl font-bold text-abru-light-75"><slot /></span>

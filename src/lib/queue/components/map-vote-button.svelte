@@ -13,7 +13,7 @@
 
 <button
   type="button"
-  class="aspect-3/1 map-vote-button relative box-border flex flex-1 flex-col items-start overflow-hidden rounded-lg p-[13px] text-white"
+  class="map-vote-button relative box-border flex aspect-3/1 flex-1 flex-col items-start overflow-hidden rounded-lg p-[13px] text-white"
   {disabled}
   on:click={() => dispatch('mapVote', { map })}
 >

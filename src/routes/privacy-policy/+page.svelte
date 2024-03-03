@@ -25,7 +25,7 @@
 <PageTransition>
   <div class="container mx-auto flex flex-col">
     <PageHeader>Privacy policy</PageHeader>
-    <div class="bg-abru-light-50 mb-12 h-px" />
+    <div class="mb-12 h-px bg-abru-light-50" />
     <article class="prose prose-invert mb-16 max-w-none">
       <Markdown source={data.body} />
     </article>

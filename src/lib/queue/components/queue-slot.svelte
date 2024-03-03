@@ -39,7 +39,7 @@
 </script>
 
 <div
-  class="bg-abru-light-30 text-abru-light-50 flex h-14 flex-row justify-center overflow-hidden rounded-lg shadow-md"
+  class="flex h-14 flex-row justify-center overflow-hidden rounded-lg bg-abru-light-30 text-abru-light-50 shadow-md"
 >
   {#if player}
     <div
@@ -56,7 +56,7 @@
         class="h-[42px] w-[42px] rounded"
       />
       <a
-        class="text-abru-dark-3 flex-1 text-center text-xl font-bold hover:underline"
+        class="flex-1 text-center text-xl font-bold text-abru-dark-3 hover:underline"
         href="/players/{player.steamId}">{player.name}</a
       >
       <div class="w-[42px] px-1">

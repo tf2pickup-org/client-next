@@ -65,7 +65,7 @@
 
     <div class="flex flex-col">
       {#if $games?.itemCount > 0}
-        <div class="text-abru-light-75 mb-4 text-2xl font-bold">Game history</div>
+        <div class="mb-4 text-2xl font-bold text-abru-light-75">Game history</div>
         <PlayerGameList />
         <Pagination
           currentPage={page}

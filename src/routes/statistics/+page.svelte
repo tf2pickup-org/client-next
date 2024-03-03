@@ -31,17 +31,17 @@
       <PageHeader>Statistics</PageHeader>
     </div>
 
-    <div class="bg-abru-dark-25 flex flex-col items-center rounded-lg px-12 py-8 lg:row-span-2">
+    <div class="flex flex-col items-center rounded-lg bg-abru-dark-25 px-12 py-8 lg:row-span-2">
       <ChartTitle>Most played maps</ChartTitle>
       <MostPlayedMapsChart data={data.mostPlayedMaps} />
     </div>
 
-    <div class="bg-abru-dark-25 flex flex-col gap-2 rounded-lg px-6 py-8">
+    <div class="flex flex-col gap-2 rounded-lg bg-abru-dark-25 px-6 py-8">
       <ChartTitle>Played games per day</ChartTitle>
       <GameLaunchesPerDayChart data={data.gameLaunchesPerDay} />
     </div>
 
-    <div class="bg-abru-dark-25 flex flex-col gap-2 rounded-lg px-6 py-8">
+    <div class="flex flex-col gap-2 rounded-lg bg-abru-dark-25 px-6 py-8">
       <ChartTitle>Game launch times</ChartTitle>
       <GameLaunchSpansChart data={data.gameLaunchSpans} />
     </div>

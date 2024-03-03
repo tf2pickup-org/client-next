@@ -14,7 +14,7 @@
   $: soundVolume = parseFloat($preferences.soundVolume ?? '1.0');
 </script>
 
-<div class="bg-abru-dark-25 text-abru-light-75 rounded-lg p-[24px]">
+<div class="rounded-lg bg-abru-dark-25 p-[24px] text-abru-light-75">
   <div class="mb-3 text-2xl font-bold">Preferences</div>
 
   <form
