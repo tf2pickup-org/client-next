@@ -36,6 +36,7 @@
   import { derived } from 'svelte/store';
   import { readyUp } from '$lib/queue/api/ready-up';
   import { leaveQueue } from '$lib/queue/api/leave-queue';
+  import { isPreReadied } from '$lib/queue/pre-ready-up.store';
 
   export let data: LayoutData;
 
@@ -122,6 +123,11 @@
 
     let previousAwaitsReadyUp: boolean | undefined = undefined;
     awaitsReadyUp.subscribe($awaitsReadyUp => {
+      if ($isPreReadied) {
+        readyUp();
+        return;
+      }
+
       if ($awaitsReadyUp && previousAwaitsReadyUp === false) {
         notification = new Notification('Ready up!', {
           body: 'A new pickup game is starting',
