@@ -13,7 +13,7 @@ export const load = (async ({ params, fetch, parent }) => {
   if (['created', 'configuring', 'launching', 'started'].includes(game.state)) {
     const { profile } = await parent();
 
-    const mySlot = game.slots.find(slot => slot.player.id === profile.player.id);
+    const mySlot = game.slots.find(slot => slot.player.id === profile?.player.id);
     if (mySlot && ['active', 'waiting for substitute'].includes(mySlot.status)) {
       // I'm a member of this game
       isMyGame = true;
