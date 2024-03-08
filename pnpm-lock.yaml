@@ -21,8 +21,8 @@ dependencies:
     specifier: 4.17.21
     version: 4.17.21
   marked:
-    specifier: 9.1.6
-    version: 9.1.6
+    specifier: 12.0.1
+    version: 12.0.1
   postcss-lighten-darken:
     specifier: 0.9.0
     version: 0.9.0(postcss@8.4.35)
@@ -2424,9 +2424,9 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /marked@9.1.6:
-    resolution: {integrity: sha512-jcByLnIFkd5gSXZmjNvS1TlmRhCXZjIzHYlaGkPlLIekG55JDR2Z4va9tZwCiP+/RDERiNhMOFu01xd6O5ct1Q==}
-    engines: {node: '>= 16'}
+  /marked@12.0.1:
+    resolution: {integrity: sha512-Y1/V2yafOcOdWQCX0XpAKXzDakPOpn6U0YLxTJs3cww6VxOzZV1BTOOYWLvH3gX38cq+iLwljHHTnMtlDfg01Q==}
+    engines: {node: '>= 18'}
     hasBin: true
     dev: false
 
