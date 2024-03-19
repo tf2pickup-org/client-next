@@ -29,7 +29,7 @@
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-svelte3": "^4.0.0",
-    "postcss": "8.4.36",
+    "postcss": "8.4.37",
     "postcss-import": "16.0.1",
     "postcss-nested": "6.0.1",
     "prettier": "^3.0.0",
