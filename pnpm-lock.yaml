@@ -55,8 +55,8 @@ importers:
         specifier: 2.2.11
         version: 2.2.11
       '@types/lodash':
-        specifier: 4.17.3
-        version: 4.17.3
+        specifier: 4.17.4
+        version: 4.17.4
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.0.0
         version: 7.9.0(@typescript-eslint/parser@7.9.0(eslint@9.2.0)(typescript@5.4.5))(eslint@9.2.0)(typescript@5.4.5)
@@ -641,8 +641,8 @@ packages:
   '@types/howler@2.2.11':
     resolution: {integrity: sha512-7aBoUL6RbSIrqKnpEgfa1wSNUBK06mn08siP2QI0zYk7MXfEJAaORc4tohamQYqCqVESoDyRWSdQn2BOKWj2Qw==}
 
-  '@types/lodash@4.17.3':
-    resolution: {integrity: sha512-zmNrEJaBvNskZXQWaUQq6bktF4IDGVfDS78M+YEk5aCn9M/b94/mB/6WCyfH2/MjwBdc6QuOor95CIlKWYRL3A==}
+  '@types/lodash@4.17.4':
+    resolution: {integrity: sha512-wYCP26ZLxaT3R39kiN2+HcJ4kTd3U1waI/cY7ivWYqFP6pW3ZNpvi6Wd6PHZx7T/t8z0vlkXMg3QYLa7DZ/IJQ==}
 
   '@types/pug@2.0.10':
     resolution: {integrity: sha512-Sk/uYFOBAB7mb74XcpizmH0KOR2Pv3D2Hmrh1Dmy5BmK3MpdSa5kqZcg6EKBdklU0bFXX9gCfzvpnyUehrPIuA==}
@@ -2729,7 +2729,7 @@ snapshots:
 
   '@types/howler@2.2.11': {}
 
-  '@types/lodash@4.17.3': {}
+  '@types/lodash@4.17.4': {}
 
   '@types/pug@2.0.10': {}
 
