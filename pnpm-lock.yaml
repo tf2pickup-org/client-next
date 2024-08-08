@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@tabler/icons-svelte':
-        specifier: 2.47.0
-        version: 2.47.0(svelte@4.2.18)
+        specifier: 3.12.0
+        version: 3.12.0(svelte@4.2.18)
       date-fns:
         specifier: 2.30.0
         version: 2.30.0
@@ -631,13 +631,13 @@ packages:
       svelte: ^4.0.0 || ^5.0.0-next.0
       vite: ^5.0.0
 
-  '@tabler/icons-svelte@2.47.0':
-    resolution: {integrity: sha512-xL2NyCUUhBQv0lXylgNCpfHtMW4Ihu0hCacaYXeX+NiS1LO0geqXk/0lkrBH+u/ZLX6vyqUYNFjawjzmxthFjw==}
+  '@tabler/icons-svelte@3.12.0':
+    resolution: {integrity: sha512-2Xrlwefzf7N5UQLU1Lj8YezCRXAU2nY3h85UVTyewURx9yAu2cBGJtJjcnAnbLgJB1Ny+cxviVWGeLaHsH2hFw==}
     peerDependencies:
-      svelte: '>=3 <5'
+      svelte: '>=3 <6 || >=5.0.0-next.0'
 
-  '@tabler/icons@2.47.0':
-    resolution: {integrity: sha512-4w5evLh+7FUUiA1GucvGj2ReX2TvOjEr4ejXdwL/bsjoSkof6r1gQmzqI+VHrE2CpJpB3al7bCTulOkFa/RcyA==}
+  '@tabler/icons@3.12.0':
+    resolution: {integrity: sha512-Im37ar/mQkqLb6XUXsU7nOc4/66VB9/3KLuZ+6tUsJKHHNLaDUkYfCTNG3pnGDI03laByxVf5+umSNK2yPTx8A==}
 
   '@tailwindcss/typography@0.5.14':
     resolution: {integrity: sha512-ZvOCjUbsJBjL9CxQBn+VEnFpouzuKhxh2dH8xMIWHILL+HfOYtlAkWcyoon8LlzE53d2Yo6YO6pahKKNW3q1YQ==}
@@ -2709,12 +2709,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@tabler/icons-svelte@2.47.0(svelte@4.2.18)':
+  '@tabler/icons-svelte@3.12.0(svelte@4.2.18)':
     dependencies:
-      '@tabler/icons': 2.47.0
+      '@tabler/icons': 3.12.0
       svelte: 4.2.18
 
-  '@tabler/icons@2.47.0': {}
+  '@tabler/icons@3.12.0': {}
 
   '@tailwindcss/typography@0.5.14(tailwindcss@3.4.9)':
     dependencies:
